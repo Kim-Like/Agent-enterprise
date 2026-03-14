@@ -1,0 +1,168 @@
+<%- include('layout', { pageTitle: 'Rules — Billy Business Review' }) %>
+
+<% if (typeof error !== 'undefined' && error) { %>
+  <div class="error-banner"><%= error %></div>
+<% } %>
+
+<div class="rules-grid">
+  <div class="card">
+    <div class="card-header">
+      <h2>Account Snapshot</h2>
+      <button class="btn btn-primary" id="sync-accounts-btn">Sync Accounts</button>
+    </div>
+    <div class="section-group">
+      <div class="row"><span>Last Sync</span><span id="sync-last-at"><%= accountSummary.synced_at || 'never' %></span></div>
+      <div class="row"><span>Total Accounts</span><span id="sync-total-accounts"><%= accountSummary.total_accounts %></span></div>
+      <div class="row"><span>Mapped Accounts</span><span id="sync-mapped-accounts"><%= accountSummary.mapped_accounts %></span></div>
+      <div class="row"><span>Unmapped Accounts</span><span id="sync-unmapped-accounts"><%= accountSummary.unmapped_accounts %></span></div>
+    </div>
+    <div class="card-footer">
+      <div id="sync-status" class="mono"></div>
+      <% if (accountSummary.missing_required_account_nos && accountSummary.missing_required_account_nos.length > 0) { %>
+        <div class="rules-missing">
+          Missing required account numbers:
+          <code><%= accountSummary.missing_required_account_nos.join(', ') %></code>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Create Supplier Rule</h2>
+    </div>
+    <div class="section-group">
+      <div class="rules-form-grid">
+        <label>
+          <span>Account No</span>
+          <input id="rule-account-no" list="rule-account-options" placeholder="1211">
+          <datalist id="rule-account-options">
+            <% (accountSummary.accounts || []).forEach((a) => { %>
+              <option value="<%= a.account_no %>"><%= a.account_name %></option>
+            <% }); %>
+          </datalist>
+        </label>
+        <label>
+          <span>Group Key</span>
+          <select id="rule-group-key">
+            <option value="cafe">cafe</option>
+            <option value="admin">admin</option>
+            <option value="fixed">fixed</option>
+            <option value="coffee">coffee</option>
+            <option value="accounting">accounting</option>
+            <option value="webshop">webshop</option>
+            <option value="other">other</option>
+          </select>
+        </label>
+        <label>
+          <span>Category</span>
+          <input id="rule-category-name" placeholder="Bread">
+        </label>
+        <label>
+          <span>Supplier Pattern</span>
+          <input id="rule-supplier-pattern" placeholder="Københavns Bageri ApS">
+        </label>
+        <label>
+          <span>Match Type</span>
+          <select id="rule-match-type">
+            <option value="exact">exact</option>
+            <option value="contains">contains</option>
+          </select>
+        </label>
+        <label>
+          <span>Priority</span>
+          <input id="rule-priority" type="number" value="100">
+        </label>
+      </div>
+      <div class="rules-form-actions">
+        <button class="btn btn-primary" id="create-rule-btn">Create Rule</button>
+        <span class="mono" id="create-rule-status"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card rules-card">
+  <div class="card-header">
+    <h2>Supplier Rules</h2>
+  </div>
+  <div class="section-group">
+    <table class="rules-table" id="rules-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Account</th>
+          <th>Group</th>
+          <th>Category</th>
+          <th>Pattern</th>
+          <th>Match</th>
+          <th>Priority</th>
+          <th>Enabled</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="rules-table-body">
+        <% rules.forEach((rule) => { %>
+          <tr data-rule-id="<%= rule.id %>">
+            <td><%= rule.id %></td>
+            <td><%= rule.account_no %></td>
+            <td><%= rule.group_key %></td>
+            <td><%= rule.category_name %></td>
+            <td class="mono"><%= rule.supplier_pattern %></td>
+            <td><%= rule.match_type %></td>
+            <td><%= rule.priority %></td>
+            <td>
+              <input type="checkbox" class="rule-enabled-toggle" <%= rule.enabled ? 'checked' : '' %>>
+            </td>
+            <td>
+              <button class="btn btn-danger btn-small delete-rule-btn">Delete</button>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card rules-card">
+  <div class="card-header">
+    <h2>Supplier Suggestions</h2>
+  </div>
+  <div class="section-group">
+    <div class="rules-filters">
+      <label>
+        <span>Account No</span>
+        <input id="suggest-account-no" list="rule-account-options" placeholder="optional">
+      </label>
+      <label>
+        <span>Period</span>
+        <select id="suggest-period">
+          <option value="monthly">monthly</option>
+          <option value="weekly">weekly</option>
+          <option value="yearly">yearly</option>
+        </select>
+      </label>
+      <label>
+        <span>Offset</span>
+        <input id="suggest-offset" type="number" value="0" max="0" min="-24">
+      </label>
+      <button class="btn" id="load-suggestions-btn">Load Suggestions</button>
+    </div>
+    <div id="suggestions-status" class="mono"></div>
+    <table class="rules-table" id="suggestions-table">
+      <thead>
+        <tr>
+          <th>Supplier</th>
+          <th>Account</th>
+          <th>Total Amount</th>
+          <th>Occurrences</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="suggestions-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="/js/rules.js"></script>
+<%- include('footer') %>

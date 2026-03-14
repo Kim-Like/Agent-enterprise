@@ -1,0 +1,82 @@
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+
+const healthRoutes = require('./src/routes/health');
+const eventRoutes = require('./src/routes/events');
+const authRoutes = require('./src/routes/auth');
+const sessionRoutes = require('./src/routes/sessions');
+const designSettingsRoutes = require('./src/routes/design-settings');
+const headerFooterRoutes = require('./src/routes/header-footer');
+const themePresetsRoutes = require('./src/routes/theme-presets');
+const themeSettingsRoutes = require('./src/routes/theme-settings');
+const componentsRoutes = require('./src/routes/components');
+const pageComponentsRoutes = require('./src/routes/page-components');
+const aiContextRoutes = require('./src/routes/ai-context');
+const aiGenerateRoutes = require('./src/routes/ai-generate');
+const aiPromptSettingsRoutes = require('./src/routes/ai-prompt-settings');
+const assistantRoutes = require('./src/routes/assistant');
+const rolloutRoutes = require('./src/routes/rollout');
+const publishRoutes = require('./src/routes/publish');
+const mediaRoutes = require('./src/routes/media');
+const trafficRoutes = require('./src/routes/traffic');
+const masterRoutes = require('./src/routes/master');
+const shopPublicRoutes = require('./src/routes/shop-public.cjs');
+const shopAdminRoutes = require('./src/routes/shop-admin.cjs');
+const shopFlatpayRoutes = require('./src/routes/shop-flatpay.cjs');
+const { requestLogger } = require('./src/middleware/logger');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+const corsAllowList = (process.env.CORS_ORIGIN || 'https://lavprishjemmeside.dk')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
+
+app.use(helmet());
+app.use(cors({
+  origin: function(origin, cb) {
+    // Allow non-browser requests (curl/health checks) and configured browser origins.
+    if (!origin) return cb(null, true);
+    if (corsAllowList.includes(origin)) return cb(null, true);
+    return cb(new Error('Not allowed by CORS'));
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-API-Key']
+}));
+app.use(express.json({ limit: '500kb' }));
+app.use(requestLogger);
+
+app.use('/health', healthRoutes);
+app.use('/events', eventRoutes);
+app.use('/auth', authRoutes);
+app.use('/sessions', sessionRoutes);
+app.use('/design-settings', designSettingsRoutes);
+app.use('/header-footer', headerFooterRoutes);
+app.use('/theme-presets', themePresetsRoutes);
+app.use('/theme-settings', themeSettingsRoutes);
+app.use('/components', componentsRoutes);
+app.use('/page-components', pageComponentsRoutes);
+app.use('/ai', aiContextRoutes);
+app.use('/ai-generate', aiGenerateRoutes);
+app.use('/ai-prompt-settings', aiPromptSettingsRoutes);
+app.use('/assistant', assistantRoutes);
+app.use('/rollout', rolloutRoutes);
+app.use('/publish', publishRoutes);
+app.use('/media', mediaRoutes);
+app.use('/traffic', trafficRoutes);
+app.use('/master', masterRoutes);
+app.use('/shop/flatpay', shopFlatpayRoutes);
+app.use('/shop/admin', shopAdminRoutes);
+app.use('/shop', shopPublicRoutes);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal server error' });
+});
+
+app.listen(PORT, () => {
+  console.log(`API running on port ${PORT}`);
+});

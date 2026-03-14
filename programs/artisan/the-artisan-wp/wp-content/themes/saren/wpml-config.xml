@@ -1,0 +1,41 @@
+<wpml-config>
+  <custom-types>
+    <custom-type translate="1" display-as-translated="1">portfolio</custom-type>
+    <custom-type translate="1" display-as-translated="1">product</custom-type>
+    <custom-type translate="1" display-as-translated="1">product_variation</custom-type>
+  </custom-types>
+
+ <custom-fields>
+    <custom-field action="copy">_show_footer</custom-field>
+    <custom-field action="copy">show_footer</custom-field>
+    <custom-field action="copy">page_layout</custom-field>
+    <custom-field action="copy">_page_layout</custom-field>
+    <custom-field action="copy">product_layout</custom-field>
+    <custom-field action="copy">_product_layout</custom-field>
+    <custom-field action="copy">header_behavior</custom-field>
+    <custom-field action="copy">_header_behavior</custom-field>
+    <custom-field action="copy">header_layout</custom-field>
+    <custom-field action="copy">_header_layout</custom-field>
+    <custom-field action="copy">product_video</custom-field>
+    <custom-field action="copy">_product_video</custom-field>
+    <custom-field action="copy">self_hosted_video</custom-field>
+    <custom-field action="copy">_self_hosted_video</custom-field>
+    <custom-field action="copy">video_id</custom-field>
+    <custom-field action="copy">_video_id</custom-field>
+    <custom-field action="copy">use_as_featured_media</custom-field>
+    <custom-field action="copy">_use_as_featured_media</custom-field>
+    <custom-field action="copy">page_title</custom-field>
+    <custom-field action="copy">_page_title</custom-field>
+  </custom-fields>
+
+  <taxonomies>
+    <taxonomy translate="1" display-as-translated="1">project-categories</taxonomy>
+    <taxonomy translate="1" display-as-translated="1">brand</taxonomy>
+    <taxonomy translate="1" display-as-translated="1">product_type</taxonomy>
+    <taxonomy translate="1" display-as-translated="1">product_visibility</taxonomy>
+    <taxonomy translate="1" display-as-translated="1">product_cat</taxonomy>
+    <taxonomy translate="1" display-as-translated="1">product_tag</taxonomy>
+    <taxonomy translate="1" display-as-translated="1">product_shipping_class</taxonomy>
+  </taxonomies>
+
+</wpml-config>

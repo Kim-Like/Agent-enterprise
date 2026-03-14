@@ -1,0 +1,27 @@
+{
+  "name": "cloudflare-bypass-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Robust card price scraper with Cloudflare bypass for Cardmarket and TCGPlayer",
+  "scripts": {
+    "build": "tsc",
+    "scrape-catalog": "tsx src/unified-scraper.ts",
+    "scrape-tcg-only": "tsx src/unified-scraper.ts -- --tcg-only",
+    "scrape-catalog:prod": "PROXY_ENDPOINT=$PROXY_ENDPOINT tsx src/unified-scraper.ts",
+    "clear-checkpoints": "rm -rf .scraper-checkpoints .scraper-sessions",
+    "test-proxy": "tsx src/test-proxy.ts"
+  },
+  "dependencies": {
+    "@hosteddb/hosteddb-js": "^2.39.0",
+    "dotenv": "^16.3.1",
+    "patchright": "^1.49.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

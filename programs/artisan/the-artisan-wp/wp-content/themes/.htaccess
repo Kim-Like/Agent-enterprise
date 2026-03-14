@@ -1,0 +1,8 @@
+# Prevent search engines from indexing theme CSS, JS and font assets
+# These are technical files - crawlable for rendering but not for search results
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|woff2?|ttf|otf|eot|map)$">
+        Header always set X-Robots-Tag "noindex"
+    </FilesMatch>
+</IfModule>

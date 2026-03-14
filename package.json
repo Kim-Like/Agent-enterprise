@@ -1,0 +1,36 @@
+{
+  "name": "agent-enterprise",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Single-process control plane for the Agent Enterprise rebuild",
+  "type": "module",
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "scripts": {
+    "start": "node server/src/index.js",
+    "dev": "node --watch server/src/index.js",
+    "start:lavpris-public-ingress": "node server/src/lavpris-public-ingress.js",
+    "test": "node --test tests/server/*.test.js",
+    "external:validate-export": "bash scripts/validate_external_repo.sh",
+    "lavpris:preflight": "bash scripts/operator_only.sh lavpris:preflight",
+    "lavpris:inventory": "bash scripts/operator_only.sh lavpris:inventory",
+    "lavpris:health": "bash scripts/operator_only.sh lavpris:health",
+    "lavpris:provision-client": "node scripts/lavpris/provision-client-agent.mjs",
+    "lavpris:repo-status": "bash scripts/operator_only.sh lavpris:repo-status",
+    "lavpris:mirror-pull": "bash scripts/operator_only.sh lavpris:mirror-pull",
+    "lavpris:sync-status": "bash scripts/operator_only.sh lavpris:sync-status",
+    "lavpris:path-health": "node scripts/lavpris/path_health.mjs",
+    "lavpris:rollout-status": "bash scripts/operator_only.sh lavpris:rollout-status",
+    "lavpris:release-health": "bash scripts/operator_only.sh lavpris:release-health",
+    "theartis:preflight": "bash scripts/operator_only.sh theartis:preflight",
+    "theartis:inventory": "bash scripts/operator_only.sh theartis:inventory",
+    "theartis:health": "bash scripts/operator_only.sh theartis:health",
+    "theartis:repo-status": "bash scripts/operator_only.sh theartis:repo-status",
+    "theartis:write-access": "bash scripts/operator_only.sh theartis:write-access"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "fastify": "^5.2.1"
+  }
+}

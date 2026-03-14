@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "database": "connected",
+  "timestamp": "2026-03-14T11:40:39.924Z",
+  "cms": {
+    "release_version": "1.0.0",
+    "api_version": "1.0.0",
+    "build": "1.0.0+7aefe6e.dirty",
+    "commit": "7aefe6ece17dc977da237eeb9599fa7882b98dd7",
+    "commit_short": "7aefe6e",
+    "git_ref": "v1.0.0-461-g7aefe6e-dirty",
+    "git_committed_at": "2026-03-13T13:45:51+00:00",
+    "dirty": true,
+    "update_channel": "lavprishjemmeside-cms",
+    "changelog_sha": "852b001ed84f71d9b74fdce66c262db15f4eddec6b874ea0ab3a8489371286db",
+    "changelog_updated_at": "2026-02-20T00:16:46+01:00",
+    "last_deployed_at": "2026-03-14T11:14:40.000Z"
+  }
+}

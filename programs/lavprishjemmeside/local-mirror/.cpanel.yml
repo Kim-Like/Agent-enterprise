@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/theartis/lavprishjemmeside.dk/
+    - /bin/cp -Rf dist/* $DEPLOYPATH

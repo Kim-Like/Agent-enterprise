@@ -1,0 +1,10 @@
+.DS_Store
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backups/
+wp-content/ai1wm-backups/
+wp-content/wflogs/
+*.log
+.vscode/
+.idea/

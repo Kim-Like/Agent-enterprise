@@ -1,0 +1,29 @@
+{
+  "name": "billy-business-review",
+  "version": "1.0.0",
+  "description": "P&L dashboard for Billy accounting API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "build": "node --check app.js",
+    "test": "node --test tests/*.test.js",
+    "lint": "node --check app.js routes/*.js utils/*.js services/*.js repositories/*.js db/*.js scripts/*.cjs",
+    "db:schema": "node scripts/run-schema.cjs",
+    "db:migrate": "node scripts/migrate-json-to-mysql.cjs",
+    "db:verify": "node scripts/verify-mysql-state.cjs",
+    "accounts:sync": "node scripts/sync-billy-accounts.cjs",
+    "rules:seed": "node scripts/seed-supplier-rules-from-mapping.cjs",
+    "rules:verify": "node scripts/verify-supplier-rules.cjs",
+    "migrate:remaining": "npm run db:schema && npm run rules:seed && npm run accounts:sync && npm run rules:verify",
+    "deploy:cpanel": "bash scripts/deploy-cpanel.sh",
+    "deploy:cpanel:fast": "bash scripts/deploy-cpanel.sh --skip-migrate",
+    "deploy:cpanel:dry-run": "bash scripts/deploy-cpanel.sh --dry-run"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql2": "^3.18.2"
+  }
+}

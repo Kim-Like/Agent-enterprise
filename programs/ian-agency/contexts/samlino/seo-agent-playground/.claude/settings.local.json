@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(source venv/bin/activate)",
+      "Bash(python -c \"import fastapi, uvicorn, supabase, playwright, bs4; print\\(''All imports OK''\\)\")",
+      "Bash(python -c \"import pydantic; print\\(pydantic.VERSION\\)\")",
+      "Bash(curl -s http://localhost:8001/health)",
+      "Bash(lsof -ti :8080)",
+      "Bash(bun --version)",
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "Bash(npm install)",
+      "Bash(curl -s http://localhost:8080/api/schema/history)",
+      "Bash(curl -s http://localhost:8001/api/schema/history)",
+      "Bash(python -c \":*)",
+      "Bash(claude --version)",
+      "Bash(/Users/samlino/.vscode/extensions/anthropic.claude-code-2.1.56-darwin-arm64/resources/native-binary/claude --help)",
+      "Bash(pip install python-multipart)",
+      "Bash(pip3 install python-multipart)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(python3 -c \"from agent.skills import load_skills, list_skills; print\\(''Skills:'', list_skills\\(''schema-generator''\\)\\); print\\(''Content length:'', len\\(load_skills\\(''schema-generator''\\)\\)\\)\")",
+      "Bash(python3 -c \"from agent.schema_agent import _build_system_prompt; from config import OrgIdentity; org = OrgIdentity\\(name=''Test'', url=''https://test.com'', logo_url=None, same_as=[]\\); p = _build_system_prompt\\(org, instructions=''Use pt-BR for inLanguage''\\); print\\(p[:200]\\); print\\(''...''\\); print\\(p[-200:]\\)\")",
+      "Bash(curl -s -X POST \"http://localhost:8001/api/agents/schema-generator/skills\" -F \"file=@/tmp/test-skill.md\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s http://localhost:8001/api/agents/schema-generator/skills)",
+      "Bash(python3 -c \"import main; print\\(''OK''\\)\")",
+      "Bash(uvicorn --version)",
+      "Bash(kill 30621)",
+      "Bash(/Users/samlino/Samlino/seo-agent-playground/backend/venv/bin/pip install python-multipart)",
+      "Bash(/Users/samlino/Samlino/seo-agent-playground/backend/venv/bin/python3.11 -c \"import multipart; print\\(''OK'', multipart.__version__\\)\")",
+      "Bash(/Users/samlino/Samlino/seo-agent-playground/backend/venv/bin/python3.11 -c \"from fastapi.dependencies.utils import ensure_multipart_is_installed; ensure_multipart_is_installed\\(\\); print\\(''OK''\\)\")",
+      "Bash(curl -s -X DELETE \"http://localhost:8001/api/agents/schema-generator/skills/test-skill.md\")",
+      "Bash(claude auth status)"
+    ]
+  }
+}

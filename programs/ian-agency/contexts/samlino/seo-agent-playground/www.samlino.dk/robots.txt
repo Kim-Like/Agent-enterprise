@@ -1,0 +1,9 @@
+
+User-agent: *
+
+Disallow:/bilforsikring/sem/
+Disallow:/components/
+Disallow:/a-kasse/sem/
+Disallow:/external-redirect
+
+Sitemap: https://www.samlino.dk/sitemap.xml

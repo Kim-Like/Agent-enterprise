@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 175 80% 50%;
+    --primary-foreground: 220 20% 6%;
+
+    --secondary: 220 16% 16%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 220 16% 18%;
+    --accent-foreground: 210 20% 92%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 175 80% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 210 15% 70%;
+    --sidebar-primary: 175 80% 50%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 16% 14%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 14% 15%;
+    --sidebar-ring: 175 80% 50%;
+
+    /* Agent colors */
+    --agent-competitor: 340 75% 55%;
+    --agent-keyword: 35 90% 55%;
+    --agent-writer: 145 65% 45%;
+    --agent-composer: 260 65% 60%;
+    --agent-analyst: 200 80% 55%;
+    --agent-reviewer: 15 85% 55%;
+    --agent-explorer: 50 85% 55%;
+    --agent-schema: 280 70% 60%;
+    --agent-prototyper: 185 75% 48%;
+
+    /* Status colors */
+    --status-idle: 215 15% 45%;
+    --status-running: 175 80% 50%;
+    --status-complete: 145 65% 45%;
+    --status-error: 0 72% 55%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(175 80% 50% / 0.15), hsl(260 65% 60% / 0.1));
+    --gradient-card-hover: linear-gradient(135deg, hsl(175 80% 50% / 0.08), transparent);
+
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(175 80% 50% / 0.15);
+    --shadow-card: 0 4px 24px hsl(220 20% 2% / 0.5);
+  }
+
+  .dark {
+    /* Same as root - this is a dark-first design */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card-hover {
+    background: var(--gradient-card-hover);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}

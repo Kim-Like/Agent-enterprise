@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'General Sans';
+    src: url('../fonts/GeneralSans-Light.woff2') format('woff2'),
+         url('../fonts/GeneralSans-Light.woff') format('woff'),
+         url('../fonts/GeneralSans-Light.ttf') format('truetype'),
+         url('../fonts/GeneralSans-Light.eot'); /* IE9 ve öncesi */
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'General Sans';
+    src: url('../fonts/GeneralSans-Regular.woff2') format('woff2'),
+         url('../fonts/GeneralSans-Regular.woff') format('woff'),
+         url('../fonts/GeneralSans-Regular.ttf') format('truetype'),
+         url('../fonts/GeneralSans-Regular.eot'); /* IE9 ve öncesi */
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'General Sans';
+    src: url('../fonts/GeneralSans-Medium.woff2') format('woff2'),
+         url('../fonts/GeneralSans-Medium.woff') format('woff'),
+         url('../fonts/GeneralSans-Medium.ttf') format('truetype'),
+         url('../fonts/GeneralSans-Medium.eot'); /* IE9 ve öncesi */
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'General Sans';
+    src: url('../fonts/GeneralSans-Bold.woff2') format('woff2'),
+         url('../fonts/GeneralSans-Bold.woff') format('woff'),
+         url('../fonts/GeneralSans-Bold.ttf') format('truetype'),
+         url('../fonts/GeneralSans-Bold.eot'); /* IE9 ve öncesi */
+    font-weight: 600;
+    font-style: normal;
+}

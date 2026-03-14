@@ -1,0 +1,713 @@
+# Translation of Plugins - YITH WooCommerce Subscription - Stable (latest release) in Danish
+# This file is distributed under the same license as the Plugins - YITH WooCommerce Subscription - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-08-02 09:24:04+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: da_DK\n"
+"Project-Id-Version: Plugins - YITH WooCommerce Subscription - Stable (latest release)\n"
+
+#: plugin-fw/includes/class-yith-system-status.php:368
+msgid "Warning!"
+msgstr "Advarsel!"
+
+#: plugin-fw/includes/class-yith-system-status.php:225
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: plugin-fw/includes/class-yith-system-status.php:146
+msgid "URL FOpen"
+msgstr "URL FOpen"
+
+#: plugin-fw/includes/class-yith-system-status.php:145
+msgid "OPCache Save Comments"
+msgstr "OPCache gemme kommentarer"
+
+#: plugin-fw/includes/class-yith-system-status.php:143
+msgid "GD Library"
+msgstr "GD Library"
+
+#: plugin-fw/includes/class-yith-system-status.php:142
+msgid "ImageMagick Version"
+msgstr "ImageMagic version"
+
+#: plugin-fw/includes/class-yith-system-status.php:141
+msgid "MultiByte String"
+msgstr "MultiByte-streng"
+
+#: plugin-fw/includes/class-yith-system-status.php:140
+msgid "SimpleXML"
+msgstr "SimpleXML"
+
+#: plugin-fw/includes/class-yith-system-status.php:139
+msgid "WordPress Cron"
+msgstr "WordPress cron"
+
+#: plugin-fw/includes/class-yith-system-status.php:138
+msgid "TLS Version"
+msgstr "TLS-version"
+
+#: plugin-fw/includes/class-yith-system-status.php:137
+msgid "PHP Version"
+msgstr "PHP Version"
+
+#: plugin-fw/includes/class-yith-system-status.php:136
+msgid "Available Memory"
+msgstr "Tilgængelig hukommelse"
+
+#: plugin-fw/includes/class-yith-system-status.php:135
+msgid "WooCommerce Version"
+msgstr "WooCommerce version"
+
+#: plugin-fw/includes/class-yith-system-status.php:134
+msgid "WordPress Version"
+msgstr "WordPress version"
+
+#: plugin-fw/includes/class-yith-system-status.php:161
+#: plugin-fw/includes/class-yith-system-status.php:162
+#: plugin-fw/includes/class-yith-system-status.php:187
+msgid "System Status"
+msgstr "System Status"
+
+#. translators: 1. user display name; 2. user ID; 3. user email.
+#: plugin-fw/templates/fields/ajax-customers.php:68
+#: plugin-fw/templates/fields/ajax-customers.php:79
+msgid "%1$s (#%2$s &ndash; %3$s)"
+msgstr "%1$s (#%2$s &ndash; %3$s)"
+
+#: plugin-fw/includes/class-yith-system-status.php:578
+msgid "Contact your hosting company in order to enable it."
+msgstr "Kontakt dit hostingfirma for at aktivere det."
+
+#: plugin-fw/includes/class-yith-system-status.php:559
+#: plugin-fw/includes/class-yith-system-status.php:565
+msgid "Contact your hosting company in order to update it."
+msgstr "Kontakt dit hostingfirma for at opdatere det."
+
+#: plugin-fw/includes/class-yith-system-status.php:555
+msgid "Update it to the latest version in order to benefit of all new features and security updates."
+msgstr "Opdater den til den nyeste version for at drage fordel af alle nye funktioner og sikkerhedsopdateringer."
+
+#. translators: %s recommended memory amount
+#: plugin-fw/includes/class-yith-system-status.php:613
+msgid "For optimal functioning of our plugins, we suggest setting at least %s of available memory"
+msgstr "For at vores plugins kan fungere optimalt, foreslår vi, at du indstiller mindst %s ledig hukommelse"
+
+#: plugin-fw/includes/class-yith-system-status.php:518
+msgid "Disabled"
+msgstr "Deaktiveret"
+
+#: plugin-fw/includes/class-yith-system-status.php:518
+msgid "Enabled"
+msgstr "Aktiveret"
+
+#: plugin-fw/templates/sysinfo/system-information-panel.php:27
+msgid "YITH System Information"
+msgstr "YITH systeminformation"
+
+#: plugin-fw/templates/fields/select-buttons.php:20
+msgid "Remove All"
+msgstr "Fjerne alle"
+
+#: plugin-fw/templates/fields/select-buttons.php:19
+msgid "Add All"
+msgstr "Tilføj alle"
+
+#: plugin-fw/templates/fields/date-format.php:65
+msgid "Custom:"
+msgstr "Tilpasset:"
+
+#: plugin-fw/includes/class-yith-dashboard.php:137
+msgctxt "Button label"
+msgid "Close"
+msgstr "Luk"
+
+#: plugin-fw/includes/class-yith-dashboard.php:97
+msgctxt "Plugin FW"
+msgid "Latest update released on"
+msgstr "Seneste opdatering frigivet"
+
+#: plugin-fw/includes/class-yith-dashboard.php:96
+msgctxt "Plugin FW"
+msgid "View Changelog"
+msgstr "Vis ændringer"
+
+#: plugin-fw/includes/class-yith-dashboard.php:63
+msgid "An error has occurred, which probably means the feed is down. Try again later."
+msgstr "Der opstod en fejl, hvilket sikkert betyder at feed'et er nede. Prøv igen senere."
+
+#: plugin-fw/includes/class-yith-dashboard.php:56
+msgid "RSS Error:"
+msgstr "RSS fejl:"
+
+#: plugin-fw/includes/class-yith-dashboard.php:36
+msgid "Latest news from YITH Blog"
+msgstr "Seneste nyt fra YITH bloggen"
+
+#: plugin-fw/includes/class-yith-dashboard.php:35
+msgid "YITH Latest Updates"
+msgstr "UTIH seneste opdatering"
+
+#: plugin-fw/includes/builders/gutenberg/class-yith-gutenberg.php:156
+msgctxt "[gutenberg]: Category Name"
+msgid "YITH"
+msgstr "YITH"
+
+#. Description of the plugin
+#: init.php
+msgid "<code><strong>YITH WooCommerce Subscription</strong></code> allows enabling automatic recurring payments on your products. Once you buy a subscription-based product, the plugin will renew the payment automatically based on your own settings. Perfect for any kind of subscriptions, like magazines, software and so on. <a href=\"https://yithemes.com/\" target=\"_blank\">Get more plugins for your e-commerce shop on <strong>YITH</strong></a>."
+msgstr "<code><strong>YITH WooCommerce Subscription</strong></code> tillader aktivering af automatiske gentagne betalinger for dine produkter. Når du har købt et abonnementsbaseret produkt, sørger plugin'et for automatisk at forny betalingen baseret på dine egne indstillinger. Perfekt til alle former for abonnementer som magasiner, software osv.  <a href=\"https://yithemes.com/\" target=\"_blank\">Få flere plugins til din ehandel hos <strong>YITH</strong></a>."
+
+#. Author of the plugin
+#: init.php
+msgid "YITH"
+msgstr "YITH"
+
+#. Plugin URI of the plugin
+#: init.php
+msgid "https://yithemes.com/themes/plugins/yith-woocommerce-subscription/"
+msgstr "https://yithemes.com/themes/plugins/yith-woocommerce-subscription/"
+
+#: plugin-fw/yit-plugin.php:243
+msgid "License"
+msgstr "Licens"
+
+#: plugin-fw/yit-plugin.php:239
+msgctxt "Action links"
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: plugin-fw/yit-plugin.php:98
+msgctxt "Plugin Row Meta"
+msgid "Premium version"
+msgstr "Premium version"
+
+#: plugin-fw/yit-plugin.php:94
+msgctxt "Plugin Row Meta"
+msgid "Support"
+msgstr "Support"
+
+#: plugin-fw/yit-plugin.php:90
+msgctxt "Plugin Row Meta"
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: plugin-fw/yit-plugin.php:86
+msgctxt "Plugin Row Meta"
+msgid "Live Demo"
+msgstr "Live demo"
+
+#: plugin-fw/includes/class-yith-system-status.php:522
+msgid "N/A"
+msgstr "N/A"
+
+#: plugin-fw/includes/privacy/class-yith-privacy.php:106
+msgctxt "Privacy Policy Content"
+msgid "Payments"
+msgstr "Betalinger"
+
+#: plugin-fw/includes/privacy/class-yith-privacy.php:103
+msgctxt "Privacy Policy Content"
+msgid "What we share with others"
+msgstr "Hvad vi deler med andre"
+
+#: plugin-fw/includes/privacy/class-yith-privacy.php:100
+msgctxt "Privacy Policy Content"
+msgid "Who on our team has access"
+msgstr "Hvem i vores team har adgang"
+
+#: plugin-fw/includes/privacy/class-yith-privacy.php:97
+msgctxt "Privacy Policy Content"
+msgid "What we collect and store"
+msgstr "Hvad vi indsamler og gemmer"
+
+#: plugin-fw/includes/privacy/class-yith-privacy.php:93
+msgctxt "Privacy Policy Content"
+msgid "This sample language includes the basics around what personal data your store may be collecting, storing and sharing, as well as who may have access to that data. Depending on what settings are enabled and which additional plugins are used, the specific information shared by your store will vary. We recommend consulting with a lawyer when deciding what information to disclose on your privacy policy."
+msgstr "Denne prøvetekst omfatter det grundlæggende omkring de personoplysninger, som din webshop muligvis indsamler, gemmer og deler, såvel som hvem der har adgang til disse data. Afhængig af hvilke indstillinger, der er aktiveret, og hvilke yderligere plugins, der er anvendt, vil den specifikke information, som deles via din webshop, variere. Vi anbefaler dig at overveje brug af en advokat, når du beslutter hvilken information, der skal være omfattet af din politik for personoplysninger."
+
+#: plugin-fw/includes/privacy/class-yith-privacy.php:61
+msgctxt "Privacy Policy Guide Title"
+msgid "YITH Plugins"
+msgstr "YITH Plugins"
+
+#. translators: %1$s: order ID, %2$s: reason code.
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:897
+msgid "Order #%1$s has been marked as refunded - PayPal reason code: %2$s"
+msgstr "Ordre #%1$s er blevet markeret som refunderet - Paypal årsagskode: %2$s"
+
+#. translators: %s: order link.
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:895
+msgid "Payment for order %s refunded"
+msgstr "Betaling for ordre %s refunderet"
+
+#. translators: %s: payment status.
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:891
+msgid "Payment %s via IPN."
+msgstr "Betaling %s via IPN."
+
+#. translators:Placeholder amount value.
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:839
+msgid "Validation error: PayPal amounts do not match (gross %s)."
+msgstr "Valideringsfejl: Paypal beløb matcher ikke (total %s)."
+
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:729
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:731
+msgid "YSBS - IPN message: recurring_payment_suspended_due_to_max_failed_payment"
+msgstr "YSBS-IPN-meddelelse: recurring_payment_suspended_due_to_max_failed_payment"
+
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:719
+msgid "YSBS - Subscription cancelled max failed attemps: recurring_payment_suspended_due_to_max_failed_payment"
+msgstr "YSBS - Abonnement annulleret pga maks. mislykkede forsøg: recurring_payment_suspended_due_to_max_failed_payment"
+
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:440
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:453
+msgid "YSBS - IPN Pending payment for echeck payment type"
+msgstr "YSBS-IPN afventer betaling for eCheck-betalingstype"
+
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:431
+msgid "Paypal echeck payment"
+msgstr "PayPal eCheck betaling"
+
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:501
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:510
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:524
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:581
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:590
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:605
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:648
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:657
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:672
+msgid "YSBS - IPN Failed payment"
+msgstr "YSBS-IPN-betaling mislykkedes"
+
+#: includes/functions-yith-wc-subscription.php:294
+msgid "suspended"
+msgstr "suspenderet"
+
+#: includes/functions-yith-wc-subscription.php:293
+msgid "expired"
+msgstr "udløbet"
+
+#: includes/functions-yith-wc-subscription.php:292
+msgid "cancelled"
+msgstr "annulleret"
+
+#: includes/functions-yith-wc-subscription.php:291
+msgid "trial"
+msgstr "prøveperiode"
+
+#: includes/functions-yith-wc-subscription.php:290
+msgid "overdue"
+msgstr "forfalden"
+
+#: includes/functions-yith-wc-subscription.php:289
+msgid "pending"
+msgstr "afventer"
+
+#: includes/functions-yith-wc-subscription.php:288
+msgid "paused"
+msgstr "pauset"
+
+#: includes/functions-yith-wc-subscription.php:287
+msgid "active"
+msgstr "aktiv"
+
+#: includes/class-ywsbs-subscription-privacy.php:219
+msgid "Email Address"
+msgstr "Email"
+
+#: includes/class-ywsbs-subscription-privacy.php:218
+msgid "Phone Number"
+msgstr "Telefonnummer"
+
+#: includes/class-ywsbs-subscription-privacy.php:217
+msgid "Shipping Address"
+msgstr "Leveringsadresse"
+
+#: includes/class-ywsbs-subscription-privacy.php:216
+msgid "Billing Address"
+msgstr "Faktureringsadresse"
+
+#: includes/class-ywsbs-subscription-privacy.php:215
+msgid "Browser User Agent"
+msgstr "Browser User Agent"
+
+#: includes/class-ywsbs-subscription-privacy.php:214
+msgid "IP Address"
+msgstr "IP-adresse"
+
+#: includes/class-ywsbs-subscription-privacy.php:213
+msgid "Items Purchased"
+msgstr "Købte varer"
+
+#: includes/class-ywsbs-subscription-privacy.php:212
+msgid "Subscription Total"
+msgstr "Abonnementstotal"
+
+#: includes/class-ywsbs-subscription-privacy.php:211
+msgid "Subscription Creation Date"
+msgstr "Abonnementets oprettelsesdato"
+
+#: includes/class-ywsbs-subscription-privacy.php:210
+msgid "Subscription Status"
+msgstr "Abonnementsstatus"
+
+#: includes/class-ywsbs-subscription-privacy.php:209
+msgid "Subscription Number"
+msgstr "Abonnementsnummer"
+
+#: includes/class-ywsbs-subscription-privacy.php:40
+#: includes/class-ywsbs-subscription-privacy.php:55
+msgid "Customer Subscriptions"
+msgstr "Kundeabonnementer"
+
+#: views/product/single-product-options.php:63
+msgid "Never"
+msgstr "Aldrig"
+
+#: plugin-fw/templates/fields/icons.php:78
+msgid "Set Default"
+msgstr "Angiv standard"
+
+#: includes/functions-yith-wc-subscription.php:43
+msgid "year"
+msgid_plural "years"
+msgstr[0] "år"
+msgstr[1] "år"
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:559
+#: plugin-fw/includes/class-yit-plugin-panel.php:562
+msgid "How to install premium version"
+msgstr "Sådan installeres premium version"
+
+#: plugin-fw/templates/fields/sidebars.php:54
+msgid "Right Sidebar"
+msgstr "H&#248;jre sidebar"
+
+#: plugin-fw/templates/fields/sidebars.php:26
+#: plugin-fw/templates/fields/sidebars.php:29
+msgid "No sidebar"
+msgstr "Ingen sidebar"
+
+#: plugin-fw/templates/fields/sidebars.php:23
+msgid "Right sidebar"
+msgstr "H&#248;jre sidebar"
+
+#: plugin-fw/templates/fields/image-gallery.php:36
+msgid "Delete image"
+msgstr "Slet billede"
+
+#: plugin-fw/templates/fields/customtabs.php:17
+msgid "Close all"
+msgstr "Luk alle"
+
+#: plugin-fw/templates/fields/customtabs.php:17
+msgid "Expand all"
+msgstr "Udvid alle"
+
+#: plugin-fw/templates/fields/customtabs.php:40
+#: plugin-fw/templates/fields/customtabs.php:81
+msgid "Value"
+msgstr "Værdi"
+
+#: plugin-fw/templates/fields/upload.php:34
+#: plugin-fw/templates/panel/woocommerce/woocommerce-upload.php:37
+msgid "Upload"
+msgstr "Indsend"
+
+#: plugin-fw/includes/class-yit-plugin-subpanel.php:137
+#: plugin-fw/templates/panel/panel-content-page.php:38
+msgid "Reset to default"
+msgstr "Nulstil til standard"
+
+#: plugin-fw/includes/class-yit-assets.php:261
+#: plugin-fw/includes/class-yit-plugin-subpanel.php:134
+#: plugin-fw/templates/panel/panel-content-page.php:14
+msgid "Are you sure?"
+msgstr "Er du sikker?"
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1558
+msgid "Settings saved"
+msgstr "Indstillingerne er gemt"
+
+#: plugin-fw/includes/class-yit-plugin-subpanel.php:127
+#: plugin-fw/templates/panel/panel-content-page.php:29
+msgid "Save Changes"
+msgstr "Gem rettelserne"
+
+#: plugin-fw/templates/fields/customtabs.php:34
+#: plugin-fw/templates/fields/customtabs.php:76
+msgid "Name"
+msgstr "Namn"
+
+#: includes/functions-yith-wc-subscription.php:63
+#: plugin-options/general-options.php:136
+#: plugin-options/general-options.php:165
+msgid "months"
+msgstr "m&aring;neder"
+
+#: includes/functions-yith-wc-subscription.php:62
+#: plugin-options/general-options.php:134
+#: plugin-options/general-options.php:163
+msgid "days"
+msgstr "dage"
+
+#: includes/class-yith-wc-subscription-admin.php:134
+#: includes/class-ywsbs-subscription-my-account.php:291
+#: includes/class-ywsbs-subscription-privacy.php:82
+msgid "Subscriptions"
+msgstr "Tilmeldinger"
+
+#: includes/admin/class-ywsbs-product-post-type-admin.php:64
+#: includes/admin/class-ywsbs-subscription-list-table.php:84
+#: includes/class-yith-wc-subscription-admin.php:70
+#: includes/class-yith-wc-subscription-install.php:64
+#: templates/myaccount/my-subscriptions-view.php:28
+#: templates/myaccount/my-subscriptions-view.php:53
+#: templates/myaccount/view-subscription.php:28
+msgid "Subscription"
+msgstr "Abonnement"
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:90
+msgid "Settings"
+msgstr "Instillinger"
+
+#: templates/myaccount/view-subscription.php:172
+msgid "Order"
+msgstr "Order"
+
+#: includes/admin/class-ywsbs-subscription-list-table.php:94
+#: templates/myaccount/my-subscriptions-view.php:33
+#: templates/myaccount/my-subscriptions-view.php:84
+#: templates/myaccount/view-subscription.php:176
+#: templates/myaccount/view-subscription.php:202
+#: templates/myaccount/view-subscription.php:239
+msgid "Status"
+msgstr "Status"
+
+#: plugin-fw/templates/fields/image-gallery.php:26
+#: plugin-fw/templates/fields/image-gallery.php:37
+msgid "Delete"
+msgstr "Slet"
+
+#: includes/class-yith-wc-subscription-install.php:73
+msgid "Not found"
+msgstr "Ikke fundet"
+
+#: plugin-fw/templates/fields/customtabs.php:25
+#: plugin-fw/templates/fields/customtabs.php:68
+msgid "Remove"
+msgstr "Fjern"
+
+#: plugin-fw/templates/fields/image-gallery.php:34
+msgid "Add to gallery"
+msgstr "Tilføj til galleri"
+
+#: plugin-fw/templates/fields/upload.php:39
+msgid "Reset"
+msgstr "Nulstil"
+
+#: includes/class-yith-wc-subscription-admin.php:138
+#: plugin-options/general-options.php:15
+msgid "General settings"
+msgstr "Generelle indstillinger"
+
+#. Author URI of the plugin
+#: init.php
+msgid "https://yithemes.com/"
+msgstr "https://yithemes.com/"
+
+#. Plugin Name of the plugin
+#: init.php
+msgid "YITH WooCommerce Subscription"
+msgstr "YITH WooCommerce Subscription"
+
+#: plugin-fw/templates/panel/v2/panel-content-page.php:58
+#: plugin-fw/templates/panel/v2/woocommerce/woocommerce-form.php:70
+#: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:41
+msgid "Reset Defaults"
+msgstr "Nulstil til standardindstillinger"
+
+#: plugin-fw/templates/fields/sidebars.php:41
+#: plugin-fw/templates/fields/sidebars.php:56
+msgid "Choose a sidebar"
+msgstr "Vælg Sidebar"
+
+#: plugin-fw/templates/fields/image-gallery.php:35
+msgid "Add images"
+msgstr "Tilføj billeder"
+
+#: plugin-fw/templates/fields/image-gallery.php:33
+msgid "Add Images to Gallery"
+msgstr "Tilføj billeder til galleri"
+
+#: plugin-fw/templates/fields/customtabs.php:93
+msgid "Do you want to remove the custom tab?"
+msgstr "Vil du fjerne fanen Tilpasset?"
+
+#: plugin-fw/templates/fields/customtabs.php:52
+msgid "Add custom product tab"
+msgstr "Tilføj tilpasset produkt tab"
+
+#: plugin-fw/templates/fields/customtabs.php:41
+#: plugin-fw/templates/fields/customtabs.php:82
+msgid "Content of the tab. (HTML is supported)"
+msgstr "Indhold i fanen (HTML er understøttet)"
+
+#: plugin-fw/includes/class-yit-pointers.php:96
+msgid "Plugins Upgraded"
+msgstr "Plugins opgraderet"
+
+#: plugin-fw/includes/class-yit-pointers.php:80
+msgid "Plugins Activated"
+msgstr "Plugins aktiveret"
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1567
+msgid "Sorting successful."
+msgstr "Sortering succesfuld."
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1566
+msgid "Sorry, import is disabled."
+msgstr "Beklager, import er deaktiveret."
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1565
+msgid "The added file is not valid."
+msgstr "Den tilføjede fil er ikke gyldig."
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1564
+msgid "An error has occurred during import. Please try again."
+msgstr "Der opstod en fejl under importen. Prøv igen."
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1563
+msgid "Database imported correctly."
+msgstr "Database importeret korrekt."
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1561
+msgid "Element updated correctly."
+msgstr "Element korrekt opdateret."
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1560
+msgid "Element deleted correctly."
+msgstr "Element slettet korrekt."
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1559
+msgid "Settings reset"
+msgstr "Indstillinger nulstillet"
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:1557
+msgid "The element you have entered already exists. Please, enter another name."
+msgstr "Det element, du har indtastet findes allerede. Angiv et andet navn."
+
+#: plugin-fw/includes/class-yit-assets.php:262
+#: plugin-fw/includes/class-yit-plugin-subpanel.php:134
+#: plugin-fw/templates/panel/panel-content-page.php:14
+msgid "If you continue with this action, you will reset all options in this page."
+msgstr "Hvis du forsætter med denne handling, vil du nulstille alle indstillingerne på denne side."
+
+#: plugin-fw/includes/class-yit-plugin-panel.php:89
+msgid "Plugin Settings"
+msgstr "Plugin-indstillinger"
+
+#: plugin-fw/includes/class-yit-plugin-panel-woocommerce.php:607
+msgid "The changes you have made will be lost if you leave this page."
+msgstr "De ændringer du har lavet vil gå tabt, hvis du forlader denne side."
+
+#: includes/class-yith-wc-subscription-install.php:63
+msgctxt "Post Type Singular Name"
+msgid "Subscription"
+msgstr "Abonnement"
+
+#: includes/class-yith-wc-subscription-install.php:62
+msgctxt "Post Type General Name"
+msgid "Subscriptions"
+msgstr "Abonnementer"
+
+#: includes/admin/class-ywsbs-subscription-list-table.php:87
+#: templates/myaccount/my-subscriptions-view.php:30
+#: templates/myaccount/my-subscriptions-view.php:69
+msgid "Recurring"
+msgstr "Gentagende"
+
+#: plugin-fw/includes/class-yith-system-status.php:217
+msgid "YITH Plugins"
+msgstr "YITH Plugins"
+
+#: init.php:92
+msgid "YITH WooCommerce Subscription is enabled but not effective. It requires WooCommerce in order to work."
+msgstr "YITH WooCommerce Subscription er aktiveret, men ikke effektiv. Det kræver WooCommerce for at fungere."
+
+#: init.php:40
+msgid "You can't activate the free version of YITH WooCommerce Subscription while you are using the premium one."
+msgstr "Du kan ikke aktivere den gratis version YITH WooCommerce Subscription samtidigt med at du er benytter Premium udgaven."
+
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:767
+msgid "YSBS - IPN subscription cancelled for the order."
+msgstr "YSBS - IPN-abonnementet blev annulleret for ordren."
+
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:341
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:360
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:391
+msgid "IPN subscription payment completed."
+msgstr "IPN abonnementsbetaling gennemført."
+
+#: includes/gateways/paypal/includes/class-ywsbs-paypal-ipn-handler.php:256
+msgid "IPN subscription started"
+msgstr "IPN-abonnementet er startet"
+
+#. translators: placeholder order number.
+#: includes/gateways/paypal/class-yith-wc-subscription-paypal.php:267
+msgid "Order %s"
+msgstr "Ordre %s"
+
+#: includes/functions-yith-wc-subscription.php:40
+msgid "month"
+msgid_plural "months"
+msgstr[0] "måned"
+msgstr[1] "måneder"
+
+#: includes/functions-yith-wc-subscription.php:37
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "uge"
+msgstr[1] "uger"
+
+#: includes/functions-yith-wc-subscription.php:34
+msgid "day"
+msgid_plural "days"
+msgstr[0] "dag"
+msgstr[1] "dage"
+
+#: includes/class-yith-wc-subscription-install.php:60
+msgid "ywsbs_subscription"
+msgstr "ywsbs_subscription"
+
+#: includes/class-yith-wc-subscription.php:311
+msgid "A subscription has been removed from your cart. You cannot purchases different subscriptions at the same time."
+msgstr "Et abonnement er blevet fjernet fra din indkøbskurv. Du kan ikke købe forskellige abonnementer på samme tid."
+
+#. translators: placeholder is the subscription id.
+#: includes/legacy/abstract-ywsbs-subscription-order-legacy.php:202
+msgid "This order has been created to renew the subscription #%d"
+msgstr "Denne ordre er blevet oprettet for at forny abonnementet #%d"
+
+#: views/product/single-product-options.php:33
+msgid "Subscription Settings"
+msgstr "Abonnementsindstillinger"
+
+#: includes/admin/class-ywsbs-product-post-type-admin.php:65
+#: includes/class-yith-wc-subscription-admin.php:71
+msgid "Create a subscription for this product"
+msgstr "Opret et abonnement på dette produkt"
+
+#: plugin-fw/templates/fields/sidebars.php:20
+msgid "Left sidebar"
+msgstr "Venstre sidepanel"
+
+#: plugin-fw/templates/fields/sidebars.php:39
+msgid "Left Sidebar"
+msgstr "Venstre sidepanel"

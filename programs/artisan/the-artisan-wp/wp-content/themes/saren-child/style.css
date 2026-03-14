@@ -1,0 +1,4016 @@
+/*
+Theme Name: Saren Child
+Description: Child theme for the Saren. Child themes are the recommended way of making modifications to a theme. <a href="http://codex.wordpress.org/Child_Themes">Read More</a>
+Author: PeThemes
+Author URI: http://pethemes.com
+Template: saren
+*/
+
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+
+/* --- Global Fix: Mobile tap highlight — use brand green instead of default black --- */
+/* On touch devices, -webkit-tap-highlight-color controls the tap flash. Default is gray/black. */
+a,
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.pe--button--wrapper a,
+.sa-btn,
+.sa-feedback-btns button,
+.saren--cart--form,
+.sa-recipe__method,
+.sa-recipe__step-check,
+.sa-recipe__step-time,
+.sa-recipe__lang-toggle,
+.sa-recipe__guide-card,
+.sa-coffee-table__expand,
+.sa-coffee-table__cart,
+.woocommerce-message a.button,
+.sa-share-links a,
+.select-items div,
+[role="button"],
+#place_order,
+.sidebar-box .woocommerce-shipping-methods label,
+.single_add_to_cart_button,
+.quick-add-to-cart-btn {
+    -webkit-tap-highlight-color: var(--mainColor);
+    -webkit-tap-highlight-color: color-mix(in srgb, var(--mainColor) 30%, transparent);
+}
+
+/* --- Global Fix: Reset parent-theme button padding on non-form buttons --- */
+/* Saren parent sets `padding: 1em 3em` on all <button> elements (style.css:1147).
+   This distorts circular/icon buttons and custom UI controls. Reset here. */
+.sa-back-to-top,
+.sa-recipe__step-check,
+.sa-recipe__method,
+.sa-feedback-btns button,
+.sa-coffee-table__expand,
+.sa-coffee-table__cart {
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    color: inherit;
+    line-height: inherit;
+}
+
+/* ========================================
+   1. Header Menu Element - Hide on Desktop/iPad, Show on Phone Only
+   Also fix white text on white container
+   ======================================== */
+
+/* Hide on desktop and tablet (iPad) */
+@media (min-width: 768px) {
+    .elementor-6829 .elementor-element.elementor-element-8fe1ca9 {
+        display: none !important;
+    }
+}
+
+/* Show only on phone (mobile) */
+@media (max-width: 767px) {
+    .elementor-6829 .elementor-element.elementor-element-8fe1ca9 {
+        display: block !important;
+        color: var(--mainColor, #0f0f0f) !important;
+    }
+
+    .elementor-6829 .elementor-element.elementor-element-8fe1ca9,
+    .elementor-6829 .elementor-element.elementor-element-8fe1ca9 * {
+        color: inherit !important;
+    }
+}
+
+/* ========================================
+   2. Product Grid - Max Width 300px per product
+   With centered grid and larger side margins
+   ======================================== */
+
+/* Add larger side margins on wide screens */
+@media (min-width: 1400px) {
+    .archive-products-section {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .archive-products-section {
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+}
+
+@media (min-width: 1800px) {
+    .archive-products-section {
+        padding-left: 180px;
+        padding-right: 180px;
+    }
+}
+
+@media (min-width: 2000px) {
+    .archive-products-section {
+        padding-left: 250px;
+        padding-right: 250px;
+    }
+}
+
+/* For masonry layout: control column width via sizer */
+@media (min-width: 1200px) {
+    .saren--products-grid.saren--masonry--layout .saren--products--masonry--sizer,
+    .saren--products-grid.saren--masonry--layout .saren--single--product {
+        width: calc(25% - 20px);
+        max-width: 300px;
+    }
+}
+
+/* Center the grid container content */
+@media (min-width: 1400px) {
+    .archive-products-section .saren--products-grid {
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   3. Article / Guide Template (.saren-article)
+   2-column desktop, stacked mobile
+   ======================================== */
+
+/* --- Reading Progress Bar --- */
+.sa-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--mainColor);
+    z-index: 99999;
+    transition: width 0.1s linear;
+}
+
+/* --- Layout Shell --- */
+.saren-article {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+    color: var(--mainColor);
+}
+
+.sa-header {
+    margin-bottom: 2.5rem;
+}
+
+.sa-breadcrumbs {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    margin-bottom: 1.25rem;
+}
+
+.sa-breadcrumbs a {
+    color: var(--secondaryColor);
+    text-decoration: none;
+}
+
+.sa-breadcrumbs a:hover {
+    color: var(--mainColor);
+}
+
+.sa-breadcrumbs span {
+    opacity: 0.5;
+}
+
+/* Project hero: breadcrumb inside header */
+.project-hero__header {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.project-hero .sa-breadcrumbs {
+    margin-bottom: 0;
+}
+
+/* Breadcrumbs on gray backgrounds: stronger contrast for readability */
+.sa-hero .sa-breadcrumbs,
+.project-hero .sa-breadcrumbs {
+    color: var(--mainColor);
+}
+
+.sa-hero .sa-breadcrumbs a,
+.project-hero .sa-breadcrumbs a {
+    color: var(--mainColor);
+    opacity: 0.85;
+}
+
+.sa-hero .sa-breadcrumbs a:hover,
+.project-hero .sa-breadcrumbs a:hover {
+    opacity: 1;
+}
+
+.sa-hero .sa-breadcrumbs span,
+.project-hero .sa-breadcrumbs span {
+    opacity: 0.85;
+}
+
+/* Breadcrumb home icon (house SVG) */
+.rank-math-breadcrumb a:first-of-type svg,
+.sa-breadcrumbs a:first-of-type svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sa-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mainBackground);
+    background: var(--mainColor);
+    padding: 0.3em 0.8em;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
+
+.saren-article h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+}
+
+.sa-subtitle {
+    font-size: 1.15rem;
+    color: var(--secondaryColor);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+}
+
+.sa-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    padding-top: 1rem;
+    border-top: 1px solid var(--linesColor);
+}
+
+.sa-meta-divider {
+    opacity: 0.3;
+}
+
+/* --- Hero Image --- */
+.sa-hero-image {
+    margin: 0 0 2.5rem;
+    border-radius: var(--radius, 7.5px);
+    overflow: hidden;
+}
+
+.sa-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 500px;
+}
+
+.sa-hero-image figcaption {
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    padding: 0.6rem 0 0;
+    text-align: center;
+}
+
+/* --- 2-Column Grid --- */
+.sa-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.sa-main {}
+
+.sa-sidebar {}
+
+/* Desktop: 2 columns */
+@media (min-width: 1024px) {
+    .sa-layout {
+        grid-template-columns: 1fr 320px;
+        gap: 4rem;
+    }
+
+    .sa-sidebar {
+        position: sticky;
+        top: 6rem; /* Below sticky header */
+        align-self: start;
+    }
+}
+
+/* --- Sidebar Widgets --- */
+.sa-sidebar-widget {
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.sa-sidebar-widget h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 1rem;
+}
+
+/* Sidebar TOC */
+.sa-sidebar-widget.sa-toc ol {
+    margin: 0;
+    padding-left: 1.25em;
+    list-style: decimal;
+}
+
+.sa-sidebar-widget.sa-toc ol li {
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.sa-sidebar-widget.sa-toc a {
+    color: var(--mainColor);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.sa-sidebar-widget.sa-toc a:hover {
+    opacity: 0.6;
+}
+
+/* Sidebar Product (Saren native card) */
+.sa-sidebar-widget .saren--product--wrap {
+    margin: 0;
+}
+
+.sa-sidebar-widget .saren--product--image--wrap {
+    border-radius: calc(var(--radius, 7.5px) - 4px);
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.sa-sidebar-widget .saren--product--image img {
+    width: 100%;
+    height: auto;
+}
+
+/* Sidebar Newsletter */
+.sa-newsletter p {
+    font-size: 0.9rem;
+    color: var(--secondaryColor);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+
+.sa-newsletter input[type="email"] {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    background: transparent;
+    color: var(--mainColor);
+}
+
+.sa-newsletter .sa-btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* Sidebar Share */
+.sa-share-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.sa-share-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--linesColor);
+    border-radius: 50%;
+    color: var(--mainColor);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sa-share-links a:hover {
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    border-color: var(--mainColor);
+}
+
+/* --- Section Headings --- */
+.saren-article h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--linesColor);
+    letter-spacing: -0.02em;
+}
+
+.saren-article h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+.saren-article h4 {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Body Content --- */
+.saren-article p {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1.25em;
+}
+
+.saren-article ul,
+.saren-article ol {
+    padding-left: 1.25em;
+    margin-bottom: 1.5em;
+    list-style-position: outside;
+}
+
+.saren-article ul li,
+.saren-article ol li {
+    margin-bottom: 0.6em;
+    line-height: 1.7;
+}
+
+/* --- Inline TOC (mobile fallback, shown in main column on mobile) --- */
+.sa-toc-inline {
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.sa-toc-inline h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.75rem;
+}
+
+.sa-toc-inline ol {
+    margin: 0;
+    padding-left: 1.25em;
+    list-style: decimal;
+}
+
+.sa-toc-inline ol li {
+    margin-bottom: 0.35em;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.sa-toc-inline a {
+    color: var(--mainColor);
+    text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+    .sa-toc-inline {
+        display: none;
+    }
+}
+
+@media (max-width: 1023px) {
+    .sa-sidebar .sa-toc {
+        display: none;
+    }
+}
+
+/* --- Key Takeaways / Tip / Warning / Info Boxes --- */
+.sa-box {
+    border-radius: var(--radius, 7.5px);
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+    line-height: 1.7;
+}
+
+.sa-box h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.75rem;
+}
+
+.sa-box ul { margin: 0; padding-left: 1.25em; }
+.sa-box ul li { margin-bottom: 0.4em; }
+.sa-box p:last-child { margin-bottom: 0; }
+
+.sa-box--takeaways {
+    background: var(--secondaryBackground);
+    border-left: 4px solid var(--mainColor);
+}
+
+.sa-box--tip {
+    background: var(--secondaryBackground);
+    border-left: 4px solid #c8a864;
+}
+
+.sa-box--warning {
+    background: var(--secondaryBackground);
+    border-left: 4px solid #d45d5d;
+}
+
+.sa-box--info {
+    background: var(--secondaryBackground);
+    border-left: 4px solid var(--secondaryColor);
+}
+
+.sa-box--success {
+    background: var(--secondaryBackground);
+    border-left: 4px solid #4caf50;
+}
+
+/* --- Stat Highlight --- */
+.sa-stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.sa-stat {
+    text-align: center;
+    padding: 1.25rem 1rem;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+}
+
+.sa-stat__number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.sa-stat__label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* --- Product Widget (inline in article) --- */
+.sa-product-widget {
+    display: flex;
+    gap: 1.75rem;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.sa-product-widget__image {
+    flex: 0 0 200px;
+}
+
+.sa-product-widget__image img {
+    width: 100%;
+    height: auto;
+    border-radius: calc(var(--radius, 7.5px) - 2px);
+    object-fit: cover;
+}
+
+.sa-product-widget__content { flex: 1; }
+
+.sa-product-widget__badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3em 0.75em;
+    border: 1px solid var(--mainColor);
+    border-radius: 3px;
+    margin-bottom: 0.75rem;
+}
+
+.sa-product-widget h4 {
+    font-size: 1.35rem;
+    margin: 0 0 0.5rem;
+}
+
+.sa-product-widget__desc {
+    font-size: 0.95rem;
+    color: var(--secondaryColor);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.sa-product-widget__specs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    font-size: 0.85rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem 1rem;
+}
+
+.sa-product-widget__specs li { margin: 0; }
+
+/* --- Pros / Cons --- */
+.sa-proscons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.sa-proscons__col {
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius, 7.5px);
+    background: var(--secondaryBackground);
+}
+
+.sa-proscons__col h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.75rem;
+}
+
+.sa-proscons__col--pro h4 { color: #4caf50; }
+.sa-proscons__col--con h4 { color: #d45d5d; }
+
+.sa-proscons__col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sa-proscons__col ul li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 0.4em;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.sa-proscons__col--pro ul li::before { content: '+'; position: absolute; left: 0; color: #4caf50; font-weight: 700; }
+.sa-proscons__col--con ul li::before { content: '\2212'; position: absolute; left: 0; color: #d45d5d; font-weight: 700; }
+
+/* --- Score / Rating Box --- */
+.sa-rating {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.sa-rating__score {
+    flex: 0 0 auto;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-rating__number {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.sa-rating__of {
+    font-size: 0.6rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sa-rating__details { flex: 1; }
+
+.sa-rating__details h4 {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+}
+
+.sa-rating__details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondaryColor);
+    line-height: 1.5;
+}
+
+.sa-rating__bars {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+}
+
+.sa-rating__bars li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.35rem;
+    font-size: 0.8rem;
+}
+
+.sa-rating__bars li span:first-child {
+    flex: 0 0 80px;
+    color: var(--secondaryColor);
+}
+
+.sa-rating__bar-track {
+    flex: 1;
+    height: 5px;
+    background: var(--linesColor);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.sa-rating__bar-fill {
+    height: 100%;
+    background: var(--mainColor);
+    border-radius: 3px;
+}
+
+/* --- Image with Caption --- */
+.sa-image {
+    margin: 2rem 0;
+    overflow: hidden;
+    border-radius: var(--radius, 7.5px);
+    background: linear-gradient(135deg, var(--secondaryBackground, #f8f8f8) 0%, rgba(0,0,0,0.03) 100%);
+    border: 1px solid var(--linesColor, rgba(0,0,0,0.08));
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.sa-image img {
+    width: 100%;
+    max-height: min(50vh, 420px);
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.sa-image figcaption {
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    padding: 0.5rem 0 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* --- Video Embed --- */
+.sa-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 2rem 0;
+    border-radius: var(--radius, 7.5px);
+    background: #000;
+}
+
+.sa-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- CTA / Button --- */
+.sa-btn {
+    display: inline-block;
+    padding: 0.65em 1.5em;
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius, 7.5px);
+    transition: opacity 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.sa-btn:hover { opacity: 0.85; }
+
+.sa-btn--outline {
+    background: transparent;
+    color: var(--mainColor);
+    border: 1px solid var(--mainColor);
+}
+
+.sa-btn--outline:hover {
+    background: var(--mainColor);
+    color: var(--mainBackground);
+}
+
+.sa-btn--full {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* --- CTA Banner --- */
+.sa-cta-banner {
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    border-radius: var(--radius, 7.5px);
+    padding: 2rem;
+    margin: 2.5rem 0;
+    text-align: center;
+}
+
+.sa-cta-banner h3 {
+    color: var(--mainBackground);
+    font-size: 1.35rem;
+    margin: 0 0 0.5rem;
+}
+
+.sa-cta-banner p {
+    color: var(--mainBackground);
+    opacity: 0.8;
+    margin: 0 0 1.25rem;
+    font-size: 0.95rem;
+}
+
+.sa-cta-banner .sa-btn {
+    background: var(--mainBackground);
+    color: var(--mainColor);
+}
+
+/* --- pe--button Integration (article containers) --- */
+.saren-article .pe--button {
+    display: inline-block;
+}
+
+.saren-article .pe--button.sa-btn--full {
+    display: block;
+    width: 100%;
+}
+
+.saren-article .pe--button.sa-btn--full .pe--button--wrapper {
+    width: 100%;
+}
+
+.saren-article .pe--button.sa-btn--full .pe--button--wrapper a {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* CTA Banner: invert pe--button colors on dark background */
+.sa-cta-banner .pe--button.pb--background .pe--button--wrapper a {
+    background: var(--mainBackground);
+    color: var(--mainColor);
+}
+
+.sa-cta-banner .pe--button.pb--background .pe--button--wrapper a::before {
+    background: var(--secondaryBackground);
+}
+
+.sa-cta-banner .pe--button.pb--background .pe--button--wrapper a:hover {
+    color: var(--mainColor);
+}
+
+/* Product widget: button spacing */
+.sa-product-widget .pe--button {
+    margin-top: 0.75rem;
+}
+
+/* Feedback buttons: inline row */
+.sa-feedback-btns {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+/* Sidebar product button */
+.sa-sidebar-widget .saren--product--meta .pe--button {
+    width: 100%;
+}
+
+.sa-sidebar-widget .saren--product--meta .pe--button .pe--button--wrapper a {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* --- Tables --- */
+.sa-table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.saren-article table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--linesColor);
+}
+
+.saren-article table th,
+.saren-article table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--linesColor);
+    text-align: left;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.saren-article table th {
+    font-weight: 600;
+    background: var(--secondaryBackground);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.saren-article table td:last-child,
+.saren-article table th:last-child { text-align: left; }
+
+.saren-article table tbody tr:hover {
+    background: var(--secondaryBackground);
+}
+
+/* --- Blockquote / Pull Quote --- */
+.saren-article blockquote {
+    margin: 2rem 0;
+    padding: 0 0 0 1.5em;
+    border-left: 3px solid var(--mainColor);
+}
+
+.saren-article blockquote p {
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 0.5em;
+}
+
+.saren-article blockquote cite {
+    font-size: 0.8rem;
+    font-style: normal;
+    color: var(--secondaryColor);
+}
+
+/* Large pull quote variant */
+.sa-pullquote {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    border: none;
+    border-top: 2px solid var(--mainColor);
+    border-bottom: 2px solid var(--mainColor);
+    text-align: center;
+}
+
+.sa-pullquote p {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.sa-pullquote cite {
+    font-size: 0.85rem;
+    font-style: normal;
+    color: var(--secondaryColor);
+}
+
+/* --- Expert Opinion --- */
+.sa-expert {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.sa-expert__avatar {
+    flex: 0 0 48px;
+}
+
+.sa-expert__avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sa-expert__content { flex: 1; }
+
+.sa-expert__name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.15rem;
+}
+
+.sa-expert__title {
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    margin-bottom: 0.75rem;
+}
+
+.sa-expert__content p {
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* --- Numbered Steps (How-to) --- */
+.sa-steps {
+    list-style: none;
+    counter-reset: steps;
+    padding-left: 0;
+}
+
+.sa-steps > li {
+    counter-increment: steps;
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-steps > li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sa-steps > li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.sa-steps > li strong {
+    display: block;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+}
+
+.sa-steps > li p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondaryColor);
+}
+
+/* --- FAQ Accordion --- */
+.sa-faq__item {
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-faq__item summary {
+    padding: 1rem 0;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sa-faq__item summary::-webkit-details-marker { display: none; }
+
+.sa-faq__item summary::after {
+    content: '+';
+    font-size: 1.25rem;
+    font-weight: 300;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.sa-faq__item[open] summary::after {
+    content: '\2212';
+}
+
+.sa-faq__item p {
+    padding: 0 0 1rem;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondaryColor);
+    line-height: 1.7;
+}
+
+/* --- Author Box --- */
+.sa-author {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+.sa-author__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.sa-author__info strong {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}
+
+.sa-author__info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--secondaryColor);
+    line-height: 1.6;
+}
+
+/* --- Disclosure / Source Note --- */
+.sa-disclosure {
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    line-height: 1.6;
+    padding: 1rem 1.25rem;
+    background: var(--secondaryBackground);
+    border-radius: var(--radius, 7.5px);
+    margin: 2rem 0;
+}
+
+.sa-disclosure strong {
+    color: var(--mainColor);
+}
+
+/* --- Sources / References --- */
+.sa-sources {
+    margin: 2rem 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--linesColor);
+}
+
+.sa-sources h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.75rem;
+}
+
+.sa-sources ol {
+    margin: 0;
+    padding-left: 1.5em;
+    font-size: 0.85rem;
+    color: var(--secondaryColor);
+    line-height: 1.6;
+}
+
+.sa-sources ol li {
+    margin-bottom: 0.3em;
+}
+
+.sa-sources a {
+    color: var(--mainColor);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* --- Related Articles --- */
+.sa-related {
+    margin: 3rem 0 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--linesColor);
+}
+
+.sa-related h3 {
+    font-size: 1.1rem;
+    margin: 0 0 1.25rem;
+}
+
+.sa-related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+}
+
+.sa-related-card {
+    text-decoration: none;
+    color: var(--mainColor);
+}
+
+.sa-related-card__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    max-height: 220px;
+    border-radius: var(--radius, 7.5px);
+    background: linear-gradient(135deg, var(--secondaryBackground, #f8f8f8) 0%, rgba(0,0,0,0.03) 100%);
+    border: 1px solid var(--linesColor, rgba(0,0,0,0.06));
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    margin-bottom: 0.6rem;
+}
+
+.sa-related-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Fallback when img is direct child (no __media wrapper) */
+.sa-related-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    max-height: 220px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radius, 7.5px);
+    display: block;
+    margin-bottom: 0.6rem;
+    border: 1px solid var(--linesColor, rgba(0,0,0,0.06));
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.sa-related-card__title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.sa-related-card__meta {
+    font-size: 0.75rem;
+    color: var(--secondaryColor);
+    margin-top: 0.2rem;
+}
+
+/* --- Feedback Widget --- */
+.sa-feedback {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    margin: 2.5rem 0;
+}
+
+.sa-feedback p {
+    font-size: 0.95rem;
+    margin: 0 0 0.75rem;
+}
+
+.sa-feedback-btns {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.sa-feedback-btns button {
+    padding: 0.5em 1.5em;
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    background: transparent;
+    color: var(--mainColor);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sa-feedback-btns button:hover {
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    border-color: var(--mainColor);
+}
+
+/* --- Back to Top --- */
+.sa-back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: opacity 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.sa-back-to-top.visible {
+    display: flex;
+}
+
+/* ======================
+   RESPONSIVE
+   ====================== */
+
+/* Tablet */
+@media (max-width: 1023px) {
+    .saren-article {
+        padding: 1.5rem 1.5rem 3rem;
+    }
+
+    .sa-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .sa-sidebar-widget {
+        margin-bottom: 0;
+    }
+
+    .sa-proscons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+    .saren-article {
+        padding: 1rem 1rem 2.5rem;
+    }
+
+    .sa-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-product-widget {
+        flex-direction: column;
+    }
+
+    .sa-product-widget__image { flex: none; }
+
+    .sa-product-widget__specs {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-meta {
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    .sa-meta-divider { display: none; }
+
+    .sa-proscons {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-rating {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sa-expert {
+        flex-direction: column;
+    }
+
+    .sa-steps > li {
+        padding-left: 2.75rem;
+    }
+
+    .sa-stat-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sa-related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+/* ========================================
+   4. Product/Category Page Enhancements (.sa-product-page)
+   Scoped to pages with .sa-product-page class on outer Elementor container
+   ======================================== */
+
+/* --- 4A. Section Heading Consistency --- */
+.sa-product-page .elementor-heading-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    letter-spacing: -0.02em;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--linesColor);
+    margin-bottom: 1rem;
+}
+
+.sa-product-page h3.elementor-heading-title {
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+/* --- 4B. Inner Page Navigation Polish --- */
+.sa-product-page .pe--inner--page--navigation {
+    border: 1px solid var(--linesColor);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 4px;
+}
+
+.sa-product-page .pe--inner--page--navigation .inner--nav--wrap > div {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.6em 1.2em;
+    transition: color 0.3s ease;
+}
+
+.sa-product-page .elementor-sticky--effects .pe--inner--page--navigation {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: color-mix(in srgb, var(--secondaryBackground) 85%, transparent);
+}
+
+/* --- 4C. Product Card Hover Effects --- */
+.sa-product-page .saren--single--product {
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sa-product-page .saren--single--product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.sa-product-page .saren--product--image img {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sa-product-page .saren--single--product:hover .saren--product--image img {
+    transform: scale(1.03);
+}
+
+.sa-product-page .product-name {
+    position: relative;
+    display: inline-block;
+}
+
+.sa-product-page .product-name::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--mainColor);
+    transition: width 0.3s ease;
+}
+
+.sa-product-page .saren--single--product:hover .product-name::after {
+    width: 100%;
+}
+
+/* --- 4D. Typography & Spacing Consistency --- */
+.sa-product-page .elementor-text-editor p {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1.25em;
+}
+
+.sa-product-page .elementor-text-editor ul,
+.sa-product-page .elementor-text-editor ol {
+    padding-left: 1.25em;
+    margin-bottom: 1.5em;
+}
+
+.sa-product-page .elementor-text-editor ul li,
+.sa-product-page .elementor-text-editor ol li {
+    margin-bottom: 0.6em;
+    line-height: 1.7;
+}
+
+/* --- 4E. Product Meta Refinement --- */
+.sa-product-page .saren--product--meta {
+    padding: 0.75em 0.5em;
+}
+
+.sa-product-page .product-name.woocommerce-loop-product__title {
+    text-transform: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+}
+
+.sa-product-page .product-price {
+    font-size: 0.9rem;
+    color: var(--secondaryColor);
+}
+
+.sa-product-page .saren--single--product .product-short-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-top: 0.5em;
+    color: var(--secondaryColor);
+}
+
+/* Product description — section + feature list (paste HTML with these classes)
+   Broad selectors so styles apply on product pages regardless of wrapper */
+.product-desc-section {
+    margin-bottom: 1.25em;
+}
+.product-desc-section h2 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 0 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.product-desc-feature {
+    margin: 0.5em 0;
+}
+.product-desc-feature dt {
+    font-weight: 600;
+    font-size: 0.85em;
+    margin-bottom: 0.15em;
+}
+.product-desc-feature dd {
+    margin: 0 0 0.5em;
+    padding-left: 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: var(--secondaryColor);
+}
+
+/* --- 4F. Responsive --- */
+@media (max-width: 1023px) and (min-width: 577px) {
+    .sa-product-page .saren--products-grid {
+        --columns: 2 !important;
+    }
+
+    .sa-product-page .pe--inner--page--navigation {
+        width: 100%;
+    }
+
+    .sa-product-page .pe--inner--page--navigation .inner--nav--wrap {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .sa-product-page .pe--inner--page--navigation {
+        border-radius: var(--radius, 7.5px);
+        width: 100%;
+    }
+
+    .sa-product-page .pe--inner--page--navigation .inner--nav--wrap {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .sa-product-page .pe--inner--page--navigation .inner--nav--wrap > div {
+        font-size: 0.75rem;
+        padding: 0.5em 0.8em;
+    }
+
+    .sa-product-page .saren--single--product:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* ========================================
+   5. Product Page Components (sa- prefixed)
+   HTML blocks for Elementor HTML widgets
+   ======================================== */
+
+/* --- 5A. Coffee Product Info Card --- */
+.sa-coffee-card {
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 0;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.sa-coffee-card__header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-coffee-card__image {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: calc(var(--radius, 7.5px) - 2px);
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--linesColor, rgba(0,0,0,0.06));
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.sa-coffee-card__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.sa-coffee-card__subtitle {
+    font-size: 0.85rem;
+    color: var(--secondaryColor);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.sa-coffee-card__specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.sa-coffee-card__spec {
+    padding: 0.85rem 1.5rem;
+    border-bottom: 1px solid var(--linesColor);
+    border-right: 1px solid var(--linesColor);
+}
+
+.sa-coffee-card__spec:nth-child(even) {
+    border-right: none;
+}
+
+.sa-coffee-card__spec:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+.sa-coffee-card__spec-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--secondaryColor);
+    margin-bottom: 0.2rem;
+}
+
+.sa-coffee-card__spec-value {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.sa-coffee-card__notes {
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid var(--linesColor);
+}
+
+.sa-coffee-card__notes-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--secondaryColor);
+    margin-bottom: 0.5rem;
+}
+
+.sa-coffee-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.sa-coffee-card__tag {
+    display: inline-block;
+    padding: 0.3em 0.75em;
+    border: 1px solid var(--linesColor);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--mainColor);
+}
+
+@media (max-width: 600px) {
+    .sa-coffee-card__specs {
+        grid-template-columns: 1fr;
+    }
+    .sa-coffee-card__spec {
+        border-right: none;
+    }
+    .sa-coffee-card__spec:nth-last-child(-n+2) {
+        border-bottom: 1px solid var(--linesColor);
+    }
+    .sa-coffee-card__spec:last-child {
+        border-bottom: none;
+    }
+}
+
+/* --- 5B. Process Comparison --- */
+.sa-process-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2rem 0;
+}
+
+.sa-process-col {
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 1.5rem;
+}
+
+.sa-process-col__title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sa-process-col__icon {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    border-radius: 50%;
+    font-size: 0.65rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.sa-process-col__desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--secondaryColor);
+    margin: 0 0 1rem;
+}
+
+.sa-process-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: process;
+}
+
+.sa-process-steps li {
+    counter-increment: process;
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.sa-process-steps li::before {
+    content: counter(process);
+    position: absolute;
+    left: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: var(--linesColor);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.sa-process-col__flavor {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--linesColor);
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+}
+
+.sa-process-col__flavor strong {
+    color: var(--mainColor);
+}
+
+@media (max-width: 600px) {
+    .sa-process-compare {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- 5C. Brewing Recommendation --- */
+.sa-brew-rec {
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.sa-brew-rec__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--secondaryColor);
+    margin-bottom: 0.5rem;
+}
+
+.sa-brew-rec__method {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.sa-brew-rec__params {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.sa-brew-rec__param {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    background: var(--mainBackground);
+    border-radius: calc(var(--radius, 7.5px) - 2px);
+}
+
+.sa-brew-rec__param-icon {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.sa-brew-rec__param-value {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.sa-brew-rec__param-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--secondaryColor);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+    .sa-brew-rec__params {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- 5D. Trust Signals Bar --- */
+.sa-trust-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 1.25rem;
+    margin: 2rem 0;
+    border-top: 1px solid var(--linesColor);
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+}
+
+.sa-trust-item__icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondaryBackground);
+    border-radius: 50%;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.sa-trust-item strong {
+    color: var(--mainColor);
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+    .sa-trust-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+/* --- 5E. Taste Profile --- */
+.sa-taste-profile {
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.sa-taste-profile__title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 1rem;
+}
+
+.sa-taste-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+}
+
+.sa-taste-row__label {
+    flex: 0 0 90px;
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    text-align: right;
+}
+
+.sa-taste-row__track {
+    flex: 1;
+    height: 6px;
+    background: var(--linesColor);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.sa-taste-row__fill {
+    height: 100%;
+    background: var(--mainColor);
+    border-radius: 3px;
+}
+
+.sa-taste-row__value {
+    flex: 0 0 28px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ========================================
+   6. Recipe Page (.sa-recipe)
+   Interactive brew guide — mobile-first, QR-scan landing
+   ======================================== */
+
+/* --- 6A. Recipe Wrapper --- */
+.sa-recipe {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.sa-recipe__section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--linesColor);
+}
+
+/* --- 6B. Recipe Hero --- */
+.sa-recipe__hero {
+    text-align: center;
+    padding: 2.5rem 1rem 2rem;
+}
+
+.sa-recipe__roast-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3em 0.9em;
+    border: 1px solid var(--linesColor);
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+}
+
+.sa-recipe__title {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.35rem;
+    line-height: 1.15;
+}
+
+.sa-recipe__origin {
+    font-size: 0.85rem;
+    color: var(--secondaryColor);
+    margin: 0;
+}
+
+/* --- 6C. Brew Method Selector --- */
+.sa-recipe__methods {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.sa-recipe__method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.75rem 0.25rem;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.19, 1, .22, 1);
+    position: relative;
+    overflow: hidden;
+    color: var(--mainColor);
+}
+
+.sa-recipe__method::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--mainColor);
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(.19, 1, .22, 1);
+}
+
+.sa-recipe__method.active {
+    border-color: var(--mainColor);
+}
+
+.sa-recipe__method.active::after {
+    transform: scaleX(1);
+}
+
+.sa-recipe__method:hover {
+    border-color: var(--mainColor);
+}
+
+.sa-recipe__method-icon {
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.sa-recipe__method.active .sa-recipe__method-icon {
+    opacity: 1;
+}
+
+.sa-recipe__method-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.sa-recipe__method-time {
+    font-size: 0.6rem;
+    color: var(--secondaryColor);
+}
+
+/* --- 6D. Recipe Card --- */
+.sa-recipe__card {
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    overflow: hidden;
+}
+
+/* --- 6E. Recipe Parameters --- */
+.sa-recipe__params-wrap {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-recipe__params {
+    display: none;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.25rem;
+    text-align: center;
+}
+
+.sa-recipe__params.active {
+    display: grid;
+    animation: sa-fadeIn 0.3s ease;
+}
+
+@keyframes sa-fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.sa-recipe__param {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.sa-recipe__param-value {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.sa-recipe__param-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--secondaryColor);
+}
+
+/* --- 6F. Grind Size Visualizer --- */
+.sa-recipe__grind {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-recipe__grind-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--secondaryColor);
+    margin-bottom: 0.5rem;
+}
+
+.sa-recipe__grind-track {
+    position: relative;
+    height: 4px;
+    background: var(--linesColor);
+    border-radius: 2px;
+}
+
+.sa-recipe__grind-marker {
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    width: 14px;
+    height: 14px;
+    background: var(--mainColor);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 0.5s cubic-bezier(.19, 1, .22, 1);
+    box-shadow: 0 0 0 3px var(--secondaryBackground);
+}
+
+.sa-recipe__grind-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
+    color: var(--secondaryColor);
+    margin-top: 0.35rem;
+}
+
+.sa-recipe__grind-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 0.5rem;
+    min-height: 12px;
+}
+
+.sa-recipe__grind-dot {
+    display: block;
+    background: var(--mainColor);
+    border-radius: 50%;
+    transition: width 0.4s ease, height 0.4s ease;
+    opacity: 0.5;
+}
+
+/* --- 6G. Brew Steps --- */
+.sa-recipe__steps-wrap {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-recipe__steps {
+    display: none;
+}
+
+.sa-recipe__steps.active {
+    display: block;
+    animation: sa-fadeIn 0.3s ease;
+}
+
+.sa-recipe__steps-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.sa-recipe__steps-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--secondaryColor);
+}
+
+.sa-recipe__steps-progress {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--secondaryColor);
+    transition: color 0.3s;
+}
+
+.sa-recipe__steps.all-done .sa-recipe__steps-progress {
+    color: #4caf50;
+}
+
+.sa-recipe__step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--linesColor);
+    position: relative;
+    transition: opacity 0.3s;
+}
+
+.sa-recipe__step:last-child {
+    border-bottom: none;
+}
+
+.sa-recipe__step.completed {
+    opacity: 0.4;
+}
+
+.sa-recipe__step-check {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--linesColor);
+    background: transparent;
+    cursor: pointer;
+    margin-top: 0.15rem;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.sa-recipe__step-check:hover {
+    border-color: var(--mainColor);
+}
+
+.sa-recipe__step.completed .sa-recipe__step-check {
+    background: var(--mainColor);
+    border-color: var(--mainColor);
+}
+
+.sa-recipe__step.completed .sa-recipe__step-check::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    width: 5px;
+    height: 9px;
+    border: solid var(--mainBackground);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.sa-recipe__step-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.sa-recipe__step-body strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+.sa-recipe__step-body p {
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    margin: 0;
+    line-height: 1.45;
+}
+
+.sa-recipe__step-time {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--mainColor);
+    padding: 0.2em 0.6em;
+    background: var(--mainBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: 12px;
+    margin-top: 0.2rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    font-family: inherit;
+}
+
+.sa-recipe__step-time:hover {
+    border-color: var(--mainColor);
+    background: var(--secondaryBackground);
+}
+
+/* --- 6H. Brew Timer --- */
+.sa-recipe__timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem;
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-recipe__timer-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.sa-recipe__timer-ring svg {
+    display: block;
+}
+
+#sa-timer-ring {
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.sa-recipe__timer-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+}
+
+.sa-recipe__timer-done {
+    animation: sa-timerFlash 0.6s ease infinite alternate;
+}
+
+@keyframes sa-timerFlash {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+}
+
+.sa-recipe__timer-controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sa-recipe__timer-btn-wrap,
+.sa-recipe__next-step-wrap {
+    animation: sa-fadeIn 0.3s ease;
+}
+
+.sa-recipe__next-step-wrap {
+    animation: sa-pulseIn 0.4s cubic-bezier(.19, 1, .22, 1);
+}
+
+@keyframes sa-pulseIn {
+    0%   { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- 6H-b. Language Toggle --- */
+.sa-recipe__lang-toggle {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3em 0.9em;
+    border: 1px solid var(--linesColor);
+    border-radius: 20px;
+    background: var(--mainBackground);
+    color: var(--mainColor);
+    cursor: pointer;
+    margin-top: 0.75rem;
+    transition: border-color 0.2s ease;
+    font-family: inherit;
+}
+
+.sa-recipe__lang-toggle:hover {
+    border-color: var(--mainColor);
+}
+
+/* --- 6I. Pro Tip --- */
+.sa-recipe__tip {
+    display: none;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.sa-recipe__tip.active {
+    display: flex;
+    animation: sa-fadeIn 0.3s ease;
+}
+
+.sa-recipe__tip-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.sa-recipe__tip strong {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.2rem;
+}
+
+.sa-recipe__tip p {
+    margin: 0;
+    color: var(--secondaryColor);
+}
+
+/* --- 6J. Coffee Profile --- */
+.sa-recipe__profile {
+    margin-top: 1rem;
+}
+
+.sa-recipe__profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.sa-recipe__profile-detail {
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 0.75rem;
+}
+
+.sa-recipe__profile-label {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--secondaryColor);
+    margin-bottom: 0.2rem;
+}
+
+.sa-recipe__profile-value {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.sa-recipe__profile-notes {
+    margin-top: 0.75rem;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    padding: 0.75rem;
+}
+
+.sa-recipe__profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.35rem;
+}
+
+.sa-recipe__tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.25em 0.7em;
+    border: 1px solid var(--linesColor);
+    border-radius: 14px;
+    background: var(--mainBackground);
+}
+
+/* --- 6K. Read More Guides --- */
+.sa-recipe__guides-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+.sa-recipe__guide-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    text-decoration: none;
+    color: var(--mainColor);
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.sa-recipe__guide-card:hover {
+    border-color: var(--mainColor);
+    transform: translateY(-1px);
+}
+
+.sa-recipe__guide-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mainBackground);
+    border-radius: 50%;
+    border: 1px solid var(--linesColor);
+}
+
+.sa-recipe__guide-icon svg {
+    opacity: 0.7;
+}
+
+.sa-recipe__guide-text {
+    min-width: 0;
+}
+
+.sa-recipe__guide-text strong {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.sa-recipe__guide-text span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--secondaryColor);
+    line-height: 1.35;
+}
+
+/* --- 6L. Footer CTA --- */
+.sa-recipe__footer {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.sa-recipe__footer p {
+    font-size: 0.75rem;
+    color: var(--secondaryColor);
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+}
+
+.sa-recipe__footer .pe--button {
+    display: inline-block;
+}
+
+/* --- 6M. Recipe Responsive --- */
+@media (max-width: 400px) {
+    .sa-recipe__params {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 0.75rem;
+    }
+
+    .sa-recipe__method-name {
+        font-size: 0.6rem;
+    }
+
+    .sa-recipe__method-time {
+        display: none;
+    }
+}
+
+@media (min-width: 541px) {
+    .sa-recipe {
+        max-width: 600px;
+    }
+
+    .sa-recipe__guides-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- 6N. Recipe App Enhancements --- */
+
+.sa-recipe__hero {
+    background: linear-gradient(180deg, var(--secondaryBackground) 0%, transparent 100%);
+    border-radius: var(--radius, 7.5px) var(--radius, 7.5px) 0 0;
+}
+
+.sa-recipe__method:active {
+    transform: scale(0.96);
+    transition-duration: 0.1s;
+}
+
+.sa-recipe__method.active {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.sa-recipe__card {
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+}
+
+.sa-recipe__step.completed .sa-recipe__step-body strong {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--secondaryColor);
+}
+
+.sa-recipe__step.completed .sa-recipe__step-check {
+    transform: scale(1.08);
+}
+
+.sa-recipe__step--active {
+    position: relative;
+}
+
+.sa-recipe__step--active::before {
+    content: '';
+    position: absolute;
+    left: -1.25rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--mainColor);
+    border-radius: 1px;
+    animation: sa-fadeIn 0.3s ease;
+}
+
+.sa-recipe__timer--running #sa-timer-ring {
+    filter: drop-shadow(0 0 6px var(--mainColor));
+}
+
+.sa-recipe__step-time:active {
+    transform: scale(0.94);
+    transition-duration: 0.1s;
+}
+
+.sa-recipe__step-check:active {
+    transform: scale(0.9);
+    transition-duration: 0.1s;
+}
+
+.sa-recipe__lang-toggle:active {
+    transform: scale(0.94);
+    transition-duration: 0.1s;
+}
+
+.sa-recipe__guide-card:active {
+    transform: scale(0.98);
+    transition-duration: 0.1s;
+}
+
+.sa-recipe__profile-detail {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sa-recipe__profile-detail:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.sa-recipe__steps.all-done .sa-recipe__steps-progress {
+    font-weight: 700;
+}
+
+.sa-recipe__step-time:focus-visible,
+.sa-recipe__step-check:focus-visible,
+.sa-recipe__method:focus-visible {
+    outline: 2px solid var(--mainColor);
+    outline-offset: 2px;
+}
+
+/* --- 5F. Freshness Badge --- */
+.sa-freshness {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--linesColor);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 1rem 0;
+}
+
+.sa-freshness__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4caf50;
+    animation: sa-pulse 2s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes sa-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.sa-freshness__text strong {
+    color: var(--mainColor);
+}
+
+/* --- 5G. Pairs Well With --- */
+.sa-pairs {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+}
+
+.sa-pairs::-webkit-scrollbar { display: none; }
+
+.sa-pairs__item {
+    flex: 0 0 140px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--mainColor);
+}
+
+.sa-pairs__item img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius, 7.5px);
+    display: block;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--linesColor);
+}
+
+.sa-pairs__name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.sa-pairs__why {
+    font-size: 0.7rem;
+    color: var(--secondaryColor);
+    margin-top: 0.15rem;
+}
+
+/* --- 5H. Coffee Card Purchase Button --- */
+.sa-coffee-card__action {
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid var(--linesColor);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.sa-coffee-card__price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.sa-coffee-card__price small {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--secondaryColor);
+    display: block;
+    margin-top: 0.1rem;
+}
+
+.sa-coffee-card__action .pe--button {
+    font-size: 0.85em;
+}
+
+.sa-coffee-card__action .pe--button .pe--button--wrapper a {
+    padding: 0.55em 1.4em;
+    border-radius: var(--radius, 7.5px);
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.sa-coffee-card__action .pe--button .pe--button--wrapper a:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+/* --- 5I. Story Section — 2-Column Text + Image --- */
+.sa-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: 1px solid var(--linesColor);
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-story--reverse {
+    direction: rtl;
+}
+
+.sa-story--reverse > * {
+    direction: ltr;
+}
+
+.sa-story__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.sa-story__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--secondaryColor);
+    margin-bottom: 0.5rem;
+}
+
+.sa-story__title {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+}
+
+.sa-story__lead {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--secondaryColor);
+    margin: 0 0 1.5rem;
+}
+
+.sa-story__body {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.sa-story__body p {
+    margin: 0 0 1rem;
+}
+
+.sa-story__body strong {
+    color: var(--mainColor);
+    font-weight: 600;
+}
+
+.sa-story__list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem;
+}
+
+.sa-story__list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.sa-story__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--mainColor);
+}
+
+.sa-story__highlight {
+    background: var(--secondaryBackground);
+    border-left: 3px solid var(--mainColor);
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    border-radius: 0 var(--radius, 7.5px) var(--radius, 7.5px) 0;
+}
+
+.sa-story__visual {
+    position: relative;
+}
+
+.sa-story__img-wrap {
+    position: relative;
+    border-radius: var(--radius, 7.5px);
+    overflow: hidden;
+}
+
+.sa-story__img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.sa-story__img-accent {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    width: 55%;
+    border-radius: var(--radius, 7.5px);
+    overflow: hidden;
+    border: 3px solid var(--mainBackground);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.sa-story--reverse .sa-story__img-accent {
+    right: auto;
+    left: -1rem;
+}
+
+.sa-story__img-accent img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.sa-story__img-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    padding: 0.4em 0.8em;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    z-index: 2;
+}
+
+.sa-story--reverse .sa-story__img-badge {
+    left: auto;
+    right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .sa-story {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+
+    .sa-story--reverse {
+        direction: ltr;
+    }
+
+    .sa-story__visual {
+        order: -1;
+    }
+
+    .sa-story__img-accent {
+        width: 40%;
+        bottom: -0.75rem;
+        right: -0.5rem;
+    }
+
+    .sa-story--reverse .sa-story__img-accent {
+        left: -0.5rem;
+    }
+}
+
+/* ========================================
+   7. Searchable Coffee Table (.sa-coffee-table)
+   SEO-focused product list with search, expand, quick-add
+   ======================================== */
+
+/* --- 7A. Search Bar --- */
+.sa-coffee-table__search {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.sa-coffee-table__search-icon {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.sa-coffee-table__search-input {
+    width: 100%;
+    padding: 0.7rem 0.85rem 0.7rem 2.75rem;
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    background: var(--secondaryBackground);
+    color: var(--mainColor);
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.sa-coffee-table__search-input:focus {
+    border-color: var(--mainColor);
+}
+
+.sa-coffee-table__search-input::placeholder {
+    color: var(--secondaryColor);
+    opacity: 0.6;
+}
+
+/* --- 7B. Table Header --- */
+.sa-coffee-table__header {
+    display: grid;
+    grid-template-columns: minmax(64px, 80px) minmax(0, 1fr) minmax(80px, 100px) minmax(70px, 80px);
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--secondaryColor);
+    border-bottom: 1px solid var(--linesColor);
+}
+
+/* --- 7C. Product Row --- */
+.sa-coffee-table__row {
+    border-bottom: 1px solid var(--linesColor);
+    transition: background 0.15s;
+}
+
+.sa-coffee-table__row:last-child {
+    border-bottom: none;
+}
+
+.sa-coffee-table__row:hover {
+    background: var(--secondaryBackground);
+}
+
+.sa-coffee-table__main {
+    display: grid;
+    grid-template-columns: minmax(64px, 80px) minmax(0, 1fr) minmax(80px, 100px) minmax(70px, 80px);
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem 1rem;
+}
+
+/* --- 7D. Product Image --- */
+.sa-coffee-table__image {
+    grid-row: 1;
+    grid-column: 1;
+    flex-shrink: 0;
+}
+
+.sa-coffee-table__image img {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: calc(var(--radius, 7.5px) - 2px);
+    display: block;
+    border: 1px solid var(--linesColor);
+}
+
+/* --- 7E. Product Info --- */
+.sa-coffee-table__info {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.sa-coffee-table__name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--mainColor);
+    display: block;
+    line-height: 1.3;
+}
+
+.sa-coffee-table__name:hover {
+    opacity: 0.7;
+}
+
+.sa-coffee-table__desc {
+    font-size: 0.75rem;
+    color: var(--secondaryColor);
+    margin: 0.15rem 0 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sa-coffee-table__meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.sa-coffee-table__meta span {
+    font-size: 0.65rem;
+    color: var(--secondaryColor);
+    padding: 0.15em 0.5em;
+    border: 1px solid var(--linesColor);
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+/* --- 7F. Price Column --- */
+.sa-coffee-table__price {
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.sa-coffee-table__price .woocommerce-Price-amount {
+    font-size: 0.8rem;
+}
+
+.sa-coffee-table__price del {
+    font-size: 0.7rem;
+    opacity: 0.5;
+}
+
+/* --- 7G. Actions Column --- */
+.sa-coffee-table__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    justify-content: flex-end;
+}
+
+.sa-coffee-table__expand {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--linesColor);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.2s;
+    flex-shrink: 0;
+    padding: 0;
+    background: none;
+    color: var(--mainColor);
+}
+
+.sa-coffee-table__expand:hover {
+    border-color: var(--mainColor);
+}
+
+.sa-coffee-table__row.expanded .sa-coffee-table__expand {
+    transform: rotate(180deg);
+}
+
+.sa-coffee-table__cart {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--mainColor);
+    border-radius: 50%;
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    cursor: pointer;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.sa-coffee-table__cart:hover {
+    opacity: 0.8;
+}
+
+.sa-coffee-table__cart .quick--text {
+    display: none;
+}
+
+.sa-coffee-table__cart .card-add-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.sa-coffee-table__cart .cart-loading {
+    display: none;
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    animation: sa-spin 0.8s linear infinite;
+}
+
+.sa-coffee-table__cart.loading .card-add-icon { display: none; }
+.sa-coffee-table__cart.loading .cart-loading { display: block; }
+
+@keyframes sa-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* --- 7H. Expandable Details --- */
+.sa-coffee-table__details {
+    display: none;
+    padding: 0 1rem 1rem 4.5rem;
+    animation: sa-fadeIn 0.25s ease;
+}
+
+.sa-coffee-table__row.expanded .sa-coffee-table__details {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.sa-coffee-table__highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.sa-coffee-table__highlights li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
+    color: var(--secondaryColor);
+}
+
+.sa-coffee-table__highlights li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--mainColor);
+}
+
+.sa-coffee-table__link {
+    flex-shrink: 0;
+}
+
+/* Hide duplicate pb__hover on underlined button — hover effect only applies to pb--bordered/pb--background */
+.sa-coffee-table__link.pb--underlined .pb__hover {
+    display: none;
+}
+
+/* --- 7I. Coffee Table Responsive --- */
+@media (max-width: 768px) {
+    .sa-coffee-table__header {
+        display: none;
+    }
+
+    .sa-coffee-table__main {
+        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        gap: 0.5rem 1rem;
+    }
+
+    .sa-coffee-table__image {
+        grid-column: 1;
+        grid-row: 1;
+        margin-right: 0;
+    }
+
+    .sa-coffee-table__info {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+    }
+
+    .sa-coffee-table__price {
+        grid-column: 1;
+        grid-row: 2;
+        text-align: left;
+        padding-top: 0;
+    }
+
+    .sa-coffee-table__actions {
+        grid-column: 2;
+        grid-row: 2;
+        padding-top: 0;
+        justify-content: flex-end;
+    }
+
+    .sa-coffee-table__details {
+        padding-left: 1rem;
+    }
+
+    .sa-coffee-table__row.expanded .sa-coffee-table__details {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sa-coffee-table__desc {
+        -webkit-line-clamp: 1;
+    }
+}
+
+/* --- 7J. Quick Shop Modal: Remove hover on variation rows --- */
+.quick-add-to-cart-popup .variations tr,
+.saren--popup--cart--product .variations tr {
+    transition: none;
+}
+.quick-add-to-cart-popup .variations tr:hover,
+.saren--popup--cart--product .variations tr:hover {
+    background: transparent !important;
+}
+
+/* ========================================
+   NEW: Category Hero [sa_category_hero]
+   Full-width hero with featured product card
+   ======================================== */
+
+.sa-hero {
+    padding: 8rem 2rem 3rem;
+    margin: 0 0 2.5rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--secondaryBackground);
+    border-bottom: 1px solid var(--linesColor);
+}
+
+.sa-hero__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.sa-hero__header {
+    display: contents;
+}
+
+.sa-hero__header .sa-hero__text {
+    grid-column: 1;
+}
+
+.sa-hero__heading {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0 0 1rem;
+}
+
+.sa-hero__subtitle {
+    font-size: 1.1rem;
+    color: var(--secondaryColor);
+    line-height: 1.65;
+    margin: 0 0 1.75rem;
+    max-width: 480px;
+}
+
+.sa-hero__cta {
+    margin-top: 0.5rem;
+}
+
+/* Hero product card */
+.sa-hero__product {
+    display: flex;
+    background: var(--mainBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.sa-hero__product:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.sa-hero__product-image {
+    flex: 0 0 45%;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    max-height: 320px;
+    border-radius: var(--radius, 7.5px);
+    background: linear-gradient(135deg, var(--secondaryBackground, #f8f8f8) 0%, rgba(0,0,0,0.03) 100%);
+    border: 1px solid var(--linesColor, rgba(0,0,0,0.08));
+}
+
+.sa-hero__product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.sa-hero__product:hover .sa-hero__product-image img {
+    transform: scale(1.03);
+}
+
+.sa-hero__product-info {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sa-hero__product-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.3em 0.75em;
+    border: 1px solid var(--mainColor);
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+    align-self: flex-start;
+}
+
+.sa-hero__product-name {
+    font-size: 1.2rem;
+    margin: 0 0 0.4rem;
+    line-height: 1.3;
+}
+
+.sa-hero__product-name a {
+    color: var(--mainColor);
+    text-decoration: none;
+}
+
+.sa-hero__product-desc {
+    font-size: 0.85rem;
+    color: var(--secondaryColor);
+    line-height: 1.55;
+    margin: 0 0 0.6rem;
+}
+
+.sa-hero__product-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.sa-hero__product-meta span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--secondaryColor);
+    padding: 0.2em 0.6em;
+    background: var(--secondaryBackground);
+    border-radius: 3px;
+}
+
+.sa-hero__product-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.sa-hero__product-btn {
+    align-self: flex-start;
+}
+
+/* Hero responsive */
+@media (max-width: 768px) {
+    .sa-hero {
+        padding: 6rem 1.5rem 2rem;
+    }
+
+    .sa-hero__inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .sa-hero__product {
+        flex-direction: column;
+    }
+
+    .sa-hero__product-image {
+        flex: none;
+        max-height: 280px;
+    }
+}
+
+
+/* ========================================
+   NEW: Product Showcase [sa_product_showcase]
+   Immersive product cards with hover effects
+   ======================================== */
+
+.sa-showcase {
+    margin: 3rem 0;
+}
+
+.sa-showcase__header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sa-showcase__heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.02em;
+}
+
+.sa-showcase__sub {
+    font-size: 0.85rem;
+    color: var(--secondaryColor);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0;
+}
+
+.sa-showcase__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.sa-showcase__card {
+    background: var(--secondaryBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: var(--radius, 7.5px);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.sa-showcase__card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+}
+
+.sa-showcase__image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+}
+
+.sa-showcase__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.sa-showcase__card:hover .sa-showcase__image img {
+    transform: scale(1.04);
+}
+
+.sa-showcase__roast {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.35em 0.75em;
+    background: var(--mainBackground);
+    color: var(--mainColor);
+    border-radius: 3px;
+    backdrop-filter: blur(4px);
+}
+
+.sa-showcase__body {
+    padding: 1.25rem;
+}
+
+.sa-showcase__name {
+    font-size: 1.1rem;
+    margin: 0 0 0.35rem;
+    line-height: 1.3;
+}
+
+.sa-showcase__name a {
+    color: var(--mainColor);
+    text-decoration: none;
+}
+
+.sa-showcase__origin {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.sa-showcase__origin span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--secondaryColor);
+}
+
+.sa-showcase__origin span + span::before {
+    content: '\00B7';
+    margin-right: 0.5rem;
+}
+
+.sa-showcase__notes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.sa-showcase__note {
+    font-size: 0.7rem;
+    padding: 0.25em 0.6em;
+    background: var(--mainBackground);
+    border: 1px solid var(--linesColor);
+    border-radius: 3px;
+    color: var(--secondaryColor);
+}
+
+.sa-showcase__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--linesColor);
+}
+
+.sa-showcase__price {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Showcase responsive */
+@media (max-width: 600px) {
+    .sa-showcase__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-showcase__image {
+        aspect-ratio: 3 / 2;
+    }
+}
+
+
+/* ========================================
+   FIX: pe--button.pb--bordered visibility
+   Ensure bordered buttons have visible border
+   against matching backgrounds
+   ======================================== */
+
+.sa-product-widget .pe--button.pb--bordered .pe--button--wrapper a,
+.sa-hero__product .pe--button.pb--bordered .pe--button--wrapper a,
+.sa-showcase__card .pe--button.pb--bordered .pe--button--wrapper a,
+.sa-recipe .pe--button.pb--bordered .pe--button--wrapper a {
+    border: 1px solid var(--mainColor);
+    border-radius: var(--radius, 7.5px);
+}
+
+.sa-product-page .pe--button.pb--bordered .pe--button--wrapper a {
+    border: 1px solid var(--mainColor);
+    border-radius: var(--radius, 7.5px);
+}
+
+/* ========================================
+   Commercial Landing Page Components
+   Used on: /da/kaffe/tilbud and similar
+   Scoped under .sa-product-page
+   ======================================== */
+
+/* --- Page header (replaces .sa-header for commercial pages) --- */
+.sa-page-header {
+    margin-bottom: 2.5rem;
+}
+
+.sa-page-header__badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mainBackground);
+    background: var(--mainColor);
+    padding: 0.3em 0.8em;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
+
+.sa-page-header__title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin: 0 0 1rem;
+    letter-spacing: -0.03em;
+}
+
+.sa-page-header__subtitle {
+    font-size: 1.15rem;
+    color: var(--secondaryColor);
+    line-height: 1.65;
+    margin: 0 0 1.25rem;
+}
+
+.sa-page-header__meta {
+    font-size: 0.8rem;
+    color: var(--secondaryColor);
+    padding-top: 1rem;
+    border-top: 1px solid var(--linesColor);
+}
+
+/* --- Section heading & intro text (commercial pages) --- */
+.sa-section-heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    letter-spacing: -0.02em;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--linesColor);
+    margin: 3rem 0 1rem;
+}
+
+.sa-section-heading:first-child {
+    margin-top: 0;
+}
+
+.sa-section-intro {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 1.25em;
+}
+
+.sa-section-intro a {
+    color: var(--mainColor);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.sa-section-intro a:hover {
+    opacity: 0.7;
+}
+
+/* ========================================
+   Offers Page — Product Grid & Badges
+   ======================================== */
+
+/* Offers grid: explicit 2 columns on desktop, stacked on mobile */
+.sa-offers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.sa-offers-grid .sa-coffee-card {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .sa-offers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Bordered button fix inside offer cards */
+.sa-offers-grid .pe--button.pb--bordered .pe--button--wrapper a {
+    border: 1px solid var(--mainColor);
+    border-radius: var(--radius, 7.5px);
+}
+
+/* Offer badge */
+.sa-offer-badge {
+    display: inline-block;
+    background: #e74c3c;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+}
+
+/* Price with strikethrough for original price */
+.sa-coffee-card__prices {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.sa-coffee-card__price--old {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 0.85rem !important;
+    font-weight: 400 !important;
+}
+
+/* ========================================
+   FIX: pe--infobox--title contrast
+   White text on light gray was hard to read
+   ======================================== */
+.pe--info--box .pe--infobox--title,
+.pe--infobox--title,
+.pe--infobox--title p {
+    color: var(--mainColor) !important;
+}
+
+/* ========================================
+   FIX: pe--button pb--background / pb--bordered text contrast
+   Default state: dark text on light gray container (pb__main / pb__hover)
+   ======================================== */
+.pe--button.pb--background .pe--button--wrapper a,
+.pe--button.pb--bordered .pe--button--wrapper a {
+    color: var(--mainColor);
+}
+.pe--button.pb--background .pe--button--wrapper a .pb__main,
+.pe--button.pb--background .pe--button--wrapper a .pb__hover,
+.pe--button.pb--bordered .pe--button--wrapper a .pb__main,
+.pe--button.pb--bordered .pe--button--wrapper a .pb__hover {
+    color: inherit;
+}
+
+/* ========================================
+   FIX: quick-add-to-cart-btn — revert overdimensioned height
+   Keep icon sizing; remove min-height/min-width that made button too large
+   ======================================== */
+button.quick-add-to-cart-btn .card-add-icon,
+button.quick-add-to-cart-btn .card-add-icon svg {
+    width: 1.1em;
+    height: 1.1em;
+}
+button.quick-add-to-cart-btn .card-add-icon svg {
+    fill: var(--mainColor);
+}
+button.quick-add-to-cart-btn svg.cart-loading {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+/* ========================================
+   FIX: product-short-desc visibility
+   Ensure short description displays in product meta
+   ======================================== */
+.saren--product--meta .product-short-desc,
+.saren--product--main .product-short-desc {
+    display: block;
+    width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--secondaryColor);
+    margin-top: 0.5em;
+}
+.saren--product--meta .product-short-desc:empty,
+.saren--product--main .product-short-desc:empty {
+    display: none;
+}
+
+/* ========================================
+   FIX: VIEW CART button contrast on hover
+   Default: green on light container. Hover was light gray on light = invisible.
+   Hover: darker green, keeps contrast.
+   ======================================== */
+.woocommerce-message a.button.saren--woo--button.saren-view-cart {
+    border: 1px solid transparent;
+}
+.woocommerce-message a.button.saren--woo--button.saren-view-cart:hover {
+    background: var(--mainColor);
+    background: color-mix(in srgb, var(--mainColor) 80%, black);
+    color: var(--mainBackground);
+    border-color: transparent;
+}
+.woocommerce-message a.button.saren--woo--button.saren-view-cart:hover svg {
+    fill: var(--mainBackground);
+}
+
+/* ========================================
+   Cart count — dark blue on mobile (< 765px)
+   ======================================== */
+@media (max-width: 765px) {
+    .cart--count {
+        color: var(--mainColor) !important;
+    }
+}
+
+/* ========================================
+   Testimonials grid (anmeldelser pillar)
+   2-col grid for customer reviews
+   ======================================== */
+.sa-testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+@media (max-width: 768px) {
+    .sa-testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Initials avatar for testimonials (when no image) */
+.sa-expert__initials {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--mainColor);
+    color: var(--mainBackground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+}

@@ -1,0 +1,298 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import CtaSection from '../components/CtaSection.astro';
+import StatsBanner from '../components/StatsBanner.astro';
+import FeaturesGrid from '../components/FeaturesGrid.astro';
+import IconCards from '../components/IconCards.astro';
+import ImmersiveContentVisual from '../components/ImmersiveContentVisual.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
+import Timeline from '../components/Timeline.astro';
+import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
+import TeamGrid from '../components/TeamGrid.astro';
+import LogoCloud from '../components/LogoCloud.astro';
+import PricingTable from '../components/PricingTable.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ProductCarousel from '../components/ProductCarousel.astro';
+import StickyColumnSection from '../components/StickyColumnSection.astro';
+
+const heroData = {
+  headline: 'Test Overskrift',
+  description: 'Test beskrivelse — en professionel løsning til din virksomhed.',
+  primaryCta: { text: 'Kom i gang', href: '/kontakt' },
+  secondaryCta: { text: 'Læs mere', href: '/om-os' },
+  alignment: 'left' as const,
+};
+
+const ctaData = {
+  headline: 'Klar til at komme i gang?',
+  description: 'Få et uforpligtende tilbud inden for 24 timer.',
+  ctaButton: { text: 'Kontakt os i dag', href: '/kontakt' },
+  backgroundColor: 'primary' as const,
+  layout: 'centered' as const,
+};
+
+const statsData = {
+  headline: 'Ongoing Innovation: Stay Ahead with Saren',
+  description:
+    "By choosing Saren®, you're investing in a theme that grows with you. Our timeline is a promise of continuous improvement, designed to help you stay ahead of trends while meeting all your business needs.",
+  updateText: 'Last Major Update - v1.5.6 - (21 MAR 2025)',
+  stats: [
+    { value: '28+', label: 'Pre-Made Demos', highlight: true },
+    { value: '50+', label: 'Custom Widgets' },
+    { value: '250+', label: 'Inner Pages' },
+    { value: '900+', label: 'Template Blocks' },
+  ],
+  infoItems: ['2 New Demos Monthly', 'Weekly Updates', '6 - Months Support'],
+  backgroundColor: 'alt' as const,
+};
+
+const featuresData = {
+  headline: 'Hvorfor vælge os',
+  description: 'Vi skil os ud med kvalitet og service.',
+  features: [
+    { icon: '✓', title: 'Skræddersyet', description: 'Tilpasset dine behov.' },
+    { icon: '⚡', title: 'Hurtig levering', description: 'Typisk 2-3 uger.' },
+    { icon: '💬', title: 'Support', description: 'Vi er altid tilgængelige.' },
+    { icon: '🏆', title: 'Kvalitet', description: 'Testet og pålidelig.' },
+    { icon: '📊', title: 'Transparente priser', description: 'Ingen skjulte omkostninger.' },
+  ],
+};
+
+const iconCardsData = {
+  headline: 'Vores ydelser',
+  cards: [
+    {
+      icon: '🌐',
+      title: 'Hjemmesider',
+      description: 'Moderne, responsive hjemmesider.',
+      link: { text: 'Læs mere', href: '/ydelser' },
+    },
+    {
+      icon: '📈',
+      title: 'SEO',
+      description: 'Bliv fundet på Google.',
+      link: { text: 'Læs mere', href: '/seo' },
+    },
+  ],
+  columns: 2 as const,
+};
+
+const immersiveContentVisualData = {
+  headline: 'Moderne langform med visuel dybde',
+  leadText: 'Denne sektion er bygget til forklarende indhold, hvor tekst og visuelle lag skal arbejde sammen.',
+  content: '<p>Når en side har mere kompleks information, hjælper det at kombinere tydelig typografi med overlap-effekter og sekundære visuelle lag. Det øger læsbarheden og gør indholdet mere engagerende.</p><p>Brug varianten cinematic-overlap til premium storytelling eller stacked-cards til fremhævede indsigter.</p>',
+  imageUrl: 'https://images.unsplash.com/photo-1515378791036-0648a814c963?w=1400',
+  secondaryImageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900',
+  variant: 'cinematic-overlap' as const,
+  imagePlacement: 'right' as const,
+  overlapDepth: 64,
+  theme: 'accent' as const,
+  highlights: [
+    'Understøtter længere tekstsektioner',
+    'Skaber tydelig informationshierarki',
+    'Samler split, overlap og kort i én komponent',
+  ],
+  visualCards: [
+    { kicker: 'Flow', title: 'Narrativ rytme', content: 'Opdeler tung tekst i visuelle trin.' },
+    { kicker: 'Depth', title: 'Overlappende lag', content: 'Skaber moderne premium udtryk.' },
+  ],
+  cta: { text: 'Kontakt os', href: '/kontakt' },
+};
+
+const videoData = {
+  videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  title: 'Se hvordan det virker',
+  description: 'Kort video der viser uens løsning.',
+  provider: 'youtube' as const,
+};
+
+const timelineData = {
+  headline: 'Vores historie',
+  events: [
+    { year: '2010', title: 'Grundlagt', description: 'Vi startede med små projekter.' },
+    { year: '2020', title: '100 kunder', description: 'Vi nåede 100 tilfredse kunder.' },
+    { year: '2025', title: 'I dag', description: 'Vi servicerer hele Danmark.' },
+  ],
+};
+
+const testimonialsData = {
+  headline: 'Hvad vores kunder siger',
+  testimonials: [
+    {
+      quote: 'Professionel service og hurtig levering. Meget tilfredse!',
+      author: 'Anna Nielsen',
+      role: 'Marketingchef',
+      company: 'Nielsen & Co',
+      rating: 5,
+    },
+    {
+      quote: 'De forstod vores behov fra starten.',
+      author: 'Lars Petersen',
+      role: 'Grundlægger',
+      company: 'Petersen A/S',
+      rating: 5,
+    },
+  ],
+};
+
+const teamData = {
+  headline: 'Mød teamet',
+  members: [
+    {
+      name: 'Lars Jensen',
+      role: 'Grundlægger',
+      photo: 'https://placehold.co/128x128/f3f4f6/6b7280?text=LJ',
+      bio: '15 års erfaring.',
+      social: [{ platform: 'linkedin', url: 'https://linkedin.com' }],
+    },
+  ],
+  columns: 3 as const,
+};
+
+const logoData = {
+  headline: 'Kunder der stoler på os',
+  logos: [
+    { imageUrl: 'https://placehold.co/120x48/f3f4f6/6b7280?text=Logo1', alt: 'Kunde 1' },
+    { imageUrl: 'https://placehold.co/120x48/f3f4f6/6b7280?text=Logo2', alt: 'Kunde 2' },
+  ],
+  grayscale: true,
+};
+
+const pricingData = {
+  headline: 'Vælg den plan der passer dig',
+  tiers: [
+    {
+      name: 'Basis',
+      price: '499',
+      period: 'kr/måned',
+      features: ['5 sider', 'Responsiv design'],
+      cta: { text: 'Vælg Basis', href: '/kontakt?plan=basis' },
+      featured: false,
+    },
+    {
+      name: 'Professionel',
+      price: '999',
+      period: 'kr/måned',
+      features: ['10 sider', 'SEO', 'Prioriteret support'],
+      cta: { text: 'Vælg Professionel', href: '/kontakt?plan=pro' },
+      featured: true,
+    },
+  ],
+};
+
+const comparisonData = {
+  headline: 'Sammenlign planerne',
+  products: ['Basis', 'Professionel'],
+  features: ['Antal sider', 'SEO', 'Support'],
+  data: [
+    ['5 sider', '10 sider'],
+    [false, true],
+    ['E-mail', 'Prioriteret'],
+  ],
+};
+
+const contactData = {
+  headline: 'Kontakt os',
+  description: 'Udfyld formularen, så vender vi tilbage.',
+  fields: [
+    { type: 'text' as const, name: 'name', label: 'Navn', required: true },
+    { type: 'email' as const, name: 'email', label: 'E-mail', required: true },
+    { type: 'textarea' as const, name: 'message', label: 'Besked', required: true },
+  ],
+  submitText: 'Send besked',
+  successMessage: 'Tak! Vi vender tilbage hurtigst muligt.',
+};
+
+const faqData = {
+  headline: 'Ofte stillede spørgsmål',
+  faqs: [
+    {
+      question: 'Hvor lang tid tager det?',
+      answer: 'Typisk 2-4 uger afhængigt af størrelse.',
+    },
+    {
+      question: 'Hvad koster det?',
+      answer: 'Vores priser starter ved 5.000 kr.',
+    },
+  ],
+  defaultOpen: 0,
+};
+
+const newsletterData = {
+  headline: 'Få nyheder og tips',
+  description: 'Tilmeld dig vores nyhedsbrev.',
+  placeholder: 'Din e-mail',
+  buttonText: 'Tilmeld mig',
+};
+
+const galleryData = {
+  images: [
+    { url: 'https://placehold.co/400x300/f3f4f6/6b7280?text=1', alt: 'Billede 1', caption: 'Forside' },
+    { url: 'https://placehold.co/400x300/f3f4f6/6b7280?text=2', alt: 'Billede 2', caption: 'Ydelser' },
+  ],
+  columns: 2 as const,
+  lightbox: true,
+};
+
+const breadcrumbData = {
+  items: [
+    { label: 'Forside', href: '/' },
+    { label: 'Ydelser', href: '/ydelser' },
+    { label: 'Hjemmesider', href: '' },
+  ],
+  separator: '>',
+};
+
+const productCarouselData = {
+  heading: 'Udvalgte produkter',
+  slides: [
+    { img: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800', alt: 'Hjemmeside design' },
+    { img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800', alt: 'SEO & marketing' },
+    { img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800', alt: 'E-handel' },
+    { img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800', alt: 'Analyse & data' },
+  ],
+};
+
+const stickyColumnData = {
+  tagline: 'Kompatibilitet',
+  heading: 'Vi integrerer med dine værktøjer',
+  description: 'Vores løsninger fungerer sammen med de mest populære platforme og plugins. Uanset om du bruger analyseværktøjer, e-mail marketing eller betalingsløsninger, sikrer vi problemfri integration.',
+  items: [
+    { img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64', title: 'Responsiv design', desc: 'Hjemmesider der fungerer perfekt på mobil, tablet og desktop.' },
+    { img: 'https://images.unsplash.com/photo-1553877522-56169ac2460a?w=64', title: 'Hurtig hosting', desc: 'Optimerede hjemmesider med hurtig indlæsningstid.' },
+    { img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=64', title: 'SEO-venlig', desc: 'Bygget for søgemaskiner, så kunder finder dig.' },
+    { img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=64', title: 'Support', desc: 'Vi hjælper dig med opdateringer og tekniske spørgsmål.' },
+  ],
+};
+---
+
+<Layout title={"Component Test | " + (typeof import.meta.env.PUBLIC_SITE_URL === 'string' && import.meta.env.PUBLIC_SITE_URL ? new URL(import.meta.env.PUBLIC_SITE_URL).hostname : 'lavprishjemmeside.dk')}>
+  <main class="min-h-screen text-[var(--color-text-primary)]">
+    <div class="section-bg-page"><section id="preview-breadcrumbs" class="scroll-mt-24"><Breadcrumbs {...breadcrumbData} /></section></div>
+    <div class="section-bg-page"><section id="preview-hero-section" class="scroll-mt-24"><HeroSection {...heroData} /></section></div>
+    <div class="section-bg-alt"><section id="preview-features-grid" class="scroll-mt-24"><FeaturesGrid {...featuresData} /></section></div>
+    <div class="section-bg-page"><section id="preview-icon-cards" class="scroll-mt-24"><IconCards {...iconCardsData} /></section></div>
+    <div class="section-bg-alt"><section id="preview-immersive-content-visual" class="scroll-mt-24"><ImmersiveContentVisual {...immersiveContentVisualData} /></section></div>
+    <div class="section-bg-page"><section id="preview-product-carousel" class="scroll-mt-24"><ProductCarousel {...productCarouselData} /></section></div>
+    <div class="section-bg-alt"><section id="preview-sticky-column" class="scroll-mt-24"><StickyColumnSection {...stickyColumnData} /></section></div>
+    <div class="section-bg-page"><section id="preview-stats-banner" class="scroll-mt-24"><StatsBanner {...statsData} /></section></div>
+    <div class="section-bg-alt"><section id="preview-video-embed" class="scroll-mt-24"><VideoEmbed {...videoData} /></section></div>
+    <div class="section-bg-page"><section id="preview-timeline" class="scroll-mt-24"><Timeline {...timelineData} /></section></div>
+    <div class="section-bg-alt"><section id="preview-testimonials-carousel" class="scroll-mt-24"><TestimonialsCarousel {...testimonialsData} /></section></div>
+    <div class="section-bg-page"><section id="preview-team-grid" class="scroll-mt-24"><TeamGrid {...teamData} /></section></div>
+    <div class="section-bg-alt"><section id="preview-logo-cloud" class="scroll-mt-24"><LogoCloud {...logoData} /></section></div>
+    <div class="section-bg-page"><section id="preview-pricing-table" class="scroll-mt-24"><PricingTable {...pricingData} /></section></div>
+    <div class="section-bg-alt"><section id="preview-comparison-table" class="scroll-mt-24"><ComparisonTable {...comparisonData} /></section></div>
+    <div class="section-bg-page"><section id="preview-faq-accordion" class="scroll-mt-24"><FaqAccordion {...faqData} /></section></div>
+    <div class="section-bg-alt"><section id="preview-newsletter-signup" class="scroll-mt-24"><NewsletterSignup {...newsletterData} /></section></div>
+    <div class="section-bg-page"><section id="preview-gallery-grid" class="scroll-mt-24"><GalleryGrid {...galleryData} /></section></div>
+    <div class="section-bg-alt"><section id="preview-contact-form" class="scroll-mt-24"><ContactForm {...contactData} /></section></div>
+    <div class="section-bg-page"><section id="preview-cta-section" class="scroll-mt-24"><CtaSection {...ctaData} /></section></div>
+  </main>
+</Layout>

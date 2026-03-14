@@ -1,0 +1,399 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import HeroSection from '../components/HeroSection.astro';
+import FeaturesGrid from '../components/FeaturesGrid.astro';
+import IconCards from '../components/IconCards.astro';
+import StatsBanner from '../components/StatsBanner.astro';
+import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
+import CtaSection from '../components/CtaSection.astro';
+import PricingTable from '../components/PricingTable.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import TeamGrid from '../components/TeamGrid.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
+import ContactForm from '../components/ContactForm.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import Timeline from '../components/Timeline.astro';
+import LogoCloud from '../components/LogoCloud.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import ProductCarousel from '../components/ProductCarousel.astro';
+import StickyColumnSection from '../components/StickyColumnSection.astro';
+import ProblemSection from '../components/ProblemSection.astro';
+import HowItWorksSection from '../components/HowItWorksSection.astro';
+import TrustBadgesSection from '../components/TrustBadgesSection.astro';
+import CaseStudiesSection from '../components/CaseStudiesSection.astro';
+import IntegrationsSection from '../components/IntegrationsSection.astro';
+import FoundersNoteSection from '../components/FoundersNoteSection.astro';
+import TabsSection from '../components/TabsSection.astro';
+import ModalSection from '../components/ModalSection.astro';
+import BentoGridSection from '../components/BentoGridSection.astro';
+import OverlapCardsSection from '../components/OverlapCardsSection.astro';
+import AlternatingFeatureList from '../components/AlternatingFeatureList.astro';
+import ImmersiveContentVisual from '../components/ImmersiveContentVisual.astro';
+
+// User-generated components (src/components/custom/) — not overwritten by CMS/seed
+const customGlob = import.meta.glob('../components/custom/*.astro', { eager: true });
+function pascalToKebab(s: string): string {
+  return s.replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^-/, '');
+}
+const customMap: Record<string, any> = {};
+for (const [path, mod] of Object.entries(customGlob)) {
+  const name = path.split('/').pop()?.replace('.astro', '') ?? '';
+  if (name && mod && typeof mod === 'object' && 'default' in mod) customMap['custom/' + pascalToKebab(name)] = (mod as { default: any }).default;
+}
+
+// Map component slugs to Astro components
+const componentMap = {
+  'hero-section': HeroSection,
+  'problem-section': ProblemSection,
+  'how-it-works-section': HowItWorksSection,
+  'trust-badges-section': TrustBadgesSection,
+  'case-studies-section': CaseStudiesSection,
+  'integrations-section': IntegrationsSection,
+  'founders-note-section': FoundersNoteSection,
+  'tabs-section': TabsSection,
+  'modal-section': ModalSection,
+  'bento-grid-section': BentoGridSection,
+  'overlap-image-section': ImmersiveContentVisual,
+  'overlap-cards-section': OverlapCardsSection,
+  'alternating-feature-list': AlternatingFeatureList,
+  'immersive-content-visual': ImmersiveContentVisual,
+  'features-grid': FeaturesGrid,
+  'icon-cards': IconCards,
+  'stats-banner': StatsBanner,
+  'testimonials-carousel': TestimonialsCarousel,
+  'cta-section': CtaSection,
+  'pricing-table': PricingTable,
+  'faq-accordion': FaqAccordion,
+  'comparison-table': ComparisonTable,
+  'team-grid': TeamGrid,
+  'video-embed': VideoEmbed,
+  'contact-form': ContactForm,
+  'newsletter-signup': NewsletterSignup,
+  'content-image-split': ImmersiveContentVisual,
+  'timeline': Timeline,
+  'logo-cloud': LogoCloud,
+  'gallery-grid': GalleryGrid,
+  'product-carousel': ProductCarousel,
+  'sticky-column-section': StickyColumnSection,
+  ...customMap,
+};
+
+// Prop validation and normalization — thin safety net (AI prompt now includes exact schemas)
+function normalizeProps(slug: string, rawProps: any): any {
+  const props = JSON.parse(JSON.stringify(rawProps));
+
+  switch (slug) {
+    case 'faq-accordion':
+      if (!Array.isArray(props.faqs)) props.faqs = [];
+      if (!props.headline) props.headline = 'Ofte stillede spørgsmål';
+      break;
+
+    case 'pricing-table':
+      if (!Array.isArray(props.tiers)) props.tiers = [];
+      if (!props.headline) props.headline = 'Priser';
+      break;
+
+    case 'comparison-table':
+      if (!Array.isArray(props.products)) props.products = [];
+      if (!Array.isArray(props.features)) props.features = [];
+      if (!Array.isArray(props.data)) props.data = [];
+      if (!props.headline) props.headline = 'Sammenlign';
+      break;
+
+    case 'testimonials-carousel':
+      if (!Array.isArray(props.testimonials)) props.testimonials = [];
+      if (!props.headline) props.headline = 'Anmeldelser';
+      break;
+
+    case 'stats-banner':
+      if (!Array.isArray(props.stats)) props.stats = [];
+      if (!props.version) props.version = 'cards';
+      break;
+
+    case 'problem-section':
+      if (!Array.isArray(props.problems)) props.problems = [];
+      if (!props.headline) props.headline = 'Kender du disse udfordringer?';
+      break;
+
+    case 'how-it-works-section':
+      if (!Array.isArray(props.steps)) props.steps = [];
+      if (!props.headline) props.headline = 'Sådan fungerer det';
+      break;
+
+    case 'trust-badges-section':
+      if (!Array.isArray(props.badges)) props.badges = [];
+      break;
+
+    case 'case-studies-section':
+      if (!Array.isArray(props.cases)) props.cases = [];
+      if (!props.headline) props.headline = 'Vores referencer';
+      break;
+
+    case 'integrations-section':
+      if (!Array.isArray(props.integrations)) props.integrations = [];
+      if (!props.headline) props.headline = 'Integrerer med dine værktøjer';
+      break;
+
+    case 'founders-note-section':
+      if (!props.quote) props.quote = '';
+      if (!props.author) props.author = '';
+      break;
+
+    case 'tabs-section':
+      if (!Array.isArray(props.tabs)) props.tabs = [];
+      if (!props.headline) props.headline = 'Detaljer';
+      break;
+
+    case 'modal-section':
+      if (!props.triggerText) props.triggerText = 'Åbn';
+      if (!props.headline) props.headline = 'Information';
+      if (!props.content) props.content = '<p>Indhold</p>';
+      break;
+
+    case 'bento-grid-section':
+      if (!Array.isArray(props.items)) props.items = [];
+      if (!props.headline) props.headline = 'Vores løsninger';
+      break;
+
+    case 'overlap-image-section':
+      if (!props.headline) props.headline = 'Sektion';
+      if (!props.imageUrl) props.imageUrl = '';
+      if (!Array.isArray(props.bulletPoints)) props.bulletPoints = [];
+      props.highlights = props.bulletPoints;
+      props.leadText = props.introText || props.leadText || '';
+      props.variant = 'cinematic-overlap';
+      props.theme = props.theme === 'teal' || props.backgroundColor === 'primary' ? 'accent' : 'default';
+      props.overlapDepth = props.overlapAmount || 64;
+      props.imagePlacement = props.imagePlacement === 'center' ? 'right' : (props.imagePlacement || 'right');
+      delete props.bulletPoints;
+      delete props.introText;
+      delete props.bottomDivider;
+      delete props.overlapAmount;
+      delete props.backgroundColor;
+      break;
+
+    case 'overlap-cards-section':
+      if (!Array.isArray(props.cards)) props.cards = [];
+      break;
+
+    case 'alternating-feature-list':
+      if (!Array.isArray(props.features)) props.features = [];
+      if (!props.firstTheme) props.firstTheme = 'teal';
+      if (props.overlapAmount == null) props.overlapAmount = 80;
+      break;
+
+    case 'immersive-content-visual':
+      if (!props.headline) props.headline = 'Sektion';
+      if (!props.content) props.content = '<p>Tilføj indhold her.</p>';
+      if (!props.imageUrl) props.imageUrl = '';
+      if (!Array.isArray(props.highlights)) props.highlights = [];
+      if (!Array.isArray(props.visualCards)) props.visualCards = [];
+      if (!props.variant) props.variant = 'cinematic-overlap';
+      if (!props.imagePlacement) props.imagePlacement = 'right';
+      break;
+
+    case 'content-image-split':
+      props.leadText = props.leadText || '';
+      props.highlights = Array.isArray(props.highlights) ? props.highlights : [];
+      props.visualCards = Array.isArray(props.visualCards) ? props.visualCards : [];
+      props.imageAlt = props.imageAlt || props.headline;
+      props.imagePlacement = props.imagePosition || props.imagePlacement || 'right';
+      props.variant = 'editorial-split';
+      props.theme = 'default';
+      delete props.imagePosition;
+      delete props.backgroundColor;
+      break;
+
+    case 'features-grid':
+      if (!Array.isArray(props.features)) props.features = [];
+      if (!props.headline) props.headline = 'Funktioner';
+      break;
+
+    case 'icon-cards':
+      if (!Array.isArray(props.cards)) props.cards = [];
+      if (!props.headline) props.headline = 'Kort';
+      break;
+
+    case 'team-grid':
+      if (!Array.isArray(props.members)) props.members = [];
+      if (!props.headline) props.headline = 'Vores team';
+      break;
+
+    case 'timeline':
+      if (!Array.isArray(props.events)) props.events = [];
+      if (!props.headline) props.headline = 'Tidslinje';
+      break;
+
+    case 'logo-cloud':
+      if (!Array.isArray(props.logos)) props.logos = [];
+      break;
+
+    case 'gallery-grid':
+      if (!Array.isArray(props.images)) props.images = [];
+      break;
+
+    case 'breadcrumbs':
+      if (!Array.isArray(props.items)) props.items = [];
+      break;
+
+    case 'product-carousel':
+      if (!Array.isArray(props.slides)) props.slides = [];
+      if (!props.heading) props.heading = 'Udvalgte produkter';
+      break;
+
+    case 'sticky-column-section':
+      if (!Array.isArray(props.items)) props.items = [];
+      if (!props.heading) props.heading = 'Sektion';
+      break;
+
+    case 'hero-section':
+      if (!props.headline) props.headline = 'Velkommen';
+      if (!props.version) props.version = 'default';
+      break;
+
+    case 'cta-section':
+      if (!props.version) props.version = 'default';
+      break;
+
+    default:
+      break;
+  }
+
+  return props;
+}
+
+export async function getStaticPaths() {
+  const strictContentFetch = process.env.STRICT_CONTENT_FETCH === '1';
+  try {
+    const API_URL = import.meta.env.PUBLIC_API_URL || 'https://api.lavprishjemmeside.dk';
+
+    // Fetch all published page components
+    const response = await fetch(`${API_URL}/page-components/public?page=all`);
+
+    if (!response.ok) {
+      if (strictContentFetch) {
+        throw new Error(`Failed to fetch page components: HTTP ${response.status}`);
+      }
+      console.warn(`Failed to fetch page components: ${response.status}`);
+      return [];
+    }
+
+    const allPageComponents = await response.json();
+
+    let pageMeta: Record<string, any> = {};
+    try {
+      const metaResponse = await fetch(`${API_URL}/page-components/public-meta?page=all`);
+      if (metaResponse.ok) {
+        pageMeta = await metaResponse.json();
+      }
+    } catch (e) {
+      if (strictContentFetch) throw e;
+      console.warn('Could not fetch page meta:', (e as Error).message);
+    }
+
+    // Group by page_path
+    const pageGroups = new Map<string, any[]>();
+
+    allPageComponents.forEach((pc: any) => {
+      const path = pc.page_path || '/';
+      if (!pageGroups.has(path)) {
+        pageGroups.set(path, []);
+      }
+      pageGroups.get(path)!.push(pc);
+    });
+
+    // Generate paths (excluding homepage)
+    const paths = [];
+
+    for (const [pagePath, components] of pageGroups.entries()) {
+      // Skip homepage (handled by index.astro)
+      if (pagePath === '/') continue;
+
+      // Sort components by sort_order
+      components.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
+
+      // Generate slug from page_path
+      const slug = pagePath.replace(/^\//, '').replace(/\/$/, '');
+
+      if (!slug) continue; // Skip empty slugs
+
+      paths.push({
+        params: { slug },
+        props: {
+          pagePath,
+          pageComponents: components,
+          pageMeta: pageMeta[pagePath] || null,
+        },
+      });
+    }
+
+    console.log(`Generated ${paths.length} dynamic page(s)`);
+    return paths;
+
+  } catch (error) {
+    if (strictContentFetch) throw error;
+    console.error('Error in getStaticPaths:', error);
+    return [];
+  }
+}
+
+const { slug } = Astro.params;
+const { pagePath, pageComponents, pageMeta } = Astro.props;
+
+// Build breadcrumbs from path
+const pathSegments = pagePath.split('/').filter(Boolean);
+const breadcrumbItems = [
+  { label: 'Hjem', href: '/' },
+  ...pathSegments.map((segment: string, index: number) => ({
+    label: segment.charAt(0).toUpperCase() + segment.slice(1),
+    href: '/' + pathSegments.slice(0, index + 1).join('/'),
+  })),
+];
+
+// Page title from first component or path
+const pageTitle = pageComponents[0]?.content?.headline ||
+                  pathSegments[pathSegments.length - 1]?.charAt(0).toUpperCase() +
+                  pathSegments[pathSegments.length - 1]?.slice(1) ||
+                  'Side';
+---
+
+<Layout
+  title={pageMeta?.meta_title || pageTitle}
+  description={pageMeta?.meta_description}
+  schemaMarkup={pageMeta?.schema_markup || []}
+  ogImage={pageMeta?.og_image}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  {pageComponents.map((pc: any, index: number) => {
+    const Component = componentMap[pc.slug];
+
+    if (!Component) {
+      console.warn(`Component not found: ${pc.slug}`);
+      return null;
+    }
+
+    // Normalize props to handle AI-generated mismatches
+    const normalizedProps = normalizeProps(pc.slug, pc.content || {});
+    // Unique instance id to avoid duplicate HTML ids when same component appears multiple times
+    normalizedProps.instanceId = pc.id;
+
+    // Alternating section backgrounds (page → alt → page → …)
+    const sectionBgClass = index % 2 === 0 ? 'section-bg-page' : 'section-bg-alt';
+
+    try {
+      return (
+        <div class={sectionBgClass + ' theme-block-shell'} data-component={pc.slug} data-order={index + 1}>
+          <div class="theme-block-inner">
+            <Component {...normalizedProps} />
+          </div>
+        </div>
+      );
+    } catch (error) {
+      console.error(`Error rendering component ${pc.slug}:`, error);
+      return null;
+    }
+  })}
+</Layout>

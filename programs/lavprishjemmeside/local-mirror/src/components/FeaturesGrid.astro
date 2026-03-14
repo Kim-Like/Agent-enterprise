@@ -1,0 +1,93 @@
+---
+interface Props {
+  headline: string;
+  description?: string;
+  features: Array<{ icon: string; title: string; description: string }>;
+  columns?: 2 | 3 | 4;
+  layout?: 'icon-top' | 'icon-left';
+  instanceId?: string | number;
+}
+
+const {
+  headline = 'Funktioner',
+  description,
+  features = [],
+  layout = 'icon-top',
+  instanceId = 'default',
+} = Astro.props;
+
+const isIconLeft = layout === 'icon-left';
+---
+
+<section
+  class="py-[var(--section-padding-y)] px-[var(--container-padding-x)]"
+  aria-labelledby={`features-heading-${instanceId}`}
+>
+  <div class="mx-auto max-w-[var(--container-max-width)]">
+    <div class="text-center" data-reveal>
+      <h2
+        id={`features-heading-${instanceId}`}
+        class="heading-fluid font-bold text-[var(--color-text-primary)]"
+        style="font-family: var(--font-heading)"
+      >
+        {headline}
+      </h2>
+      {description && (
+        <p
+          class="mx-auto mt-4 max-w-2xl text-[var(--font-size-base)] leading-relaxed text-[var(--color-text-secondary)]"
+          style="font-family: var(--font-body)"
+        >
+          {description}
+        </p>
+      )}
+    </div>
+
+    <div class="container-query">
+      <div class:list={['mt-10 grid grid-cols-1 gap-5', isIconLeft ? 'features-icon-left-grid' : 'cq-grid-sm']}>
+        {features.map((feature, i) => (
+          <article
+            class:list={[
+              'card-modern',
+              isIconLeft ? 'flex gap-4 p-[var(--card-padding-lg)]' : 'p-[var(--card-padding-lg)]',
+            ]}
+            data-reveal
+            style={`--reveal-delay: ${i * 60}ms`}
+          >
+            {/* Icon container */}
+            <div
+              class:list={[
+                'icon-wrap icon-wrap--lg shrink-0',
+                isIconLeft ? 'mt-0.5' : 'mb-4',
+              ]}
+              aria-hidden="true"
+            >
+              {feature.icon}
+            </div>
+
+            <div>
+              <h3
+                class="text-[var(--font-size-lg)] font-semibold text-[var(--color-text-primary)]"
+                style="font-family: var(--font-heading)"
+              >
+                {feature.title}
+              </h3>
+              <p
+                class="mt-2 text-[var(--font-size-base)] leading-relaxed text-[var(--color-text-secondary)]"
+                style="font-family: var(--font-body)"
+              >
+                {feature.description}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Icon-left layout: two-column auto-fit grid */
+.features-icon-left-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+</style>

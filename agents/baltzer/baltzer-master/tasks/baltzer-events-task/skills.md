@@ -1,0 +1,16 @@
+# Baltzer Events Task - Skills
+
+## Domain Competencies
+1. Event operations platform modeling for planning, registration, and fulfillment.
+2. Workflow dependency mapping between events, staffing, and communications.
+3. Data quality checks for event lifecycle and post-event reporting.
+
+## Execution Standards
+1. Use Claude CLI (OAuth runtime) when AI generation/planning is required; no API-key-only fallback paths in v1.
+2. Keep Python typing Python 3.9-safe (`Optional[T]`), and preserve deterministic ownership (`master_id`, `program_id`).
+3. Always include tests/verification evidence and update task memory with blockers, risks, and next handoff.
+
+## Definition of Done
+- Deliverable is reproducible with explicit verification evidence.
+- Acceptance criteria are met and handoff path is unambiguous.
+- MEMORY and queue/error state are updated for the next agent hop.

@@ -1,0 +1,614 @@
+# Translation of Plugins - Limit Login Attempts Reloaded &#8211; Login Security, Brute Force Protection, Firewall - Stable (latest release) in Danish
+# This file is distributed under the same license as the Plugins - Limit Login Attempts Reloaded &#8211; Login Security, Brute Force Protection, Firewall - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-08-06 06:56:24+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: da_DK\n"
+"Project-Id-Version: Plugins - Limit Login Attempts Reloaded &#8211; Login Security, Brute Force Protection, Firewall - Stable (latest release)\n"
+
+#: views/chart-circle-failed-attempts-today.php:40
+#: views/chart-circle-failed-attempts-today.php:75
+msgid "Hooray! Zero failed login attempts (past 24 hrs)"
+msgstr "Hurra! Ingen mislykkes log-ind forsøg de sidste 24 timer"
+
+#: views/chart-circle-failed-attempts-today.php:46
+#: views/chart-circle-failed-attempts-today.php:80
+msgid "(past 24 hrs)"
+msgstr "(seneste 24 timer)"
+
+#: views/tab-settings.php:296 views/tab-settings.php:462
+msgid "No contract - cancel anytime"
+msgstr "Ingen kontakt, annuller når du vil"
+
+#: views/chart-circle-failed-attempts-today.php:47
+#: views/chart-circle-failed-attempts-today.php:81
+msgid "Your site is currently at a low risk for brute force activity"
+msgstr "Dit websted har i øjeblikket en lav risiko for brute force-aktivitet"
+
+#: views/options-page.php:174
+msgid "Premium / Extensions"
+msgstr "Premium / Udvidelser"
+
+#: views/chart-failed-attempts.php:227
+msgid "Attempts"
+msgstr "Forsøg"
+
+#: views/tab-debug.php:38
+msgid "Version"
+msgstr "Version"
+
+#: views/tab-help.php:176
+msgid "Our technical support team is available by email to help with any questions."
+msgstr "Vores tekniske supportteam er tilgængeligt via e-mail for at hjælpe med eventuelle spørgsmål."
+
+#: views/tab-help.php:34
+msgid "Free Support"
+msgstr "Gratis support"
+
+#: views/tab-help.php:42
+msgid "Go To Support Forums"
+msgstr "Gå til support forum"
+
+#: views/tab-help.php:51
+msgid "GDPR Information"
+msgstr "GDPR Information"
+
+#: views/tab-help.php:62
+msgid "All Documentation"
+msgstr "Al dokumentation"
+
+#: views/tab-premium.php:68
+msgid "You are currently using the free version of <strong>Limit Login Attempts Reloaded</strong>."
+msgstr "Du bruger i øjeblikket den gratis version af <strong>Limit Login Attempts Reloaded</strong>."
+
+#: views/tab-premium.php:95
+msgid "Features comparison"
+msgstr "Funktions sammenligning"
+
+#: resources/compare-plans-data.php:88
+msgid "Block By Country"
+msgstr "Blokering efter land"
+
+#: views/tab-help.php:37
+msgid "Support for free customers is available via our forums page on WordPress.org.<br>The majority of requests <b>receive an answer within a few days</b>."
+msgstr "Support til gratis kunder er tilgængelig via vores forumside på WordPress.org.<br> De fleste anmodninger <b>modtager et svar inden for få dage</b>."
+
+#: views/onboarding-popup.php:206
+msgid "Yes"
+msgstr "Ja"
+
+#: views/onboarding-popup.php:210
+msgid "No"
+msgstr "Nej"
+
+#: views/options-page.php:92
+msgid "No thanks"
+msgstr "Nej tak"
+
+#: views/micro-cloud-modal.php:68 views/onboarding-popup.php:161
+msgid "Continue"
+msgstr "Fortsæt"
+
+#: views/app-widgets/active-lockouts.php:13
+msgid "Reload"
+msgstr "Genindlæs"
+
+#: views/emails/failed-login.php:331
+msgid "This alert was sent by your website where Limit Login Attempts Reloaded free version is installed and you are listed as the admin. If you are a GoDaddy customer, the plugin is installed into a must-use (MU) folder."
+msgstr ""
+"Denne advarsel blev sendt af dit websted, hvor Limit Login Attempts Reloaded gratis version\n"
+"er installeret, og du er angivet som admin. Hvis du er GoDaddy-kunde, er plugin'et installeret\n"
+"i en must-use (MU) mappe."
+
+#: views/app-widgets/acl-rules.php:14 views/app-widgets/acl-rules.php:63
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: views/tab-settings.php:647
+msgid "Hide Dashboard Widget"
+msgstr "Skjul kontrolpanel-widget"
+
+#: views/app-widgets/event-log.php:19
+msgid "Full Logs"
+msgstr "Komplette logfiler"
+
+#: views/app-widgets/event-log.php:24
+msgid "All attempts blocked by access rules are hidden by default. You can see the full log at this link."
+msgstr "Alle forsøg blokeret af adgangsregler er skjult som standard. Du kan se hele loggen på dette link."
+
+#: views/tab-settings.php:548
+msgid "You can use a shortcode here to insert links, for example, a link to your Privacy Policy page. <br>The shortcode is: [llar-link url=\"https://example.com\" text=\"Privacy Policy\"]"
+msgstr "Du kan bruge en kortkode her til at indsætte links, for eksempel et link til din privatlivspolitikside. <br>Kortkoden er: [llar-link url=\"https://example.com\" text=\"Privacy Policy\"]"
+
+#: views/app-widgets/country-access-rules.php:14
+msgid "Country Access Rules"
+msgstr "Adgangsregler for lande"
+
+#: views/app-widgets/country-access-rules.php:22
+msgid "these countries:"
+msgstr "disse lande:"
+
+#: views/tab-settings.php:533
+msgid "GDPR message"
+msgstr "GDPR meddelse"
+
+#: core/Config.php:96
+msgid "By proceeding you understand and give your consent that your IP address and browser information might be processed by the security plugins installed on this site."
+msgstr "Ved at fortsætte accepter du og giver dit samtykke til, at din IP-adresse og browseroplysninger kan blive behandlet af sikkerhedsplugins, der er installeret på denne side."
+
+#: views/chart-circle-failed-attempts-today.php:93
+msgid "Failed Login Attempts Today"
+msgstr "Mislykkede login-forsøg i dag"
+
+#: views/chart-circle-failed-attempts-today.php:102
+#: views/chart-failed-attempts.php:36 views/chart-failed-attempts.php:121
+#: views/chart-failed-attempts.php:131
+msgid "Failed Login Attempts"
+msgstr "Mislykkede login-forsøg"
+
+#: views/tab-dashboard.php:143
+msgid "Global Options"
+msgstr "Globale indstillinger"
+
+#: views/tab-dashboard.php:113
+msgid "Tools"
+msgstr "Værktøjer"
+
+#: core/LimitLoginAttempts.php:842 views/options-page.php:170
+#: views/tab-dashboard.php:128
+msgid "Help"
+msgstr "Hjælp"
+
+#: views/tab-dashboard.php:132
+msgid "Find the documentation and help you need."
+msgstr "Find den dokumentation du behøver."
+
+#: views/tab-dashboard.php:83
+msgid "Premium Protection Disabled"
+msgstr "Premium beskyttelse deaktiveret"
+
+#: views/tab-dashboard.php:87
+msgid "As a free user, your local server is absorbing the traffic brought on by brute force attacks, potentially slowing down your website. Upgrade to Premium today to outsource these attacks through our cloud app, and slow down future attacks with advanced throttling."
+msgstr "Som en gratis bruger behandler din lokale server al trafikken forårsaget af brute force-angreb, hvilket potentielt bremser dit websted. Opgrader til Premium i dag for at outsource disse angreb gennem vores cloud-app, og sænke fremtidige angreb med avanceret drosling."
+
+#: views/tab-dashboard.php:147
+msgid "Many options such as notifications, alerts, premium status, and more."
+msgstr "Mange muligheder såsom meddelelser, advarsler, premium-status og mere."
+
+#: views/tab-dashboard.php:117
+msgid "View lockouts logs, block or whitelist usernames or IPs, and more."
+msgstr "Se blokerings-logfiler, black- eller safelists brugernavne, ip-adresser og mere."
+
+#: views/onboarding-popup.php:41
+msgid "Notifications"
+msgstr "Notifikationer"
+
+#: resources/compare-plans-data.php:72
+msgid "Performance Optimizer"
+msgstr "Optimering af ydeevne"
+
+#: views/app-widgets/active-lockouts.php:8
+msgid "Active Lockouts"
+msgstr "Aktive blokeringer"
+
+#: views/chart-circle-failed-attempts-today.php:45
+#: views/chart-circle-failed-attempts-today.php:79
+msgid "%d failed login attempt "
+msgid_plural "%d failed login attempts "
+msgstr[0] "%d mislykkedes log-ind forsøg "
+msgstr[1] "%d mislykkede log-ind forsøg "
+
+#: core/LimitLoginAttempts.php:2302
+msgid "Don't show this message again"
+msgstr "Vis ikke denne besked igen"
+
+#: core/LimitLoginAttempts.php:2300
+msgid "Yes, turn on email notifications"
+msgstr "Ja, modtag e-mail notifikationer"
+
+#: core/LimitLoginAttempts.php:2301
+msgid "Remind me a month from now"
+msgstr "Påmind mig igen om en måned"
+
+#: core/LimitLoginAttempts.php:832 views/options-page.php:160
+msgid "Logs"
+msgstr "Logfiler"
+
+#: views/app-widgets/event-log.php:37 views/app-widgets/login-attempts.php:49
+msgid "Time"
+msgstr "Tidspunkt"
+
+#: views/app-widgets/active-lockouts.php:22 views/app-widgets/event-log.php:38
+#: views/app-widgets/login-attempts.php:51
+msgid "IP"
+msgstr "IP"
+
+#: views/app-widgets/active-lockouts.php:23 views/app-widgets/event-log.php:40
+#: views/app-widgets/login-attempts.php:50
+msgid "Login"
+msgstr "Log ind"
+
+#: views/app-widgets/acl-rules.php:25 views/app-widgets/acl-rules.php:74
+#: views/app-widgets/event-log.php:41
+msgid "Rule"
+msgstr "Regler"
+
+#: views/app-widgets/event-log.php:42
+msgid "Reason"
+msgstr "Årsag"
+
+#: views/app-widgets/acl-rules.php:24 views/app-widgets/acl-rules.php:33
+#: views/app-widgets/acl-rules.php:73 views/app-widgets/acl-rules.php:82
+#: views/app-widgets/event-log.php:43
+msgid "Pattern"
+msgstr "Mønster"
+
+#: views/app-widgets/event-log.php:44
+msgid "Attempts Left"
+msgstr "Antal forsøg igen"
+
+#: views/app-widgets/event-log.php:46
+msgid "Actions"
+msgstr "Handlinger"
+
+#: core/Ajax.php:359 core/Ajax.php:662
+msgid "No events yet."
+msgstr "Der er ingen handlinger endnu."
+
+#: views/app-widgets/active-lockouts.php:24
+msgid "Count"
+msgstr "Antal"
+
+#: views/app-widgets/active-lockouts.php:25
+msgid "Expires in (minutes)"
+msgstr "Udløber om (minutter)"
+
+#: core/Ajax.php:711
+msgid "No lockouts yet."
+msgstr "Ingen blokeringer endnu."
+
+#: views/app-widgets/event-log.php:45
+msgid "Lockout Duration"
+msgstr "Varighed af blokering"
+
+#: views/app-widgets/acl-rules.php:26 views/app-widgets/acl-rules.php:75
+msgid "Action"
+msgstr "Handling"
+
+#: views/app-widgets/acl-rules.php:37 views/app-widgets/acl-rules.php:86
+#: views/app-widgets/country-access-rules.php:55
+msgid "Deny"
+msgstr "Afvis"
+
+#: views/app-widgets/acl-rules.php:38 views/app-widgets/acl-rules.php:87
+msgid "Allow"
+msgstr "Tillad"
+
+#: views/app-widgets/acl-rules.php:39 views/app-widgets/acl-rules.php:88
+msgid "Pass"
+msgstr "Bestået"
+
+#: views/app-widgets/acl-rules.php:44 views/app-widgets/acl-rules.php:93
+#: views/app-widgets/country-access-rules.php:26
+msgid "Add"
+msgstr "Tilføj"
+
+#: core/Ajax.php:779
+msgid "No rules yet."
+msgstr "Der er ingen regler endnu."
+
+#: views/tab-settings.php:65
+msgid "App Settings"
+msgstr "App indstillinger"
+
+#. Author URI of the plugin
+#: limit-login-attempts-reloaded.php
+msgid "https://www.limitloginattempts.com/"
+msgstr "https://www.limitloginattempts.com/"
+
+#: core/CloudApp.php:157
+msgid "The app has been successfully imported."
+msgstr "Appen er blevet importeret."
+
+#: core/Ajax.php:175
+msgid "Please specify the Setup Code"
+msgstr "Angiv venligst installationskoden"
+
+#: views/app-widgets/event-log.php:14
+msgid "Event Log"
+msgstr "Handlings logfil"
+
+#: views/app-widgets/acl-rules.php:10
+msgid "Login Access Rules"
+msgstr "Regler for log ind adgang"
+
+#: views/app-widgets/acl-rules.php:59
+msgid "IP Access Rules"
+msgstr "Regler for IP-adgang"
+
+#: views/tab-settings.php:108
+msgid "Active App"
+msgstr "Aktiv app"
+
+#: views/tab-settings.php:144
+msgid "Local App"
+msgstr "Lokal app"
+
+#: views/tab-settings.php:341
+msgid "Submit"
+msgstr "Send"
+
+#: views/tab-settings.php:353
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: views/tab-settings.php:133
+msgid "Get advanced protection by <a href=\"%s\" class=\"unlink llar-upgrade-to-cloud\">upgrading to our Cloud App</a>."
+msgstr "Få avanceret beskyttelse ved <a href=\"%s\" class=\"unlink llar-upgrade-to-cloud\">at opgradere til vores Cloud-app.</a>."
+
+#: views/tab-logs-local.php:142 views/tab-settings.php:475
+#: views/tab-settings.php:816
+msgid "Save Settings"
+msgstr "Gem indstillinger"
+
+#: core/LimitLoginAttempts.php:435 core/LimitLoginAttempts.php:816
+#: views/options-page.php:144
+msgid "Dashboard"
+msgstr "Kontrolpanel"
+
+#: views/tab-settings.php:481
+msgid "General Settings"
+msgstr "Generelle indstillinger"
+
+#: core/LimitLoginAttempts.php:1975 core/LimitLoginAttempts.php:2049
+msgid "Settings saved."
+msgstr "Indstillinger gemt."
+
+#: views/tab-settings.php:68
+msgid "The app absorbs the main load caused by brute-force attacks, analyzes login attempts, and blocks unwanted visitors. It provides other service functions as well."
+msgstr "Appen absorberer hovedbelastninger forårsaget af brute-force-angreb, analyserer loginforsøg og blokerer uønskede besøgende. Det giver også andre servicefunktioner."
+
+#: core/LimitLoginAttempts.php:2209
+msgid "Leave a review"
+msgstr "Skriv en anmeldelse"
+
+#: core/LimitLoginAttempts.php:2208
+msgid "Maybe later"
+msgstr "Måske senere"
+
+#: core/LimitLoginAttempts.php:2207
+msgid "Don't show again"
+msgstr "Vis ikke igen"
+
+#: core/LimitLoginAttempts.php:2203
+msgid "A <strong>crazy idea</strong> we wanted to share! What if we put an image from YOU on the <a href=\"https://wordpress.org/plugins/limit-login-attempts-reloaded/\" target=\"_blank\">LLAR page</a>?! (<a href=\"https://wordpress.org/plugins/hello-dolly/\" target=\"_blank\">example</a>) A drawing made by you or your child would cheer people up! Send us your drawing by <a href=\"mailto:wpchef.me@gmail.com\" target=\"_blank\">email</a> and we like it, we'll add it in the next release. Let's have some fun!"
+msgstr "En <strong>skør idea</strong> vi ønsker at dele! Hvad hvis vi sætter et billede fra DIG på <a href=\"https://wordpress.org/plugins/limit-login-attempts-reloaded/\" target=\"_blank\">LLAR siden</a>?! (<a href=\"https://wordpress.org/plugins/hello-dolly/\" target=\"_blank\">eksempel</a>) En tegning lavet af dig eller dit barn ville glæde folk! Send os din tegning på <a href=\"mailto:wpchef.me@gmail.com\" target=\"_blank\">email</a> og hvis vi kan lide det, tilføjer vi det i næste lancering. Lad os have det sjovt!"
+
+#: core/LimitLoginAttempts.php:2202
+msgid "Hey <strong>Limit Login Attempts Reloaded</strong> user!"
+msgstr "Hey <strong>Limit Login Attempts Reloaded</strong> bruger!"
+
+#: core/LimitLoginAttempts.php:2204
+msgid "We would really like to hear your feedback about the plugin! Please take a couple minutes to write a few words <a href=\"https://wordpress.org/support/plugin/limit-login-attempts-reloaded/reviews/#new-post\" target=\"_blank\">here</a>. Thank you!"
+msgstr "Vi vil rigtigt gerne høre din feedback om dette plugin! Brug venligst et par minutter på at skrive nogle ord <a href=\"https://wordpress.org/support/plugin/limit-login-attempts-reloaded/reviews/#new-post\" target=\"_blank\">her</a>. Tak!"
+
+#: core/LimitLoginAttempts.php:436 core/LimitLoginAttempts.php:821
+#: views/options-page.php:148
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: core/LimitLoginAttempts.php:837 views/options-page.php:166
+msgid "Debug"
+msgstr "Fejlfinding"
+
+#: views/tab-debug.php:26
+msgid "Debug Info"
+msgstr "Fejlfindings info"
+
+#: views/tab-settings.php:241
+msgid "Specify the origins you trust in order of priority, separated by commas. We strongly recommend that you <b>do not</b> use anything other than REMOTE_ADDR since other origins can be easily faked. Examples: HTTP_X_FORWARDED_FOR, HTTP_CF_CONNECTING_IP, HTTP_X_SUCURI_CLIENTIP"
+msgstr "Angiv de oprindelser, du har tillid til i prioriteret rækkefølge, adskilt af kommaer. Vi anbefaler kraftigt, at du <b> ikke </b> bruger noget andet end REMOTE_ADDR, da andre oprindelser let kan forfalskes. Eksempler: HTTP_X_FORWARDED_FOR, HTTP_CF_CONNECTING_IP, HTTP_X_SUCURI_CLIENTIP"
+
+#: views/tab-settings.php:226
+msgid "Trusted IP Origins"
+msgstr "Pålidelig IP-oprindelse"
+
+#: views/tab-settings.php:594
+msgid "after"
+msgstr "efter"
+
+#: views/tab-settings.php:567 views/tab-settings.php:591
+msgid "Email to"
+msgstr "Email til"
+
+#: core/LimitLoginAttempts.php:1678
+msgid "<strong>ERROR</strong>: Incorrect email address or password."
+msgstr "<strong>FEJL</strong>: Forkert email adresse eller adgangskode."
+
+#: views/tab-settings.php:522
+msgid "GDPR compliance"
+msgstr "GDPR overholdelse"
+
+#: views/tab-logs-local.php:93 views/tab-logs-local.php:116
+msgid "One IP or IP range (1.2.3.4-5.6.7.8) per line"
+msgstr "Én IP eller IP interval (1.2.3.4-5.6.7.8) per linje"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+#: limit-login-attempts-reloaded.php core/LimitLoginAttempts.php:194
+msgid "Limit Login Attempts Reloaded"
+msgstr "Limit Login Attempts Reloaded"
+
+#: views/tab-logs-local.php:217
+msgid "Date"
+msgstr "Dato"
+
+#: views/tab-logs-local.php:101 views/tab-logs-local.php:124
+msgid "One Username per line"
+msgstr "Et brugernavn pr. linje"
+
+#: views/app-widgets/event-log.php:39 views/tab-logs-local.php:220
+msgid "Gateway"
+msgstr "Gateway"
+
+#: views/tab-logs-local.php:219
+msgid "Tried to log in as"
+msgstr "Prøvede at logge på som"
+
+#: views/tab-logs-local.php:218
+msgctxt "Internet address"
+msgid "IP"
+msgstr "IP"
+
+#: views/tab-settings.php:579
+msgid "Notify on lockout"
+msgstr "Besked ved blokering"
+
+#: views/tab-settings.php:204
+msgid "hours until retries are reset"
+msgstr "timer indtil forsøg bliver nulstillet"
+
+#: views/tab-settings.php:191
+msgid "hours"
+msgstr "timer"
+
+#: views/tab-settings.php:175
+msgid "minutes lockout"
+msgstr "minutter bloker"
+
+#: views/tab-settings.php:162
+msgid "allowed retries"
+msgstr "tilladte forsøg"
+
+#: views/tab-settings.php:498
+msgid "Use global settings"
+msgstr "Brug globale indstillinger"
+
+#: views/tab-settings.php:493
+msgid "If disabled, the global settings will be forcibly applied to the entire network."
+msgstr "Hvis deaktiveret, vil de globale indstillinger blive brugt på hele netværket."
+
+#: views/tab-settings.php:492
+msgid "Let network sites use their own settings"
+msgstr "Lad webstedet bruge egne indstillinger"
+
+#: views/tab-logs-local.php:71
+msgid "%d IP is currently blocked from trying to log in"
+msgstr "%d IP er i øjeblikket blokeret fra at forsøge at logge på"
+
+#: views/tab-logs-local.php:68
+msgid "Restore Lockouts"
+msgstr "Nulstil Blokerede"
+
+#: views/tab-logs-local.php:64
+msgid "Active lockouts"
+msgstr "Aktive blokeringer"
+
+#: views/tab-logs-local.php:57
+msgid "No lockouts yet"
+msgstr "Ingen blokeringer endnu"
+
+#: views/tab-logs-local.php:53
+msgid "%d lockout since last reset"
+msgid_plural "%d lockouts since last reset"
+msgstr[0] "%d blokeret siden sidste nulstilling"
+msgstr[1] "%d blokeringer siden sidste nulstilling"
+
+#: views/tab-logs-local.php:50
+msgid "Reset Counter"
+msgstr "Nulstil tæller"
+
+#: core/LimitLoginAttempts.php:1903
+msgid "Cleared current lockouts"
+msgstr "Nulstil aktuelle blokeringer"
+
+#: core/LimitLoginAttempts.php:1896
+msgid "Reset lockout count"
+msgstr "Nulstil blokerings tæller"
+
+#: core/LimitLoginAttempts.php:1889
+msgid "Cleared IP log"
+msgstr "Nulstil Ip log"
+
+#: core/LimitLoginAttempts.php:1701
+msgid "WC Error"
+msgstr "WC Error"
+
+#: core/LimitLoginAttempts.php:1681
+msgid "<strong>ERROR</strong>: Incorrect username or password."
+msgstr "<strong>FEJL</strong>: Forkert brugernavn eller kodeord."
+
+#: core/LimitLoginAttempts.php:603 core/LimitLoginAttempts.php:1148
+#: core/LimitLoginAttempts.php:1641
+msgid "Please try again in %d minute."
+msgid_plural "Please try again in %d minutes."
+msgstr[0] "Prøv igen om %d minut."
+msgstr[1] "Prøv igen om %d minutter."
+
+#: core/LimitLoginAttempts.php:601 core/LimitLoginAttempts.php:1146
+#: core/LimitLoginAttempts.php:1638
+msgid "Please try again in %d hour."
+msgid_plural "Please try again in %d hours."
+msgstr[0] "Prøv igen om %d time."
+msgstr[1] "Prøv igen om %d timer."
+
+#: core/LimitLoginAttempts.php:1626
+msgid "Please try again later."
+msgstr "Prøv igen senere."
+
+#: core/LimitLoginAttempts.php:594 core/LimitLoginAttempts.php:649
+#: core/LimitLoginAttempts.php:1139 core/LimitLoginAttempts.php:1559
+#: core/LimitLoginAttempts.php:1618
+msgid "<strong>ERROR</strong>: Too many failed login attempts."
+msgstr "<strong>FEJL</strong>: For mange mislykkede login-forsøg."
+
+#: core/LimitLoginAttempts.php:1340
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minut"
+msgstr[1] "%d minutter"
+
+#: core/LimitLoginAttempts.php:1333
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d time"
+msgstr[1] "%d timer"
+
+#: core/Ajax.php:994
+msgid "<strong>%d</strong> attempt remaining."
+msgid_plural "<strong>%d</strong> attempts remaining."
+msgstr[0] "<strong>%d</strong> forsøg tilbage."
+msgstr[1] "<strong>%d</strong> forsøg tilbage."
+
+#: views/tab-logs-local.php:35
+msgid "Statistics"
+msgstr "Statistikker"
+
+#: views/tab-settings.php:187
+msgid "lockouts increase lockout time to"
+msgstr "ved blokering øges blokeringstiden til"
+
+#: views/tab-logs-local.php:194
+msgid "Lockout log"
+msgstr "Logfil over blokeringer"
+
+#: views/tab-settings.php:597
+msgid "lockouts"
+msgstr "blokeringer"
+
+#: views/tab-logs-local.php:202
+msgid "Clear Log"
+msgstr "Slet logfil"
+
+#: views/tab-logs-local.php:45
+msgid "Total lockouts"
+msgstr "Samlet antal blokeringer"
+
+#: views/tab-settings.php:148
+msgid "Lockout"
+msgstr "Blokering"

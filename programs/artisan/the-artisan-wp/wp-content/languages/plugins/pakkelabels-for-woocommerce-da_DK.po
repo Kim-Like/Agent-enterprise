@@ -1,0 +1,477 @@
+# Translation of Plugins - Shipmondo &#8211; A complete shipping solution for WooCommerce - Stable (latest release) in Danish
+# This file is distributed under the same license as the Plugins - Shipmondo &#8211; A complete shipping solution for WooCommerce - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-01-08 09:28:37+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: da_DK\n"
+"Project-Id-Version: Plugins - Shipmondo &#8211; A complete shipping solution for WooCommerce - Stable (latest release)\n"
+
+#: public/build/blocks/service-point-selector/block.json
+#: resources/blocks/service-point-selector/block.json
+msgctxt "block description"
+msgid "Selector for shipping service point, when using a compatible Shipmondo shipping method."
+msgstr "Vælger til valg af udleveringssted, når der bruges en kompatibel Shipmondo forsendelsesmetode."
+
+#: public/build/blocks/service-point-selector/block.json
+#: resources/blocks/service-point-selector/block.json
+msgctxt "block title"
+msgid "Shipmondo Service Point Selector"
+msgstr "Shipmondo udleveringsstedsvælger"
+
+#: templates/service-point-selection/modal/modal.php:10
+msgid "service point window"
+msgstr "udleveringssted popup"
+
+#: templates/service-point-selection/modal/content.php:12
+#: public/build/blocks/service-point-selector/view.js:1
+#: resources/blocks/service-point-selector/components/selectors/modal/Modal.js:40
+msgctxt "Modal header"
+msgid "Select service point"
+msgstr "Vælg udleveringssted"
+
+#: templates/service-point-selection/dropdown/content.php:17
+#: templates/service-point-selection/dropdown/selection-button.php:30
+#: templates/service-point-selection/modal/content.php:26
+#: templates/service-point-selection/modal/selection-button.php:30
+#: public/build/blocks/service-point-selector/edit.js:1
+#: public/build/blocks/service-point-selector/view.js:1
+#: resources/blocks/service-point-selector/components/selectors/dropdown/Dropdown.js:24
+#: resources/blocks/service-point-selector/components/selectors/modal/components/GoogleMapMarker.js:36
+#: resources/blocks/service-point-selector/components/selectors/modal/components/ServicePointList.js:25
+#: resources/blocks/service-point-selector/components/ServicePointSelector.js:205
+#: resources/blocks/service-point-selector/edit.js:27
+msgctxt "Distance display"
+msgid "%s km"
+msgstr "%s km"
+
+#: templates/service-point-selection/dropdown/content.php:11
+#: templates/service-point-selection/dropdown/selection-button.php:21
+#: templates/service-point-selection/modal/content.php:20
+#: templates/service-point-selection/modal/selection-button.php:21
+#: public/build/blocks/service-point-selector/edit.js:1
+#: public/build/blocks/service-point-selector/view.js:1
+#: resources/blocks/service-point-selector/components/selectors/dropdown/Dropdown.js:17
+#: resources/blocks/service-point-selector/components/selectors/modal/components/GoogleMapMarker.js:29
+#: resources/blocks/service-point-selector/components/selectors/modal/components/ServicePointList.js:18
+#: resources/blocks/service-point-selector/components/ServicePointSelector.js:198
+#: resources/blocks/service-point-selector/edit.js:20
+msgctxt "Address display: %1$s - street and number, %2$s zipcode and %3$s city"
+msgid "%1$s, %2$s %3$s"
+msgstr "%1$s, %2$s %3$s"
+
+#: plugin/shipping-methods/class.shipmondo.php:663
+#: public/build/blocks/service-point-selector/view.js:1
+#: resources/blocks/service-point-selector/components/ServicePointSelector.js:218
+msgid "No service point available"
+msgstr "Ingen tilgængelige udleveringssteder"
+
+#: plugin/shipping-methods/class.shipmondo.php:654
+#: public/build/blocks/service-point-selector/view.js:1
+#: resources/blocks/service-point-selector/components/ServicePointSelector.js:214
+msgid "Please enter the shipping address to see available service points"
+msgstr "Indtast forsendelsesadresse for at se tilgængelige udleveringssteder"
+
+#: app/Hooks/ServicePointSelectorBlock/SetServicePointOnCompletion.php:85
+#: app/Hooks/ServicePointSelectorBlock/SetServicePointOnSubscription.php:91
+msgid "Service point is missing"
+msgstr "Udleveringssted mangler"
+
+#: app/Hooks/ServicePointSelectorBlock/ExtendStoreApiWithSelectedServicePoint.php:64
+msgid "The carrier code of the service point"
+msgstr "Udleveringsstedets transportkode"
+
+#: app/Hooks/ServicePointSelectorBlock/ExtendStoreApiWithSelectedServicePoint.php:59
+msgid "The country of the service point"
+msgstr "Udleveringsstedets land"
+
+#: app/Hooks/ServicePointSelectorBlock/ExtendStoreApiWithSelectedServicePoint.php:54
+msgid "The city of the service point"
+msgstr "Udleveringsstedets by"
+
+#: app/Hooks/ServicePointSelectorBlock/ExtendStoreApiWithSelectedServicePoint.php:49
+msgid "The zipcode of the service point"
+msgstr "Udleveringsstedets postnummer"
+
+#: app/Hooks/ServicePointSelectorBlock/ExtendStoreApiWithSelectedServicePoint.php:44
+msgid "The address of the service point"
+msgstr "Udleveringsstedets adresse"
+
+#: app/Hooks/ServicePointSelectorBlock/ExtendStoreApiWithSelectedServicePoint.php:39
+msgid "The name of the service point"
+msgstr "Udleveringsstedets navn"
+
+#: app/Hooks/ServicePointSelectorBlock/ExtendStoreApiWithSelectedServicePoint.php:34
+msgid "The ID of the service point"
+msgstr "Udleveringsstedets ID"
+
+#: app/Hooks/ServicePointSelectorBlock/ExtendStoreApiWithSelectedServicePoint.php:28
+msgid "Selected service points to send the package to"
+msgstr "Valgte udleveringssteder, som pakker skal sendes til"
+
+#. Description of the plugin
+#: pakkelabels.php
+msgid "Shipping for WooCommerce. Choose from over 40 carriers, such as Bring, DHL, GLS, and PostNord."
+msgstr "Fragt til WooCommerce. Vælg mellem +40 transportører som f.eks. Bring, dao, GLS og PostNord."
+
+#: plugin/controllers/controller.service-points.php:54
+msgid "Pickup Point:"
+msgstr "Udleveringssted"
+
+#: plugin/controllers/controller.settings.php:199
+msgid "Could not connect to Shipmondo. Pleace check your key!"
+msgstr "Kunne ikke forbinde til Shipmondo. Tjek venligst din API Nøgle!"
+
+#: plugin/controllers/controller.settings.php:188
+msgid "Generate a personal Google Maps API key - click <a target=\"_blank\" href=\"https://help.shipmondo.com/da/articles/1889291-opret-en-gratis-google-api-key\">here</a>"
+msgstr "Opret en personlig Google Maps API nøgle - klik <a target=\"_blank\" href=\"https://help.shipmondo.com/da/articles/1889291-opret-en-gratis-google-api-key\">her</a>"
+
+#: plugin/controllers/controller.settings.php:187
+msgid "Generate a shipping module key - click <a target=\"_blank\" href=\"https://help.shipmondo.com/da/articles/1897540-opret-en-fragtmodul-nogle\">here</a> "
+msgstr "Opret en fragtmodul nøgle - klik <a target=\"_blank\" href=\"https://help.shipmondo.com/da/articles/1897540-opret-en-fragtmodul-nogle\">her</a> "
+
+#: plugin/controllers/controller.settings.php:104
+#: plugin/controllers/controller.settings.php:120
+msgid "Shipmondo Settings"
+msgstr "Shipmondo indstillinger"
+
+#: plugin/shipping-methods/class.shipmondo.php:96
+msgid "Shipping Method Settings"
+msgstr "Forsendelsesmetode indstillinger"
+
+#: plugin/shipping-methods/class.shipmondo.php:91
+msgid "Which shipping product do you want to configure?"
+msgstr "Hvilken forsendelsesmetode vil du konfigurere?"
+
+#: plugin/shipping-methods/class.shipmondo.php:89
+msgid "Business Parcel"
+msgstr "Omdeling til erhverv"
+
+#: plugin/shipping-methods/class.shipmondo.php:88
+msgid "Home delivery"
+msgstr "Omdeling til privat"
+
+#: plugin/shipping-methods/class.shipmondo.php:87
+msgid "Service point"
+msgstr "Udleveringssted"
+
+#: plugin/shipping-methods/class.shipmondo.php:84
+msgid "Shipping Product"
+msgstr "Forsendelsesprodukt"
+
+#: plugin/shipping-methods/class.shipmondo.php:80
+msgid "Which carrier do you want to configure?"
+msgstr "Hvilket fragtfirma vil du konfigurere?"
+
+#: plugin/shipping-methods/class.shipmondo.php:77
+msgid "Carrier"
+msgstr "Fragtfirma"
+
+#: plugin/shipping-methods/class.shipmondo.php:31
+msgid "Shipmondo shipping method"
+msgstr "Shipmondo forsendelsesmetode"
+
+#: templates/service-point-selection/dropdown/content.php:50
+#: templates/service-point-selection/dropdown/selection-button.php:41
+#: templates/service-point-selection/modal/content.php:59
+#: templates/service-point-selection/modal/selection-button.php:38
+#: public/build/blocks/service-point-selector/edit.js:1
+#: public/build/blocks/service-point-selector/view.js:1
+#: resources/blocks/service-point-selector/components/selectors/modal/Modal.js:46
+#: resources/blocks/service-point-selector/components/ServicePointSelector.js:237
+#: resources/blocks/service-point-selector/edit.js:32
+msgid "Powered by Shipmondo"
+msgstr "Powered by Shipmondo"
+
+#: plugin/controllers/controller.settings.php:153
+msgid "Shipmondo shipping module settings"
+msgstr "Shipmondo indstillinger"
+
+#: plugin/controllers/controller.shipping-methods.php:42
+msgid "Title for Shipmondo"
+msgstr "Titel til Shipmondo"
+
+#: plugin/shipping-methods/class.shipmondo.php:221
+msgid "Per order: Charge shipping for the most expensive shipping class"
+msgstr "Pr. ordre: Brug pris for den dyreste forsendelsesklasse"
+
+#: plugin/shipping-methods/class.shipmondo.php:220
+msgid "Per class: Charge shipping for each shipping class individually"
+msgstr "Pr. klasse: Brug pris for hver individuelle forsendelsesklasse"
+
+#: plugin/shipping-methods/class.shipmondo.php:215
+msgid "Calculation type"
+msgstr "Beregningstype"
+
+#: plugin/shipping-methods/class.shipmondo.php:205
+msgid "No shipping class cost"
+msgstr "Ingen forsendelsesklasse pris"
+
+#: plugin/shipping-methods/class.shipmondo.php:196
+#: plugin/shipping-methods/class.shipmondo.php:207
+msgid "N/A"
+msgstr "Ikke relevant"
+
+#. translators: %s: shipping class name
+#: plugin/shipping-methods/class.shipmondo.php:194
+msgid "\"%s\" shipping class cost"
+msgstr "\"%s\" forsendelsesklasse pris"
+
+#: plugin/shipping-methods/class.shipmondo.php:185
+msgid "These costs can optionally be added based on the <a href=\"%s\">product shipping class</a>."
+msgstr "Det er muligt at tilføje disse omkostninger baseret på <a href=\"%s\">forsendelsesklasser</a>"
+
+#: plugin/shipping-methods/class.shipmondo.php:183
+msgid "Shipping class costs"
+msgstr "Forsendelsesklasser priser"
+
+#: plugin/shipping-methods/class.shipmondo.php:133
+#: plugin/shipping-methods/class.shipmondo.php:180
+msgid "Use <code>[qty]</code> for the number of items, <br/><code>[cost]</code> for the total cost of items, and <code>[fee percent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> for percentage based fees."
+msgstr "Anvend <code>[stk.]</code> for antallet af varer, <br/><code>[pris]</code> for det samlet antal varer, og <code>[gebyr procent=\"10\" min_fee=\"20\" max_fee=\"\"]</code> for procentbaseret gebyrer."
+
+#: plugin/shipping-methods/class.shipmondo.php:133
+#: plugin/shipping-methods/class.shipmondo.php:180
+msgid "Enter a cost (excl. tax) or sum, e.g. <code>10.00 * [qty]</code>."
+msgstr "Indtast en pris (eksl. moms) eller sum, f.eks. <code>10.00 * [stk]</code>"
+
+#: plugin/controllers/controller.migrations.php:111
+msgid "Other"
+msgstr "Anden"
+
+#. Author of the plugin
+#: pakkelabels.php plugin/controllers/controller.settings.php:133
+#: plugin/shipping-methods/class.shipmondo.php:29
+msgid "Shipmondo"
+msgstr "Shipmondo"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: pakkelabels.php
+msgid "https://shipmondo.com"
+msgstr "https://shipmondo.com"
+
+#. Plugin Name of the plugin
+#: pakkelabels.php
+msgid "Shipmondo for WooCommerce"
+msgstr "Shipmondo til WooCommerce"
+
+#: plugin/controllers/controller.settings.php:226
+msgid "Drop Down"
+msgstr "Rullemenu"
+
+#: plugin/controllers/controller.settings.php:222
+msgid "Modal"
+msgstr "Modal"
+
+#: plugin/controllers/controller.settings.php:176
+msgid "Show Pickup Points in:"
+msgstr "Vis udleveringssteder i:"
+
+#: templates/service-point-selection/modal/error.php:4
+msgid "Close"
+msgstr "Luk"
+
+#: plugin/controllers/controller.settings.php:168
+msgid "Google Maps API key:"
+msgstr "Google Maps API nøgle:"
+
+#: plugin/controllers/controller.settings.php:160
+msgid "Shipping Module key:"
+msgstr "Fragtmodul nøgle:"
+
+#: plugin/controllers/controller.service-points.php:100
+msgid "Choose pickup point"
+msgstr "Vælg udleveringssted"
+
+#: plugin/controllers/controller.service-points.php:270
+msgid "Please select a pickup point before placing your order."
+msgstr "Du skal vælge et udleveringssted, før du kan gå videre"
+
+#: plugin/controllers/controller.settings.php:124
+msgid "Please go to the WooCommerce -> %s, and set a valid Google Map API key"
+msgstr "Besøg venligst WooCommerce -> %s, og indsæt en valid Google Map API nøgle"
+
+#: plugin/controllers/controller.settings.php:108
+msgid "Please go to the WooCommerce -> %s, and set a valid frontend key"
+msgstr "Besøg venligst WooCommerce -> %s, og indsæt en valid frontend nøgle"
+
+#: plugin/controllers/controller.migrations.php:56
+msgid "GLS Business"
+msgstr "GLS - Omdeling til erhverv"
+
+#: plugin/controllers/controller.migrations.php:71
+msgid "Bring Business"
+msgstr "Bring - Omdeling til erhverv"
+
+#: plugin/shipping-methods/class.shipmondo.php:166
+msgid "Free shipping when a shipping coupon is used"
+msgstr "Gratis fragt når der benyttes en fragt-kupon"
+
+#: plugin/shipping-methods/class.shipmondo.php:142
+msgid "Mark this, to hide this shipping method, if the conditions under Differentiated Price Type not is fulfilled."
+msgstr "Markér denne for at skjule denne forsendelsesmetode, hvis vilkårene under differentieret pristype ikke opfyldes."
+
+#: plugin/shipping-methods/class.shipmondo.php:169
+msgid "Check this to enable customers to enabled free shipping for this shipping method, when a shipping coupon is used."
+msgstr "Markér denne for at muliggøre gratis fragt for denne forsendelsesmetode, hvis en fragt-kupon bliver benyttet."
+
+#: plugin/shipping-methods/class.shipmondo.php:161
+msgid "This control the minimum amount the customer will have to purchase (subtotal) for to get free shipping. <br/><br/><strong>This rule will overrule any differentiated price ranges if the condition is met.</strong>"
+msgstr "Dette felt bestemmer kundens minimumskøb (subtotal) for at kunne opnå fri fragt.<br/><br/><strong>Denne regel vil overstyre differentieret pristype, hvis betingelsen bliver opfyldt.</strong>"
+
+#: plugin/shipping-methods/class.shipmondo.php:158
+msgid "Minimum Purchase For Free Shipping"
+msgstr "Minimumskøb for gratis fragt"
+
+#: plugin/shipping-methods/class.shipmondo.php:154
+msgid "Yes"
+msgstr "Ja"
+
+#: plugin/shipping-methods/class.shipmondo.php:153
+msgid "No"
+msgstr "Nej"
+
+#: plugin/shipping-methods/class.shipmondo.php:148
+msgid "Enable Free Shipping"
+msgstr "Muliggør gratis fragt"
+
+#: plugin/shipping-methods/class.shipmondo.php:139
+msgid "Hide if outside conditions"
+msgstr "Skjul hvis uden for betingelser"
+
+#: plugin/shipping-methods/class.shipmondo.php:122
+msgid "Normal"
+msgstr "Normal"
+
+#: plugin/shipping-methods/class.shipmondo.php:118
+msgid "Choose what the shipping price is based on"
+msgstr "Vælg hvad forsendelses prisen skal være baseret på"
+
+#: plugin/shipping-methods/class.shipmondo.php:116
+msgid "Differentiated Price Type"
+msgstr "Differentieret pristype"
+
+#: plugin/shipping-methods/class.shipmondo.php:112
+msgctxt "Tax status"
+msgid "None"
+msgstr "Ingen"
+
+#: plugin/shipping-methods/class.shipmondo.php:111
+msgid "Taxable"
+msgstr "Momspligtig"
+
+#: plugin/shipping-methods/class.shipmondo.php:106
+msgid "Tax Status"
+msgstr "Momsstatus"
+
+#: plugin/shipping-methods/class.shipmondo.php:101
+msgid "This controls the title which customer will be presented for during checkout."
+msgstr "Dette felt kontrollerer titlen som forbruger ser under checkout."
+
+#: plugin/shipping-methods/class.shipmondo.php:99
+msgid "Method name"
+msgstr "Metodenavn"
+
+#: plugin/controllers/controller.migrations.php:101
+msgid "PostNord Private"
+msgstr "PostNord - Omdeling til privat"
+
+#: plugin/controllers/controller.migrations.php:96
+msgid "PostNord Business"
+msgstr "PostNord - Omdeling til erhverv"
+
+#: plugin/controllers/controller.migrations.php:106
+msgid "PostNord Pickup Point"
+msgstr "PostNord - Valgfrit udleveringssted"
+
+#: plugin/shipping-methods/class.shipmondo.php:329
+msgid "(free)"
+msgstr "(gratis)"
+
+#: plugin/shipping-methods/class.shipmondo.php:647
+msgid "Service point is selected during checkout"
+msgstr "Udleveringssted vælges i tjek ud processen"
+
+#: plugin/controllers/controller.migrations.php:61
+msgid "GLS Private"
+msgstr "GLS - Omdeling til privat"
+
+#: plugin/controllers/controller.migrations.php:66
+msgid "GLS Pickup Point"
+msgstr "GLS PakkeShop"
+
+#: plugin/controllers/controller.migrations.php:86
+msgid "DAO Direct"
+msgstr "DAO Direkte"
+
+#: plugin/controllers/controller.migrations.php:91
+msgid "DAO Pickup Point"
+msgstr "DAO Pakkeshop"
+
+#: plugin/controllers/controller.migrations.php:76
+msgid "Bring - Evening delivery to private"
+msgstr "Bring - Aftenlevering til privat"
+
+#: plugin/controllers/controller.business.php:26
+#: plugin/traits/trait.business.php:22
+msgid "The company name is required."
+msgstr "Firmanavn er påkrævet."
+
+#: plugin/controllers/controller.business.php:75
+#: plugin/traits/trait.business.php:49
+msgid "Please fill out the billing company"
+msgstr "Udfyld venligst fakturerings firmaet"
+
+#: plugin/controllers/controller.business.php:73
+#: plugin/traits/trait.business.php:47
+msgid "Please fill out the Shipping company"
+msgstr "Udfyld venligst firmanavnet pakken afsendes til"
+
+#: plugin/controllers/controller.migrations.php:81
+msgid "Bring - Optional pickup location"
+msgstr "Bring - Valgfrit udleveringssted"
+
+#: plugin/controllers/controller.shipping-methods.php:51
+msgid "In the price table below, you can choose to set up different shipping prices that will be based on the cart’s total of your chosen type.<br/>If the cart total falls outside of any of the chosen ranges, the shipping price will default to the highest shipping price.<br/>Please make sure to follow the woocommerce standard, and use a period (.) as a decimal separator."
+msgstr "I pristabellen herunder kan du vælge at opsætte forskellige forsendelses priser, som kurvens total skal baseres på.<br/>Hvis kurvens total falder udenfor de opsatte intervaller, så vil den højeste forsendelses pris blive valgt.<br/>Benyt venligst punktum (.) som decimal separator (WooCommerce standard)."
+
+#: plugin/controllers/controller.shipping-methods.php:47
+msgid "Cart Total"
+msgstr "Kurv total"
+
+#: plugin/controllers/controller.shipping-methods.php:46
+msgid "Add row"
+msgstr "Tilføj række"
+
+#: plugin/controllers/controller.shipping-methods.php:45
+#: plugin/controllers/controller.shipping-methods.php:50
+#: plugin/shipping-methods/class.shipmondo.php:131
+msgid "Shipping Price"
+msgstr "Forsendelses pris"
+
+#: plugin/controllers/controller.shipping-methods.php:44
+msgid "Maximum cart total"
+msgstr "Maksimum kurv total"
+
+#: plugin/controllers/controller.shipping-methods.php:43
+msgid "Minimum cart total"
+msgstr "Minimum kurv total"
+
+#: plugin/controllers/controller.shipping-methods.php:41
+msgid "Quantity"
+msgstr "Antal (Quantity)"
+
+#: plugin/controllers/controller.shipping-methods.php:40
+#: plugin/shipping-methods/class.shipmondo.php:124
+msgid "Price"
+msgstr "Pris"
+
+#: plugin/controllers/controller.shipping-methods.php:39
+#: plugin/shipping-methods/class.shipmondo.php:123
+msgid "Weight"
+msgstr "Vægt"

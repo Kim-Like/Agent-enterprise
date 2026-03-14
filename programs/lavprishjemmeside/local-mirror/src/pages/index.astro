@@ -1,0 +1,249 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import HeroSection from '../components/HeroSection.astro';
+import FeaturesGrid from '../components/FeaturesGrid.astro';
+import IconCards from '../components/IconCards.astro';
+import StatsBanner from '../components/StatsBanner.astro';
+import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
+import CtaSection from '../components/CtaSection.astro';
+import PricingTable from '../components/PricingTable.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import TeamGrid from '../components/TeamGrid.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
+import ContactForm from '../components/ContactForm.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import Timeline from '../components/Timeline.astro';
+import LogoCloud from '../components/LogoCloud.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import ProductCarousel from '../components/ProductCarousel.astro';
+import StickyColumnSection from '../components/StickyColumnSection.astro';
+import ProblemSection from '../components/ProblemSection.astro';
+import HowItWorksSection from '../components/HowItWorksSection.astro';
+import TrustBadgesSection from '../components/TrustBadgesSection.astro';
+import CaseStudiesSection from '../components/CaseStudiesSection.astro';
+import IntegrationsSection from '../components/IntegrationsSection.astro';
+import FoundersNoteSection from '../components/FoundersNoteSection.astro';
+import TabsSection from '../components/TabsSection.astro';
+import ModalSection from '../components/ModalSection.astro';
+import BentoGridSection from '../components/BentoGridSection.astro';
+import OverlapCardsSection from '../components/OverlapCardsSection.astro';
+import AlternatingFeatureList from '../components/AlternatingFeatureList.astro';
+import ImmersiveContentVisual from '../components/ImmersiveContentVisual.astro';
+
+// User-generated components (src/components/custom/) — not overwritten by CMS/seed
+const customGlob = import.meta.glob('../components/custom/*.astro', { eager: true });
+function pascalToKebab(s: string): string {
+  return s.replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^-/, '');
+}
+const customMap: Record<string, any> = {};
+for (const [path, mod] of Object.entries(customGlob)) {
+  const name = path.split('/').pop()?.replace('.astro', '') ?? '';
+  if (name && mod && typeof mod === 'object' && 'default' in mod) customMap['custom/' + pascalToKebab(name)] = (mod as { default: any }).default;
+}
+
+const componentMap: Record<string, any> = {
+  'hero-section': HeroSection,
+  'problem-section': ProblemSection,
+  'how-it-works-section': HowItWorksSection,
+  'trust-badges-section': TrustBadgesSection,
+  'case-studies-section': CaseStudiesSection,
+  'integrations-section': IntegrationsSection,
+  'founders-note-section': FoundersNoteSection,
+  'tabs-section': TabsSection,
+  'modal-section': ModalSection,
+  'bento-grid-section': BentoGridSection,
+  'overlap-image-section': ImmersiveContentVisual,
+  'overlap-cards-section': OverlapCardsSection,
+  'alternating-feature-list': AlternatingFeatureList,
+  'immersive-content-visual': ImmersiveContentVisual,
+  'features-grid': FeaturesGrid,
+  'icon-cards': IconCards,
+  'stats-banner': StatsBanner,
+  'testimonials-carousel': TestimonialsCarousel,
+  'cta-section': CtaSection,
+  'pricing-table': PricingTable,
+  'faq-accordion': FaqAccordion,
+  'comparison-table': ComparisonTable,
+  'team-grid': TeamGrid,
+  'video-embed': VideoEmbed,
+  'contact-form': ContactForm,
+  'newsletter-signup': NewsletterSignup,
+  'content-image-split': ImmersiveContentVisual,
+  'timeline': Timeline,
+  'logo-cloud': LogoCloud,
+  'gallery-grid': GalleryGrid,
+  'product-carousel': ProductCarousel,
+  'sticky-column-section': StickyColumnSection,
+  ...customMap,
+};
+
+function normalizeProps(slug: string, rawProps: any): any {
+  const props = JSON.parse(JSON.stringify(rawProps || {}));
+  switch (slug) {
+    case 'faq-accordion': if (!Array.isArray(props.faqs)) props.faqs = []; break;
+    case 'pricing-table': if (!Array.isArray(props.tiers)) props.tiers = []; break;
+    case 'testimonials-carousel': if (!Array.isArray(props.testimonials)) props.testimonials = []; break;
+    case 'stats-banner': if (!Array.isArray(props.stats)) props.stats = []; break;
+    case 'problem-section': if (!Array.isArray(props.problems)) props.problems = []; break;
+    case 'how-it-works-section': if (!Array.isArray(props.steps)) props.steps = []; break;
+    case 'trust-badges-section': if (!Array.isArray(props.badges)) props.badges = []; break;
+    case 'case-studies-section': if (!Array.isArray(props.cases)) props.cases = []; break;
+    case 'integrations-section': if (!Array.isArray(props.integrations)) props.integrations = []; break;
+    case 'founders-note-section': break;
+    case 'tabs-section': if (!Array.isArray(props.tabs)) props.tabs = []; break;
+    case 'modal-section': break;
+    case 'bento-grid-section': if (!Array.isArray(props.items)) props.items = []; break;
+    case 'content-image-split':
+      props.leadText = props.leadText || '';
+      props.highlights = Array.isArray(props.highlights) ? props.highlights : [];
+      props.visualCards = Array.isArray(props.visualCards) ? props.visualCards : [];
+      props.imageAlt = props.imageAlt || props.headline;
+      props.imagePlacement = props.imagePosition || props.imagePlacement || 'right';
+      props.variant = 'editorial-split';
+      props.theme = 'default';
+      delete props.imagePosition;
+      delete props.backgroundColor;
+      break;
+    case 'overlap-image-section':
+      if (!Array.isArray(props.bulletPoints)) props.bulletPoints = [];
+      props.highlights = props.bulletPoints;
+      props.leadText = props.introText || props.leadText || '';
+      props.variant = 'cinematic-overlap';
+      props.theme = props.theme === 'teal' || props.backgroundColor === 'primary' ? 'accent' : 'default';
+      props.overlapDepth = props.overlapAmount || 64;
+      props.imagePlacement = props.imagePlacement === 'center' ? 'right' : (props.imagePlacement || 'right');
+      delete props.bulletPoints;
+      delete props.introText;
+      delete props.backgroundColor;
+      delete props.bottomDivider;
+      delete props.overlapAmount;
+      break;
+    case 'overlap-cards-section': if (!Array.isArray(props.cards)) props.cards = []; break;
+    case 'alternating-feature-list': if (!Array.isArray(props.features)) props.features = []; if (!props.firstTheme) props.firstTheme = 'teal'; if (props.overlapAmount == null) props.overlapAmount = 80; break;
+    case 'immersive-content-visual':
+      if (!props.headline) props.headline = 'Sektion';
+      if (!props.content) props.content = '<p>Tilføj indhold her.</p>';
+      if (!props.imageUrl) props.imageUrl = '';
+      if (!Array.isArray(props.highlights)) props.highlights = [];
+      if (!Array.isArray(props.visualCards)) props.visualCards = [];
+      if (!props.variant) props.variant = 'cinematic-overlap';
+      if (!props.imagePlacement) props.imagePlacement = 'right';
+      break;
+    case 'features-grid': if (!Array.isArray(props.features)) props.features = []; break;
+    case 'icon-cards': if (!Array.isArray(props.cards)) props.cards = []; break;
+    default: break;
+  }
+  return props;
+}
+
+let pageComponents: any[] = [];
+let pageMeta: { meta_title?: string; meta_description?: string; schema_markup?: any } | null = null;
+const strictContentFetch = process.env.STRICT_CONTENT_FETCH === '1';
+
+try {
+  const API_URL = import.meta.env.PUBLIC_API_URL || 'https://api.lavprishjemmeside.dk';
+  const [componentsRes, metaRes] = await Promise.all([
+    fetch(`${API_URL}/page-components/public?page=/`),
+    fetch(`${API_URL}/page-components/public-meta?page=/`),
+  ]);
+  if (componentsRes.ok) {
+    const all = await componentsRes.json();
+    pageComponents = Array.isArray(all) ? all : [];
+    pageComponents.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
+  } else if (strictContentFetch) {
+    throw new Error(`Homepage component fetch failed with HTTP ${componentsRes.status}`);
+  }
+  if (metaRes.ok) {
+    const metaMap = await metaRes.json();
+    pageMeta = metaMap['/'] || metaMap[''] || null;
+  } else if (strictContentFetch) {
+    throw new Error(`Homepage meta fetch failed with HTTP ${metaRes.status}`);
+  }
+} catch (e) {
+  if (strictContentFetch) throw e;
+  console.warn('Could not fetch homepage components:', (e as Error).message);
+}
+
+const useDbContent = pageComponents.length > 0;
+const pageTitle = pageMeta?.meta_title || (pageComponents[0]?.content?.headline as string) || 'Lavpris Hjemmeside | Professionelle hjemmesider til lav pris';
+const pageDescription = pageMeta?.meta_description;
+---
+
+<Layout title={pageTitle} description={pageDescription} schemaMarkup={pageMeta?.schema_markup || []}>
+  <main>
+    {useDbContent ? (
+      <>
+        <Breadcrumbs items={[{ label: 'Hjem', href: '/' }]} />
+        {pageComponents.map((pc: any, index: number) => {
+          const Component = componentMap[pc.slug];
+          if (!Component) return null;
+          const normalizedProps = normalizeProps(pc.slug, pc.content || {});
+          normalizedProps.instanceId = pc.id;
+          const sectionBgClass = index % 2 === 0 ? 'section-bg-page' : 'section-bg-alt';
+          return (
+            <div class={sectionBgClass + ' theme-block-shell'} data-component={pc.slug} data-order={index + 1}>
+              <div class="theme-block-inner">
+                <Component {...normalizedProps} />
+              </div>
+            </div>
+          );
+        })}
+      </>
+    ) : (
+      <>
+        <section class="section-bg-page py-20 md:py-28">
+          <div class="mx-auto max-w-6xl px-4 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              Professionel hjemmeside<br />
+              <span class="text-blue-600">til en lav pris</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+              Vi bygger moderne, hurtige og SEO-optimerede hjemmesider for danske virksomheder — uden at det koster en formue.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/kontakt" data-track="hero-cta-tilbud" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-medium">
+                Få et gratis tilbud
+              </a>
+              <a href="/priser" data-track="hero-cta-priser" class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-blue-600 hover:text-blue-600 transition-colors text-lg font-medium">
+                Se priser
+              </a>
+            </div>
+          </div>
+        </section>
+        <section class="section-bg-alt py-16 md:py-24">
+          <div class="mx-auto max-w-6xl px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Hvorfor vælge os?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+              <div class="text-center p-6">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold">&darr;</div>
+                <h3 class="text-xl font-semibold mb-2">Lave priser</h3>
+                <p class="text-gray-600">Ingen skjulte omkostninger. Du betaler kun for det du har brug for.</p>
+              </div>
+              <div class="text-center p-6">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold">&uarr;</div>
+                <h3 class="text-xl font-semibold mb-2">SEO-optimeret</h3>
+                <p class="text-gray-600">Din side bliver bygget til at rangere højt på Google fra dag ét.</p>
+              </div>
+              <div class="text-center p-6">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold">&#9889;</div>
+                <h3 class="text-xl font-semibold mb-2">Lynhurtig</h3>
+                <p class="text-gray-600">Statiske sider der loader på under ét sekund.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="bg-[var(--color-primary)] py-16">
+          <div class="mx-auto max-w-4xl px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Klar til at komme i gang?</h2>
+            <p class="text-blue-100 text-lg mb-8">Kontakt os i dag og få et uforpligtende tilbud på din nye hjemmeside.</p>
+            <a href="/kontakt" data-track="cta-kontakt" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors text-lg font-semibold">
+              Kontakt os nu
+            </a>
+          </div>
+        </section>
+      </>
+    )}
+  </main>
+</Layout>

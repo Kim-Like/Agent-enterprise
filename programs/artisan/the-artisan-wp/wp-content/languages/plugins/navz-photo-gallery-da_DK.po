@@ -1,0 +1,73 @@
+# Translation of Plugins - ACF Photo Gallery Field - Stable (latest release) in Danish
+# This file is distributed under the same license as the Plugins - ACF Photo Gallery Field - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-28 12:32:12+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: da_DK\n"
+"Project-Id-Version: Plugins - ACF Photo Gallery Field - Stable (latest release)\n"
+
+#: includes/elementor_register_tag.php:187
+msgid "Options"
+msgstr "Valgmuligheder"
+
+#: includes/elementor_register_tag.php:80
+msgid "Key"
+msgstr "Nøgle"
+
+#: includes/elementor_register_tag.php:35
+msgid "ACF Photo Gallery"
+msgstr "ACF Photo Gallery"
+
+#: includes/__construct.php:9
+msgid "Content"
+msgstr "Indhold"
+
+#: includes/__construct.php:8
+msgid "Photo Gallery"
+msgstr "Billedgalleri"
+
+#: includes/v5/render_field_settings.php:43
+msgid "Remove delete button"
+msgstr "Fjern sletteknappen"
+
+#: includes/v5/render_field_settings.php:35
+msgid "Remove edit button"
+msgstr "Fjern redigeringsknappen"
+
+#: includes/v5/render_field_settings.php:28
+msgid "Images Limit"
+msgstr "Grænse for billeder"
+
+#: includes/v4/create_options.php:12
+msgid "Native lets you delete permanently or select another, but is heavier"
+msgstr "Native lader dig slette permanent eller vælge en anden, men er tungere"
+
+#: includes/v4/create_options.php:11 includes/v5/render_field_settings.php:20
+msgid "Edit modal"
+msgstr "Rediger modal"
+
+#. Author of the plugin
+#: navz-photo-gallery.php
+msgid "Navneil Naicker"
+msgstr "Navneil Naicker"
+
+#. Description of the plugin
+#: navz-photo-gallery.php
+msgid "An extension for Advance Custom Fields which lets you add photo gallery functionality on your websites."
+msgstr "En udvidelse til Advance Custom Fields, som giver dig mulighed for at tilføje fotogallerifunktionalitet på dine websteder."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: navz-photo-gallery.php
+msgid "http://www.navz.me/"
+msgstr "http://www.navz.me/"
+
+#. Plugin Name of the plugin
+#: navz-photo-gallery.php
+msgid "ACF Photo Gallery Field"
+msgstr "ACF Photo Gallery Field"

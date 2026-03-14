@@ -1,0 +1,113 @@
+---
+/**
+ * Sticky sidebar section with heading and scrollable cards grid.
+ * Sidebar stays fixed while cards scroll past. Semantic and accessible.
+ *
+ * Props:
+ *   tagline?: small label above heading
+ *   heading: main heading
+ *   description?: supporting text
+ *   items: array of { img, title, desc }
+ */
+interface Props {
+  tagline?: string;
+  heading: string;
+  description?: string;
+  items: Array<{
+    img: string;
+    title: string;
+    desc: string;
+  }>;
+}
+
+const { tagline, heading, description = '', items = [] } = Astro.props;
+
+const defaultItems = items.length > 0 ? items : [
+  { img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64', title: 'Responsive design', desc: 'Hjemmesider der fungerer perfekt på mobil, tablet og desktop.' },
+  { img: 'https://images.unsplash.com/photo-1553877522-56169ac2460a?w=64', title: 'Hurtig hosting', desc: 'Optimerede hjemmesider med hurtig indlæsningstid.' },
+  { img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=64', title: 'SEO-venlig', desc: 'Bygget for søgemaskiner, så kunder finder dig.' },
+  { img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=64', title: 'Support', desc: 'Vi hjælper dig med opdateringer og tekniske spørgsmål.' },
+];
+---
+
+<section
+  id="sticky-column-section"
+  aria-labelledby="sticky-column-heading"
+  class="modern-shell w-full py-[var(--section-padding-y)] px-[var(--container-padding-x)]"
+>
+  <div class="mx-auto max-w-[var(--container-max-width)] grid gap-8 md:grid-cols-12">
+    <aside class="md:col-span-4 sticky top-20 self-start" data-reveal>
+      {tagline && (
+        <span class="eyebrow">{tagline}</span>
+      )}
+      <h2
+        id="sticky-column-heading"
+        class="heading-fluid mt-3 font-bold text-[var(--color-text-primary)]"
+        style="font-family: var(--font-heading)"
+      >
+        {heading}
+      </h2>
+      {description && (
+        <p
+          class="mt-4 text-[var(--font-size-base)] text-[var(--color-text-secondary)] leading-[var(--line-height-relaxed)]"
+          style="font-family: var(--font-body)"
+        >
+          {description}
+        </p>
+      )}
+      {/* Gradient fade at bottom of sticky sidebar */}
+      <div class="sticky-fade-bottom" aria-hidden="true"></div>
+    </aside>
+
+    <div class="md:col-span-8 grid grid-cols-1 gap-6">
+      {defaultItems.map((item, i) => (
+        <article
+          class="card-modern flex items-start gap-4 p-[var(--card-padding)]"
+          data-reveal
+          style={`--reveal-delay: ${i * 80}ms`}
+        >
+          <div class="icon-wrap shrink-0" aria-hidden="true">
+            <img
+              src={item.img}
+              alt=""
+              class="w-full h-full object-contain rounded-[var(--radius-sm)]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3
+              class="text-[var(--font-size-lg)] font-semibold text-[var(--color-text-primary)]"
+              style="font-family: var(--font-heading)"
+            >
+              {item.title}
+            </h3>
+            <p
+              class="mt-1 text-[var(--font-size-sm)] text-[var(--color-text-secondary)]"
+              style="font-family: var(--font-body)"
+            >
+              {item.desc}
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+/* Gradient fade at bottom of sticky sidebar */
+.sticky-fade-bottom {
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--color-bg-section-alt, var(--color-bg-page)) 80%, transparent)
+  );
+  pointer-events: none;
+}
+</style>
