@@ -1,0 +1,32 @@
+{
+  "skill_name": "lavprishjemmeside-master-orchestrator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review the Lavprishjemmeside CMS operating model and tell me what should change first if we want it to behave more like an enterprise-grade CMS/client website management platform without leaving cPanel.",
+      "expected_output": "A prioritized recommendation that uses the Lavprishjemmeside docs, respects cPanel/MySQL constraints, and frames the advice around enterprise-level governance and rollout safety.",
+      "files": [
+        "programs/lavprishjemmeside/README.md",
+        "programs/lavprishjemmeside/PROJECT_CONTEXT.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We just changed the Lavprishjemmeside CMS release process. Tell me what should happen in the changelog and what verification steps should be required before handoff.",
+      "expected_output": "A response that explicitly routes the work through CHANGELOG discipline, names verification steps, and separates documentation/process changes from schema or runtime changes.",
+      "files": [
+        "programs/lavprishjemmeside/CHANGELOG.md",
+        "docs/lavpris-ssh-first-operations.md"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Use the Lavprishjemmeside brand and project docs to suggest product improvements that would make the CMS and client-site workflow more compelling for Danish small-business clients.",
+      "expected_output": "A product and UX improvement set that uses brand context if available, calls out assumptions when brand data is incomplete, and stays grounded in the real CMS and hosting constraints.",
+      "files": [
+        "programs/lavprishjemmeside/BRAND_VISION.md",
+        "programs/lavprishjemmeside/PROJECT_CONTEXT.md"
+      ]
+    }
+  ]
+}

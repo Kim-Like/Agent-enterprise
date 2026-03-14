@@ -1,0 +1,16 @@
+node_modules/
+.data/
+.logs/
+coverage/
+.env
+.env.local
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+npm-debug.log*
+.DS_Store
+Start Agent Enterprise.command

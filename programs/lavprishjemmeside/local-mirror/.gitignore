@@ -1,0 +1,38 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+api/node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# Pexels runtime/generated
+api/state/
+api/manifests/
+
+# Personal-agent (IAN)
+personal-agent/.env
+personal-agent/.venv
+personal-agent/__pycache__
+personal-agent/.pytest_cache
+personal-agent/.ruff_cache
+personal-agent/audit/logs/*.log
+personal-agent/data/*.db

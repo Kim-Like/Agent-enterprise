@@ -1,0 +1,180 @@
+---
+import '../styles/global.css';
+import Tracker from '../components/Tracker.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import designFeatures from '../data/design-features.json';
+
+interface Props {
+  title: string;
+  description?: string;
+  schemaMarkup?: any[];
+  ogImage?: string;
+}
+
+const { title, description = "Få en professionel hjemmeside til lav pris. Vi bygger moderne, hurtige og SEO-optimerede hjemmesider for danske virksomheder.", schemaMarkup = [], ogImage } = Astro.props;
+
+const site = typeof Astro.site === 'string' ? Astro.site : (import.meta.env.PUBLIC_SITE_URL || 'https://lavprishjemmeside.dk');
+const canonicalUrl = new URL(Astro.url.pathname, site).href;
+const resolvedOgImage = ogImage || new URL('/favicon.svg', site).href;
+const siteName = new URL(site).hostname || 'lavprishjemmeside.dk';
+
+const baseSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': site + '/#website',
+    name: siteName,
+    url: site,
+    description: description,
+    inLanguage: 'da',
+  },
+  {
+    '@context': 'https://schema.org/',
+    '@type': 'Organization',
+    '@id': site + '/#organization',
+    name: siteName,
+    url: site,
+    description: siteName + ' er et dansk webbureau beliggende i Fredericia. Vi specialiserer os i at levere professionelle, responsive og konverteringsoptimerede hjemmesider til overkommelige priser.',
+    foundingDate: '2026',
+    areaServed: { '@type': 'Country', name: 'Denmark' },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'info@' + siteName,
+      contactType: 'customer service',
+      availableLanguage: ['da', 'en']
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Høgevej 4',
+      addressLocality: 'Fredericia',
+      postalCode: '7000',
+      addressCountry: 'DK'
+    }
+  }
+];
+
+const allSchemas = [...baseSchemas, ...schemaMarkup];
+const themeMode = designFeatures.themeMode === 'modern' ? 'modern' : 'simple';
+const motionProfile = ['standard', 'reduced', 'expressive'].includes(designFeatures.motionProfile) ? designFeatures.motionProfile : 'standard';
+---
+
+<!doctype html>
+<html lang="da" data-theme={themeMode} data-motion={motionProfile} class:list={[designFeatures.smoothScroll && 'smooth-scroll']}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="google-site-verification" content="d7dWCSM6V-nAjgcm2GJtBf13c_xq44QPs4AMMmHIaB8" />
+    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:locale" content="da_DK" />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Font optimization: preconnect + modern pair with font-display=swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org JSON-LD -->
+    {allSchemas.map(schema => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GWCL1R11WP"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GWCL1R11WP');
+    </script>
+  </head>
+  <body
+  class:list={['min-h-screen flex flex-col bg-[var(--color-bg-page)] text-[var(--color-text-primary)] antialiased theme-app', `theme-${themeMode}`, `theme-motion-${motionProfile}`, designFeatures.borderRadius === 'full' && 'radius-full']}
+>
+    {designFeatures.pageLoader && (
+    <div id="page-loader" class="page-loader" aria-hidden="true">
+      <div class="flex flex-col items-center gap-4">
+        {designFeatures.pageLoaderShowLogo && (
+          <img src="/favicon.svg" alt="" class="h-10 w-10 animate-pulse" width="40" height="40" />
+        )}
+        <span class="text-sm text-[var(--color-text-secondary)]">{designFeatures.pageLoaderText || 'Indlæser...'}</span>
+      </div>
+    </div>
+    )}
+    {designFeatures.grainOverlay && <div class="grain-overlay" aria-hidden="true"></div>}
+
+    <Header />
+    <slot />
+    <Footer />
+    <CartDrawer />
+    <Tracker />
+
+    {designFeatures.pageLoader && (
+    <script is:inline define:vars={{ pageLoaderDuration: designFeatures.pageLoaderDuration ?? 2.5 }}>
+      (function() {
+        var loader = document.getElementById('page-loader');
+        var durationMs = (pageLoaderDuration || 2.5) * 1000;
+        function hide() {
+          if (loader) loader.classList.add('page-loader--hidden');
+        }
+        if (document.readyState === 'complete') hide();
+        else window.addEventListener('load', hide);
+        setTimeout(hide, durationMs);
+      })();
+    </script>
+    )}
+    <script is:inline>
+      (function () {
+        if (document.documentElement.dataset.theme !== 'modern') return;
+        const targets = Array.from(document.querySelectorAll(
+          'main > .theme-block-shell, main > header, main > section, main .theme-modern-reveal'
+        ));
+        if (!targets.length || typeof IntersectionObserver === 'undefined') return;
+        const uniqueTargets = targets.filter((el, idx) => targets.indexOf(el) === idx);
+        uniqueTargets.forEach((el, index) => {
+          el.classList.add('modern-pre-reveal');
+          el.style.setProperty('--modern-reveal-delay', Math.min(index * 45, 360) + 'ms');
+        });
+        const io = new IntersectionObserver((entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            entry.target.classList.add('modern-revealed');
+            io.unobserve(entry.target);
+          }
+        }, { rootMargin: '0px 0px -12% 0px', threshold: 0.14 });
+        uniqueTargets.forEach((el) => io.observe(el));
+      })();
+    </script>
+    <script is:inline>
+      /* Universal [data-reveal] scroll-reveal — all themes */
+      (function () {
+        if (typeof IntersectionObserver === 'undefined') {
+          document.querySelectorAll('[data-reveal]').forEach(function(el) {
+            el.setAttribute('data-reveal', 'visible');
+          });
+          return;
+        }
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.setAttribute('data-reveal', 'visible');
+            io.unobserve(entry.target);
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        document.querySelectorAll('[data-reveal]').forEach(function(el) {
+          io.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>

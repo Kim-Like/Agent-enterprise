@@ -1,0 +1,10 @@
+# Archived deploy workflow
+
+This file preserves the old GitHub Actions deployment workflow as historical context only.
+
+Current rule:
+- Lavprishjemmeside deploys are SSH-first.
+- GitHub remains the sync surface between Bolt.new and Agent Enterprise.
+- cPanel is the live runtime target.
+
+The original workflow was disabled and archived because source-only updates should not trigger GitHub-driven live deploys or generated `dist/` churn.
