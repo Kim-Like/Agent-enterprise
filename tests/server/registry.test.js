@@ -63,6 +63,7 @@ test("system map reports one process, registry snapshots, and brownfield holds",
     assert.ok(payload.brownfieldHolds.agents.length >= 1);
     assert.ok(payload.brownfieldHolds.programs.length >= 1);
     assert.equal(payload.entrypoints.startupCommand, "./scripts/start.sh");
+    assert.equal(payload.entrypoints.operatorHandoffDoc, "OPERATOR_HANDOFF_CONTRACT.md");
   } finally {
     await cleanup();
   }

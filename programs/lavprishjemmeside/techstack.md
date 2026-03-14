@@ -381,9 +381,7 @@ Current live model:
 
 Relevant scripts:
 
-- `scripts/start_agent_enterprise.sh`
-- `scripts/start_lavpris_public_ingress.sh`
-- `scripts/tailscale-funnel.sh`
+- operator-managed launch/runtime scripts exist in the private estate and are intentionally not bundled in this external monorepo
 
 ## Environment Variables
 

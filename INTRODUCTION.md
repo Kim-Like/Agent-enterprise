@@ -19,7 +19,7 @@ This repo is already useful as a live control plane, but it is still a rebuild i
 - `server/` is the Fastify control plane.
 - `client/` holds the delivered static HTML pages and shared browser assets.
 - `docs/` holds remote-estate runbooks and operating contracts.
-- `scripts/` holds local startup and SSH-first maintenance commands.
+- `scripts/` holds repo-safe validation helpers and non-secret tooling.
 - `.data/` holds the live SQLite database.
 - `.agents/skills/` holds project-local Codex skills such as `product-manager-skills`.
 
@@ -50,7 +50,7 @@ cd "/Users/IAn/Agent/Agent Enterprise"
 Important environment note:
 
 - The Node server does not auto-load `.env.local` or `.env`.
-- `scripts/start.sh` and `scripts/tailscale-serve.sh` also do not source env files.
+- `scripts/start.sh` also does not source env files.
 - If you need custom env values, source them before starting the server:
 
 ```bash
@@ -92,20 +92,12 @@ If you do want live model responses later:
 - `DEFAULT_MODEL_PROVIDER=claude` uses the local Claude CLI OAuth session.
 - `DEFAULT_MODEL_PROVIDER=anthropic` uses `ANTHROPIC_API_KEY` against `https://api.anthropic.com`.
 
-## Tailscale Sharing
+## Operator-Only Remote Exposure
 
-The wrapper script starts the server locally and forwards it through Tailscale Serve:
+Tailscale, Funnel, cPanel, and other live-estate execution paths are intentionally excluded from this external monorepo.
 
-```bash
-cd "/Users/IAn/Agent/Agent Enterprise"
-./scripts/tailscale-serve.sh
-```
-
-Notes:
-
-- default local target: `http://127.0.0.1:3000`
-- default HTTPS port: `443`
-- the public Tailscale URL depends on the machine and tailnet; it is not hardcoded in the repo
+- use `OPERATOR_HANDOFF_CONTRACT.md` when work crosses into SSH, cPanel, DB, mail, or live verification
+- treat the operator runbooks in `docs/` as context, not executable workflow from this repo
 
 ## Local URLs
 

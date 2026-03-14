@@ -257,7 +257,7 @@
           <article class="stat-card">
             <div class="stat-label">Startup</div>
             <div class="stat-value" id="startup-path">Local</div>
-            <div class="stat-subtle">Tailscale-ready through one command</div>
+            <div class="stat-subtle">Remote operations stay outside the external repo</div>
           </article>
         </div>
       </section>
@@ -276,9 +276,9 @@
             <p class="panel-copy">Boots the server on one Node process with local SQLite state.</p>
           </article>
           <article class="panel-card">
-            <div class="panel-label">Tailscale serve</div>
-            <div class="command" id="tailscale-command">./scripts/tailscale-serve.sh</div>
-            <p class="panel-copy">Wraps the same server and exposes it through one Tailscale edge path.</p>
+            <div class="panel-label">Operator handoff</div>
+            <div class="command" id="operator-doc">OPERATOR_HANDOFF_CONTRACT.md</div>
+            <p class="panel-copy">Use the operator packet workflow for SSH, cPanel, DB, mail, and live rollout work.</p>
           </article>
         </div>
       </section>
@@ -335,9 +335,9 @@
         document.getElementById("runtime-origin").textContent = meta.operations.publicOrigin;
         document.getElementById("agent-count").textContent = meta.inventory.agents;
         document.getElementById("program-count").textContent = meta.inventory.programs;
-        document.getElementById("startup-path").textContent = "Local + Tailscale";
+        document.getElementById("startup-path").textContent = "Local only";
         document.getElementById("local-command").textContent = meta.operations.localStartCommand;
-        document.getElementById("tailscale-command").textContent = meta.operations.tailscaleStartCommand;
+        document.getElementById("operator-doc").textContent = meta.operations.operatorHandoffDoc;
         renderPages(meta.pages);
       })
       .catch((error) => {

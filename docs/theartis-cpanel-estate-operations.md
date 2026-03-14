@@ -84,7 +84,7 @@ Important layout note:
 
 ## Commands
 
-All account-level helpers live in `scripts/theartis/` and load `.env.local` first, then `.env`.
+In the private operator repo, account-level helpers load `.env.local` first, then `.env`. In this external monorepo, the package aliases are intentionally blocked and exist only as documented handoff references.
 
 - `npm run theartis:preflight`
   Validates SSH alias resolution, key readability, remote path presence, remote Node, and the shared GitHub alias.
@@ -96,13 +96,6 @@ All account-level helpers live in `scripts/theartis/` and load `.env.local` firs
   Prints Git status for repo-backed surfaces and explicitly flags surfaces that are live-root-only.
 - `npm run theartis:write-access`
   Verifies which repo and live-root paths are writable by the authenticated `theartis` account.
-
-Examples:
-
-```bash
-npm run theartis:health -- theartisan.dk thirdwave.dk
-npm run theartis:repo-status -- reporting.theartisan.dk theartisan.dk
-```
 
 ## Safety Boundaries
 

@@ -66,7 +66,7 @@ export async function systemMapRoutes(app) {
       entrypoints: {
         local: env.publicOrigin,
         startupCommand: "./scripts/start.sh",
-        tailscaleCommand: "./scripts/tailscale-serve.sh",
+        operatorHandoffDoc: "OPERATOR_HANDOFF_CONTRACT.md",
         pages: pageCatalog.map((page) => ({
           title: page.title,
           route: page.route,

@@ -55,14 +55,14 @@ test("app bootstrap stays in-process and loads registries", async () => {
   }
 });
 
-test("startup scripts define local and Lavpris ingress entrypoints", async () => {
-  const [startScript, tailscaleScript, ingressScript] = await Promise.all([
+test("startup contract keeps only repo-safe local helpers in the exported monorepo", async () => {
+  const [startScript, validatorScript] = await Promise.all([
     readFile(path.join(rootDir, "scripts/start.sh"), "utf8"),
-    readFile(path.join(rootDir, "scripts/tailscale-funnel.sh"), "utf8"),
-    readFile(path.join(rootDir, "scripts/start_lavpris_public_ingress.sh"), "utf8"),
+    readFile(path.join(rootDir, "scripts/validate_external_repo.sh"), "utf8"),
   ]);
 
   assert.match(startScript, /exec npm start/);
-  assert.match(ingressScript, /lavpris-public-ingress/);
-  assert.match(tailscaleScript, /tailscale funnel/);
+  assert.match(validatorScript, /external_repo_validation=ok/);
+  assert.equal(existsSync(path.join(rootDir, "scripts", "tailscale-funnel.sh")), false);
+  assert.equal(existsSync(path.join(rootDir, "scripts", "start_lavpris_public_ingress.sh")), false);
 });

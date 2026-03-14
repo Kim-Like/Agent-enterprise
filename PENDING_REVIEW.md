@@ -189,7 +189,6 @@ Current behavior:
 
 - the Node server reads only process env
 - `scripts/start.sh` does not source `.env.local`
-- `scripts/tailscale-serve.sh` does not source `.env.local`
 - only the remote shell helper families source `.env.local` and `.env`
 
 Impact:

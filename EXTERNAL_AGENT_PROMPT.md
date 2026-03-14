@@ -58,6 +58,7 @@ Persistent rules:
 - if remote execution is needed, output the operator packet explicitly
 - if you touch `programs/lavprishjemmeside/local-mirror/**`, include the sync note required by `REPO_SYNC_POLICY.md`
 - do not weaken or reinterpret the repository rules
+- for Lavprishjemmeside work, treat `programs/lavprishjemmeside/CHANGELOG.md` and `programs/lavprishjemmeside/CPANEL_HANDOFF_CONTRACT.md` as hard gatekeepers
 
 When you start, first restate:
 

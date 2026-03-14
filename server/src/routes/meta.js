@@ -51,7 +51,7 @@ export async function metaRoutes(app) {
       })),
       operations: {
         localStartCommand: "./scripts/start.sh",
-        tailscaleStartCommand: "./scripts/tailscale-serve.sh",
+        operatorHandoffDoc: "OPERATOR_HANDOFF_CONTRACT.md",
         publicOrigin: env.publicOrigin,
       },
     };

@@ -16,3 +16,17 @@ Hard rules:
 - use `OPERATOR_HANDOFF_CONTRACT.md` for any remote-execution requirement
 - when touching Lavprishjemmeside, load the canonical docs under `programs/lavprishjemmeside/`
 - do not treat blocked package scripts as bugs; they are intentionally operator-only in this repo
+
+## Lavprishjemmeside Change Control
+
+- Use the `lavprishjemmeside-master-orchestrator` skill whenever work touches Lavprishjemmeside CMS, `lavprishjemmeside.dk`, `ljdesignstudio.dk`, client-site governance, rollout planning, or cPanel/MySQL-backed CMS changes.
+- Before closing Lavprishjemmeside work, load and follow:
+  - `programs/lavprishjemmeside/README.md`
+  - `programs/lavprishjemmeside/PROJECT_CONTEXT.md`
+  - `programs/lavprishjemmeside/CHANGELOG.md`
+  - `programs/lavprishjemmeside/requirements.md`
+  - `programs/lavprishjemmeside/design.md`
+  - `programs/lavprishjemmeside/tasks.md`
+  - `programs/lavprishjemmeside/CPANEL_HANDOFF_CONTRACT.md`
+- Update `programs/lavprishjemmeside/CHANGELOG.md` whenever Lavprishjemmeside behavior, docs, interfaces, or operator expectations change.
+- If work crosses into cPanel, DB, env, mail, or rollout execution, stop and prepare the operator packet instead of inventing a substitute solution.

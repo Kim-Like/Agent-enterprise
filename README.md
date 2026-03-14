@@ -19,7 +19,7 @@ It exists so an external agent can work across the broader project with full cod
 - logs under `.logs/`
 - `node_modules/`
 - nested Git metadata from `programs/lavprishjemmeside/local-mirror/.git`
-- direct SSH/cPanel execution as an approved workflow
+- operator SSH, cPanel, Tailscale Funnel, and estate shell entrypoints
 - direct DB, Roundcube, or email-account operations
 
 ## Read Order

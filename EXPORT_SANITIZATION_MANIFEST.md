@@ -10,7 +10,7 @@ This file defines what was intentionally included, excluded, or downgraded for t
 - `config/**`
 - `docs/**`
 - `programs/**`
-- `scripts/**`
+- repo-safe `scripts/**`
 - `server/**`
 - `tests/**`
 - `.planning/**`
@@ -30,6 +30,7 @@ This file defines what was intentionally included, excluded, or downgraded for t
 - `node_modules/**`
 - `.DS_Store`
 - local machine helper artifacts
+- operator SSH, cPanel, Tailscale Funnel, and estate shell entrypoints
 - nested Git metadata such as `programs/lavprishjemmeside/local-mirror/.git/`
 
 ## Notes

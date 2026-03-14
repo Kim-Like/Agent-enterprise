@@ -35,6 +35,7 @@ test("meta route reports same-origin page delivery", async () => {
     assert.ok(payload.pages.some((page) => page.route === "/kanban"));
     assert.ok(payload.inventory.agentEnablement.enabled >= 1);
     assert.equal(payload.operations.localStartCommand, "./scripts/start.sh");
+    assert.equal(payload.operations.operatorHandoffDoc, "OPERATOR_HANDOFF_CONTRACT.md");
   } finally {
     await cleanup();
   }

@@ -62,11 +62,11 @@ Current live host notes:
 Current long-lived services on the Mac host:
 
 - `com.agent-enterprise.control-plane`
-  `launchd` job running the private control plane with `scripts/start_agent_enterprise.sh`.
+  `launchd` job running the private control plane from the operator-owned runtime.
 - `com.agent-enterprise.lavpris-public-ingress`
-  `launchd` job running the restricted assistant ingress with `scripts/start_lavpris_public_ingress.sh`.
+  `launchd` job running the restricted assistant ingress from the operator-owned runtime.
 - Tailscale Funnel on the same host
-  Publishes the ingress using `scripts/tailscale-funnel.sh`. Keep the Funnel binding active for the public CMS assistant path.
+  Publishes the ingress through the operator-owned Tailscale runtime. Keep the Funnel binding active for the public CMS assistant path.
 
 If this moves to a dedicated Linux server later, use equivalent long-lived services there, but do not change the assistant surface or trust boundaries.
 
@@ -80,7 +80,7 @@ Required environment contract:
 
 ## Read-Only Commands
 
-All Lavpris shell helpers live in `scripts/lavpris/` and load `.env.local` first, then `.env`.
+In the private operator repo, Lavpris commands load `.env.local` first, then `.env`. In this external monorepo, the package aliases are intentionally blocked and exist only as documented handoff references.
 
 - `npm run lavpris:preflight`
   Verifies the local key, the `cp10-lavpris` SSH alias, remote repo/site paths, remote Node runtime, and the remote `github-kimjeppesen` alias.
@@ -90,13 +90,6 @@ All Lavpris shell helpers live in `scripts/lavpris/` and load `.env.local` first
   Checks API health payloads and site HEAD status for `lavprishjemmeside.dk` and `ljdesignstudio.dk`.
 - `npm run lavpris:repo-status`
   Prints `origin`, branch, SHA, and drift buckets for each remote repo.
-
-Direct shell usage is also supported:
-
-```bash
-bash scripts/lavpris/ssh_health.sh lavprishjemmeside.dk
-bash scripts/lavpris/ssh_repo_status.sh ljdesignstudio.dk
-```
 
 ## Local Mirror Workflow
 

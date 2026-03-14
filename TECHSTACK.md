@@ -18,7 +18,7 @@ Runtime entrypoints:
 
 - `npm run dev` -> `node --watch server/src/index.js`
 - `npm start` -> `node server/src/index.js`
-- `./scripts/start.sh` -> installs deps if needed, then runs `npm start`
+- `./scripts/start.sh` -> starts the control plane locally from the sanitized repo
 
 ## Persistence and Local State
 
