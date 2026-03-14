@@ -35,6 +35,14 @@ It exists so an external agent can work across the broader project with full cod
 9. `TECHSTACK.md`
 10. target-program docs for the area you are changing
 
+## Bolt Scope
+
+This repo includes a Bolt-specific scope filter at `.bolt/ignore`.
+
+- It is tuned for the current Lavprishjemmeside V2 work.
+- It hides unrelated program families, historical planning material, and non-essential Lavprishjemmeside archive/task folders.
+- If Bolt needs broader access later, remove entries deliberately instead of deleting the file wholesale.
+
 For Lavprishjemmeside work, then load:
 
 1. `programs/lavprishjemmeside/README.md`
